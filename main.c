@@ -27,19 +27,25 @@ const int TITLE_HEIGHT = 12;
 const int NUM_BOX_PER_ROW = 8;
 const int NUM_ROW_OF_BOX = 4;
 
+const int BALL_SIZE = 6;
+
 const short int BOX_COLOUR = 0x9ac4;
 const short int BOX_BORDER_COLOUR = 0x9e84;
 const short int WALLS_COLOUR = 0x8430;
 const short int PADDLE_COLOUR = 0x411e;
+const short int BALL_COLOUR = 0xFFFF;
 
+const int SIMULATOR_ADJUSTMENT = 8;
 
 // 0 for empty space, 1 for brick, 2 for wall
 int boardStatus[240][320];
 
 void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour);
+void drawBall(int left_x, int top_y, int size);
 void clear_screen();
 void writeScoreAndLife(int score, int lives);
 void swap(int *n0, int *n1);
+int abs(int x);
 void plot_pixel(int x, int y, short int line_color);
 void wait_for_vsync();
 
@@ -80,35 +86,102 @@ int main(void) {
     *(pixel_ctrl_ptr + 1) = 0xC0000000;
     pixel_buffer_start = *(pixel_ctrl_ptr + 1); // we draw on the back buffer
 
-    while (lives > 0){
-        padLeft = false;
-        padRight = false;
+    int ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+    int ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+    int ball_dx = rand()%3-1;
+    int ball_dy = -2; // minus is up
 
+    while (lives > 0){
+        // TODO: Handle waiting for KEY2 to be pressed to start a life
+        // Read key values
         short int keyPressCurrent = (*key_ptr);
         short int keyPressEdge = *(key_ptr + 3);
-        *(key_ptr + 3) = keyPressEdge;
+        *(key_ptr + 3) = keyPressEdge; // reset edge 
         short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
+        
+        /* Check whether the ball has hit anything */
+        // If it's hit a brick, remove the brick
+        for(int y=0; y<NUM_ROW_OF_BOX; y++) {
+            for(int x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]) {
+                    int box_left = MIN_X+PADDING+x*(BOX_X+PADDING); 
+                    int box_right = box_left + BOX_X;
+                    int box_top = MIN_Y+PADDING+y*(BOX_Y+PADDING);
+                    int box_bot = box_top + BOX_Y;
+                    if (ball_x+BALL_SIZE >= box_left && ball_x < box_right) {
+                        // ball is within X range of box
+                        if (ball_y+BALL_SIZE >= box_top && ball_y < box_bot) {
+                            // ball is within Y range of box
+                            // break box! 
+                            drawBrick[y][x] = false;
+                            // bounce ball
+                            // if bottom of ball is below box: flip dy
+                            // if top of ball is above box: flip dy
+                            // if completely in middle (y-wise): keep dy direction, change speed
+                            if (ball_y+BALL_SIZE > box_bot || ball_y < box_top) {
+                                ball_dy *= -1;
+                            } else {
+                                ball_dy += (rand()%2)*(ball_dy/abs(ball_dy)); // a number 0,1,2 in direction of dy
+                                // if it's too large (>4), halve it
+                                if (abs(ball_dy) > 4) {
+                                    ball_dy /= 2;
+                                }
+                            }
 
-        // read the key values
+                            // if left of ball is left of box: flip dx
+                            // if right of ball is right of box: flip dx
+                            // if completely in middle (x-ise): keep dx direction
+                            if (ball_x+BALL_SIZE > box_right || ball_x < box_left) {
+                                ball_dx *= -1;
+                            } else {
+                                ball_dx += (rand()%2)*(ball_dx/abs(ball_dx)); // a number 0,1,2 in direction of dy
+                                // if it's too large (>6), halve it
+                                if (abs(ball_dx) > 6) {
+                                    ball_dx /= 2;
+                                }
+                            }
+                            // THUS, |dx| must be less than BOX_X, |dy| must be less than BOX_Y, I think?
+                            // exit, you can only break one box per hit
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        // If hit a side wall, flip dx
+        if (ball_x < MIN_X || ball_x+BALL_SIZE >= MAX_Y) {
+            ball_dx *= -1;
+            // add rand() too?
+        }
+        // If hit the top wall or paddle, flip dy
+        if (ball_y < MIN_Y || ball_y+BALL_SIZE >= MAX_Y /*|| (ball in paddle)*/) {
+            ball_dy *= -1;
+            // add rand() too?
+        }
+
+        /* Move paddle based on KEY presses */
+        padLeft = false;
+        padRight = false;
+        // Set whether moving left or right
         if(keyPress == 0b100){
             padLeft = true;
         } else if(keyPress == 0b001){
             padRight = true;
         }
-
-        // update paddle location
+        // Update paddle location
         if(padLeft){
             paddleX -=4;
         } else if(padRight){
             paddleX +=4;
         }
-
+        // Don't go too far!
         if(paddleX <= MIN_X){
             paddleX = MIN_X;
         } else if((paddleX+PADDLE_X) >= MAX_X){
             paddleX = MAX_X-PADDLE_X;
         }
 
+        /* Draw new screen */
         // Erase old buffer
         clear_screen();
 
@@ -116,6 +189,7 @@ int main(void) {
         writeScoreAndLife(score, lives);
 
         // redraw the boxes and paddle
+        // TODO: assign paddle & ball here
         int x,y;
         for(x=0; x<320; x++){
             for(y=0; y<240; y++){
@@ -126,6 +200,8 @@ int main(void) {
                 }
             }
         }
+
+        drawBall(ball_x, ball_y, BALL_SIZE);
 
         for(y=0; y<NUM_ROW_OF_BOX; y++){
             for(x=0; x<NUM_BOX_PER_ROW; x++){
@@ -139,7 +215,21 @@ int main(void) {
 
         wait_for_vsync(); // swap front and back buffers on VGA vertical sync
         pixel_buffer_start = *(pixel_ctrl_ptr + 1); // new back buffer
+        
+        /* Move ball */
+        // TODO: Slope & travel
+        ball_x = ball_x + ball_dx;//*SIMULATOR_ADJUSTMENT;
+        ball_y = ball_y + ball_dy;//*SIMULATOR_ADJUSTMENT;
+        
+        
     }
+}
+
+int abs(int x) {
+    if (x < 0)
+        return -1*x;
+    else
+        return x;
 }
 
 // code for subroutines (not shown)
@@ -229,6 +319,16 @@ void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
             } else {
                 plot_pixel(xx + x,yy + y,box_colour);
             }
+        }
+    }
+}
+
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+    for (int x = 0; x < size; x++) {
+        for (int y = 0; y < size; y++) {
+            boardStatus[y][x] = 3;
+            plot_pixel(left_x + x, top_y + y, BALL_COLOUR);
         }
     }
 }
