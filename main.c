@@ -65,6 +65,8 @@ int main(void) {
             drawBrick[i][j] = true;
         } 
     }
+	
+	srand(time(NULL));
 
     bool padLeft = false;
     bool padRight = false;
@@ -95,6 +97,8 @@ int main(void) {
     time_t start = time(0); 
     bool round_started = false;
     bool game_started = false;
+	int previous_win_score = 0;
+	
     while (true){
         // Read key values
         short int keyPressCurrent = (*key_ptr);
@@ -103,7 +107,22 @@ int main(void) {
         short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
 
         int x,y;
-        
+        if (score % 32 == 0 && previous_win_score != score) {
+			previous_win_score = score;
+			round_started = false;
+			for(y=0; y<NUM_ROW_OF_BOX; y++){
+				for(x=0; x<NUM_BOX_PER_ROW; x++){
+					drawBrick[y][x] = true;
+				}
+			}
+			paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+			ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+			ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+			ball_dx = rand()%3-1;
+			ball_dy = -2; // minus is up
+			continue;
+		}
+		
         // Handle waiting for KEY1 to be pressed to start a life
         if (!round_started) {
             if (keyPress == 0b0010 && lives > 0) {
@@ -207,6 +226,7 @@ int main(void) {
         // If hit the top wall or paddle, flip dy
         if (ball_y < MIN_Y || ((ball_y + BALL_SIZE) > PADDLE_POSITION_Y && ball_y < PADDLE_POSITION_Y+PADDLE_Y && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
             ball_dy *= -1;
+			ball_dx += rand()%3-1;
             // add rand() too?
         }
         // If went below paddle & off screen, lose a life && reset
@@ -244,27 +264,18 @@ int main(void) {
         }
 
         // Update score
-        double true_score = difftime(time(0), start);
+		
+        /*double true_score = difftime(time(0), start);
         true_score += 0.5;
-        score = (int)true_score;
+        score = (int)true_score;*/
+		
+		
         /* Draw new screen */
         // Erase old buffer
         clear_screen();
 
         // draw the score and the lives
         writeScoreAndLife(score, lives);
-
-        // redraw the boxes and paddle
-        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
-        for(x=0; x<320; x++){
-            for(y=0; y<240; y++){
-                if(x<=MIN_X || x>=MAX_X || y<=MIN_Y || y>=MAX_Y){
-                    boardStatus[y][x] = 2;
-                } else {
-                    boardStatus[y][x] = 0;
-                }
-            }
-        }
 
         drawBall(ball_x, ball_y, BALL_SIZE);
 
