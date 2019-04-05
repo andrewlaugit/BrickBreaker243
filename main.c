@@ -93,24 +93,42 @@ int main(void) {
 
     
     bool round_started = false;
-    bool game_won = false;
-    while (lives > 0 && !game_won) {
+    while (true){
         // Read key values
         short int keyPressCurrent = (*key_ptr);
         short int keyPressEdge = *(key_ptr + 3);
         *(key_ptr + 3) = keyPressEdge; // reset edge 
         short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
+
+        int x,y;
         
         // Handle waiting for KEY1 to be pressed to start a life
         if (!round_started) {
-            if (keyPress == 0b0010) {
+            if (keyPress == 0b0010 && lives > 0) {
                 round_started = true;
+            } else if (keyPress == 0b1000 && lives == 0){ // if key3, reset everything
+                round_started = false;
+
+                for(y=0; y<NUM_ROW_OF_BOX; y++){
+                    for(x=0; x<NUM_BOX_PER_ROW; x++){
+                        drawBrick[y][x] = true;
+                    }
+                }
+
+                score = 0;
+                lives = 3;
+
+                paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+                ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+                ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+                ball_dx = rand()%3-1;
+                ball_dy = -2; // minus is up
             } else {
                 // Initial Draw
                 clear_screen();
                 writeScoreAndLife(score, lives);
                 drawBall(ball_x, ball_y, BALL_SIZE);
-                int x,y;
+                
                 for(y=0; y<NUM_ROW_OF_BOX; y++){
                     for(x=0; x<NUM_BOX_PER_ROW; x++){
                         if(drawBrick[y][x]){
@@ -127,7 +145,6 @@ int main(void) {
 
         /* Check whether the ball has hit anything */
         // If it's hit a brick, remove the brick
-        int x,y;
         for(y=0; y<NUM_ROW_OF_BOX; y++) {
             for(x=0; x<NUM_BOX_PER_ROW; x++){
                 if(drawBrick[y][x]) {
@@ -176,24 +193,13 @@ int main(void) {
                 }
             }
         }
-        // If all bricks broken, break
-        game_won = true;
-        for(int y=0; y<NUM_ROW_OF_BOX; y++){
-            for(int x=0; x<NUM_BOX_PER_ROW; x++){
-                if(drawBrick[y][x]){
-                    game_won = false;
-                }
-            }
-        }
-        if (game_won)
-            continue;
         // If hit a side wall, flip dx
         if (ball_x < MIN_X || ball_x+BALL_SIZE >= MAX_X) {
             ball_dx *= -1;
             // add rand() too?
         }
         // If hit the top wall or paddle, flip dy
-        if (ball_y < MIN_Y || (ball_y+BALL_SIZE >= PADDLE_POSITION_Y-1 && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
+        if (ball_y < MIN_Y || ((ball_y + BALL_SIZE) > PADDLE_POSITION_Y && ball_y < PADDLE_POSITION_Y+PADDLE_Y && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
             ball_dy *= -1;
             // add rand() too?
         }
@@ -269,8 +275,6 @@ int main(void) {
         // TODO: Slope & travel
         ball_x = ball_x + ball_dx;//*SIMULATOR_ADJUSTMENT;
         ball_y = ball_y + ball_dy;//*SIMULATOR_ADJUSTMENT;
-        
-        
     }
 }
 
