@@ -1,0 +1,4237 @@
+
+C:/Users/AndrewLaptop/Documents/GitHub/BrickBreaker243/main.axf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <__cs3_interrupt_vector>:
+       0:	18 f0 9f e5 18 f0 9f e5 18 f0 9f e5 18 f0 9f e5     ................
+      10:	18 f0 9f e5 18 f0 9f e5 18 f0 9f e5 18 f0 9f e5     ................
+      20:	40 00 00 00 68 31 00 00 6c 31 00 00 70 31 00 00     @...h1..l1..p1..
+      30:	74 31 00 00 64 31 00 00 78 31 00 00 7c 31 00 00     t1..d1..x1..|1..
+
+00000040 <__cs3_reset>:
+      40:	ea000026 	b	e0 <__cs3_start_asm_sim>
+
+00000044 <__cs3_start_c>:
+      44:	e59f608c 	ldr	r6, [pc, #140]	; d8 <__cs3_start_c+0x94>
+      48:	e3560000 	cmp	r6, #0
+      4c:	e92d4080 	push	{r7, lr}
+      50:	e2466001 	sub	r6, r6, #1
+      54:	0a00001e 	beq	d4 <__cs3_start_c+0x90>
+      58:	e59f507c 	ldr	r5, [pc, #124]	; dc <__cs3_start_c+0x98>
+      5c:	e3a00000 	mov	r0, #0
+      60:	e3a01000 	mov	r1, #0
+      64:	e515200c 	ldr	r2, [r5, #-12]
+      68:	e515e010 	ldr	lr, [r5, #-16]
+      6c:	e5154008 	ldr	r4, [r5, #-8]
+      70:	e15e0002 	cmp	lr, r2
+      74:	00822004 	addeq	r2, r2, r4
+      78:	0a000009 	beq	a4 <__cs3_start_c+0x60>
+      7c:	e3540000 	cmp	r4, #0
+      80:	0a000007 	beq	a4 <__cs3_start_c+0x60>
+      84:	e1a07002 	mov	r7, r2
+      88:	e1a0c002 	mov	r12, r2
+      8c:	e8be000c 	ldm	lr!, {r2, r3}
+      90:	e8ac000c 	stmia	r12!, {r2, r3}
+      94:	e067300c 	rsb	r3, r7, r12
+      98:	e1540003 	cmp	r4, r3
+      9c:	e1a0200c 	mov	r2, r12
+      a0:	1afffff9 	bne	8c <__cs3_start_c+0x48>
+      a4:	e515e004 	ldr	lr, [r5, #-4]
+      a8:	e35e0000 	cmp	lr, #0
+      ac:	11a03002 	movne	r3, r2
+      b0:	0a000003 	beq	c4 <__cs3_start_c+0x80>
+      b4:	e8a30003 	stmia	r3!, {r0, r1}
+      b8:	e062c003 	rsb	r12, r2, r3
+      bc:	e15e000c 	cmp	lr, r12
+      c0:	1afffffb 	bne	b4 <__cs3_start_c+0x70>
+      c4:	e2466001 	sub	r6, r6, #1
+      c8:	e3760001 	cmn	r6, #1
+      cc:	e2855014 	add	r5, r5, #20
+      d0:	1affffe3 	bne	64 <__cs3_start_c+0x20>
+      d4:	eb000c09 	bl	3100 <__cs3_premain>
+      d8:	00000001 	.word	0x00000001
+      dc:	000032ac 	.word	0x000032ac
+
+000000e0 <__cs3_start_asm_sim>:
+      e0:	e28f103c 	add	r1, pc, #60	; 0x3c
+      e4:	e3a00016 	mov	r0, #22
+      e8:	ef123456 	svc	0x00123456
+      ec:	e3500000 	cmp	r0, #0
+      f0:	ba000008 	blt	118 <__cs3_start_asm_sim+0x38>
+      f4:	e59f2028 	ldr	r2, [pc, #40]	; 124 <__cs3_heap_start_ptr>
+      f8:	e59fd01c 	ldr	sp, [pc, #28]	; 11c <__cs3_start_asm_sim+0x3c>
+      fc:	e5920008 	ldr	r0, [r2, #8]
+     100:	e3500000 	cmp	r0, #0
+     104:	11a0d000 	movne	sp, r0
+     108:	e59f1010 	ldr	r1, [pc, #16]	; 120 <__cs3_start_asm_sim+0x40>
+     10c:	e5920004 	ldr	r0, [r2, #4]
+     110:	e3500000 	cmp	r0, #0
+     114:	15810000 	strne	r0, [r1]
+     118:	eaffffc9 	b	44 <__cs3_start_c>
+     11c:	3ffffff8 	.word	0x3ffffff8
+     120:	000036e8 	.word	0x000036e8
+
+00000124 <__cs3_heap_start_ptr>:
+     124:	0004e710 	.word	0x0004e710
+
+00000128 <_start>:
+     128:	e51fd000 	ldr	sp, [pc, #-0]	; 130 <_start+0x8>
+     12c:	eaffffc4 	b	44 <__cs3_start_c>
+     130:	3ffffff8 	.word	0x3ffffff8
+
+00000134 <deregister_tm_clones>:
+     134:	e92d4008 	push	{r3, lr}
+     138:	e59f002c 	ldr	r0, [pc, #44]	; 16c <deregister_tm_clones+0x38>
+     13c:	e59f302c 	ldr	r3, [pc, #44]	; 170 <deregister_tm_clones+0x3c>
+     140:	e0603003 	rsb	r3, r0, r3
+     144:	e3530006 	cmp	r3, #6
+     148:	8a000001 	bhi	154 <deregister_tm_clones+0x20>
+     14c:	e8bd4008 	pop	{r3, lr}
+     150:	e12fff1e 	bx	lr
+     154:	e59f3018 	ldr	r3, [pc, #24]	; 174 <deregister_tm_clones+0x40>
+     158:	e3530000 	cmp	r3, #0
+     15c:	0afffffa 	beq	14c <deregister_tm_clones+0x18>
+     160:	e1a0e00f 	mov	lr, pc
+     164:	e12fff13 	bx	r3
+     168:	eafffff7 	b	14c <deregister_tm_clones+0x18>
+     16c:	000036f0 	.word	0x000036f0
+     170:	000036f3 	.word	0x000036f3
+     174:	00000000 	.word	0x00000000
+
+00000178 <register_tm_clones>:
+     178:	e92d4008 	push	{r3, lr}
+     17c:	e59f0034 	ldr	r0, [pc, #52]	; 1b8 <register_tm_clones+0x40>
+     180:	e59f3034 	ldr	r3, [pc, #52]	; 1bc <register_tm_clones+0x44>
+     184:	e0603003 	rsb	r3, r0, r3
+     188:	e1a03143 	asr	r3, r3, #2
+     18c:	e0833fa3 	add	r3, r3, r3, lsr #31
+     190:	e1b010c3 	asrs	r1, r3, #1
+     194:	1a000001 	bne	1a0 <register_tm_clones+0x28>
+     198:	e8bd4008 	pop	{r3, lr}
+     19c:	e12fff1e 	bx	lr
+     1a0:	e59f2018 	ldr	r2, [pc, #24]	; 1c0 <register_tm_clones+0x48>
+     1a4:	e3520000 	cmp	r2, #0
+     1a8:	0afffffa 	beq	198 <register_tm_clones+0x20>
+     1ac:	e1a0e00f 	mov	lr, pc
+     1b0:	e12fff12 	bx	r2
+     1b4:	eafffff7 	b	198 <register_tm_clones+0x20>
+     1b8:	000036f0 	.word	0x000036f0
+     1bc:	000036f0 	.word	0x000036f0
+     1c0:	00000000 	.word	0x00000000
+
+000001c4 <__do_global_dtors_aux>:
+     1c4:	e92d4010 	push	{r4, lr}
+     1c8:	e59f402c 	ldr	r4, [pc, #44]	; 1fc <__do_global_dtors_aux+0x38>
+     1cc:	e5d43000 	ldrb	r3, [r4]
+     1d0:	e3530000 	cmp	r3, #0
+     1d4:	1a000006 	bne	1f4 <__do_global_dtors_aux+0x30>
+     1d8:	ebffffd5 	bl	134 <deregister_tm_clones>
+     1dc:	e59f301c 	ldr	r3, [pc, #28]	; 200 <__do_global_dtors_aux+0x3c>
+     1e0:	e3530000 	cmp	r3, #0
+     1e4:	159f0018 	ldrne	r0, [pc, #24]	; 204 <__do_global_dtors_aux+0x40>
+     1e8:	1320f000 	nopne	{0}
+     1ec:	e3a03001 	mov	r3, #1
+     1f0:	e5c43000 	strb	r3, [r4]
+     1f4:	e8bd4010 	pop	{r4, lr}
+     1f8:	e12fff1e 	bx	lr
+     1fc:	000036f0 	.word	0x000036f0
+     200:	00000000 	.word	0x00000000
+     204:	00003208 	.word	0x00003208
+
+00000208 <frame_dummy>:
+     208:	e92d4008 	push	{r3, lr}
+     20c:	e59f3034 	ldr	r3, [pc, #52]	; 248 <frame_dummy+0x40>
+     210:	e3530000 	cmp	r3, #0
+     214:	159f0030 	ldrne	r0, [pc, #48]	; 24c <frame_dummy+0x44>
+     218:	159f1030 	ldrne	r1, [pc, #48]	; 250 <frame_dummy+0x48>
+     21c:	1320f000 	nopne	{0}
+     220:	e59f002c 	ldr	r0, [pc, #44]	; 254 <frame_dummy+0x4c>
+     224:	e5903000 	ldr	r3, [r0]
+     228:	e3530000 	cmp	r3, #0
+     22c:	0a000003 	beq	240 <frame_dummy+0x38>
+     230:	e59f3020 	ldr	r3, [pc, #32]	; 258 <frame_dummy+0x50>
+     234:	e3530000 	cmp	r3, #0
+     238:	11a0e00f 	movne	lr, pc
+     23c:	112fff13 	bxne	r3
+     240:	e8bd4008 	pop	{r3, lr}
+     244:	eaffffcb 	b	178 <register_tm_clones>
+     248:	00000000 	.word	0x00000000
+     24c:	00003208 	.word	0x00003208
+     250:	000036f4 	.word	0x000036f4
+     254:	000032b0 	.word	0x000032b0
+     258:	00000000 	.word	0x00000000
+
+0000025c <abs>:
+int abs(int x) {
+    if (x < 0)
+        return -1*x;
+    else
+        return x;
+}
+     25c:	e3500000 	cmp	r0, #0
+     260:	b2600000 	rsblt	r0, r0, #0
+     264:	e12fff1e 	bx	lr
+
+00000268 <swap>:
+    }
+}
+
+// swap n0 and n1
+void swap(int *n0, int *n1){
+    int temp = *n1;
+     268:	e5913000 	ldr	r3, [r1]
+    *n1 = *n0;
+     26c:	e5902000 	ldr	r2, [r0]
+     270:	e5812000 	str	r2, [r1]
+    *n0 = temp;
+     274:	e5803000 	str	r3, [r0]
+     278:	e12fff1e 	bx	lr
+
+0000027c <plot_pixel>:
+    }
+}
+
+// plot the pixel in the buffer
+void plot_pixel(int x, int y, short int pixel_colour){
+    *(short int *)(pixel_buffer_start + (y << 10) + (x << 1)) = pixel_colour;
+     27c:	e303370c 	movw	r3, #14092	; 0x370c
+     280:	e3403000 	movt	r3, #0
+     284:	e5933000 	ldr	r3, [r3]
+     288:	e1a00080 	lsl	r0, r0, #1
+     28c:	e0831501 	add	r1, r3, r1, lsl #10
+     290:	e18120b0 	strh	r2, [r1, r0]
+     294:	e12fff1e 	bx	lr
+
+00000298 <drawBall>:
+        }
+    }
+}
+
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+     298:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     29c:	e24dd014 	sub	sp, sp, #20
+     2a0:	e58d000c 	str	r0, [sp, #12]
+     2a4:	e58d1004 	str	r1, [sp, #4]
+    int x,y;
+    for (x = 0; x < size; x++) {
+     2a8:	e3520000 	cmp	r2, #0
+     2ac:	e58d2008 	str	r2, [sp, #8]
+     2b0:	da000018 	ble	318 <drawBall+0x80>
+     2b4:	e59f6064 	ldr	r6, [pc, #100]	; 320 <drawBall+0x88>
+     2b8:	e3a0b000 	mov	r11, #0
+        }
+    }
+}
+
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+     2bc:	e0829001 	add	r9, r2, r1
+    int x,y;
+    for (x = 0; x < size; x++) {
+        for (y = 0; y < size; y++) {
+            boardStatus[y][x] = 3;
+     2c0:	e3a0a003 	mov	r10, #3
+            plot_pixel(left_x + x, top_y + y, BALL_COLOUR);
+     2c4:	e3e08000 	mvn	r8, #0
+     2c8:	ea00000d 	b	304 <drawBall+0x6c>
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+    int x,y;
+    for (x = 0; x < size; x++) {
+        for (y = 0; y < size; y++) {
+            boardStatus[y][x] = 3;
+     2cc:	e786a005 	str	r10, [r6, r5]
+            plot_pixel(left_x + x, top_y + y, BALL_COLOUR);
+     2d0:	e1a00007 	mov	r0, r7
+     2d4:	e1a01004 	mov	r1, r4
+     2d8:	e1a02008 	mov	r2, r8
+     2dc:	ebffffe6 	bl	27c <plot_pixel>
+     2e0:	e2855c05 	add	r5, r5, #1280	; 0x500
+     2e4:	e2844001 	add	r4, r4, #1
+
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+    int x,y;
+    for (x = 0; x < size; x++) {
+        for (y = 0; y < size; y++) {
+     2e8:	e1540009 	cmp	r4, r9
+     2ec:	1afffff6 	bne	2cc <drawBall+0x34>
+}
+
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+    int x,y;
+    for (x = 0; x < size; x++) {
+     2f0:	e28bb001 	add	r11, r11, #1
+     2f4:	e2866004 	add	r6, r6, #4
+     2f8:	e59d2008 	ldr	r2, [sp, #8]
+     2fc:	e15b0002 	cmp	r11, r2
+     300:	0a000004 	beq	318 <drawBall+0x80>
+     304:	e59d4004 	ldr	r4, [sp, #4]
+        }
+    }
+}
+
+// Draws the ball
+void drawBall(int left_x, int top_y, int size) {
+     308:	e3a05000 	mov	r5, #0
+     30c:	e59d300c 	ldr	r3, [sp, #12]
+     310:	e08b7003 	add	r7, r11, r3
+     314:	eaffffec 	b	2cc <drawBall+0x34>
+        for (y = 0; y < size; y++) {
+            boardStatus[y][x] = 3;
+            plot_pixel(left_x + x, top_y + y, BALL_COLOUR);
+        }
+    }
+}
+     318:	e28dd014 	add	sp, sp, #20
+     31c:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     320:	00003710 	.word	0x00003710
+
+00000324 <plot_boxes>:
+    *n1 = *n0;
+    *n0 = temp;
+}
+
+// plots a x_size by y_size rectangle
+void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
+     324:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     328:	e24dd01c 	sub	sp, sp, #28
+     32c:	e58d1014 	str	r1, [sp, #20]
+     330:	e1a0a003 	mov	r10, r3
+     334:	e1dd34f0 	ldrsh	r3, [sp, #64]	; 0x40
+     338:	e58d300c 	str	r3, [sp, #12]
+    int x,y;
+
+    for(x=0 ; x < x_size ; x++){
+     33c:	e3520000 	cmp	r2, #0
+     340:	e58d2010 	str	r2, [sp, #16]
+     344:	da000031 	ble	410 <plot_boxes+0xec>
+     348:	e3a07000 	mov	r7, #0
+        for(y=0 ; y < y_size ; y++){
+            boardStatus[y][x] = 1;
+     34c:	e3a09001 	mov	r9, #1
+            if((x<2 || x>=x_size-2 || y<2 || y>=y_size-2)){
+                plot_pixel(xx + x,yy + y,BOX_BORDER_COLOUR);
+     350:	e309be84 	movw	r11, #40580	; 0x9e84
+     354:	e34fbfff 	movt	r11, #65535	; 0xffff
+     358:	e1a0300b 	mov	r3, r11
+     35c:	e1a0b000 	mov	r11, r0
+     360:	e1a08003 	mov	r8, r3
+     364:	ea00001d 	b	3e0 <plot_boxes+0xbc>
+void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
+    int x,y;
+
+    for(x=0 ; x < x_size ; x++){
+        for(y=0 ; y < y_size ; y++){
+            boardStatus[y][x] = 1;
+     368:	e5869000 	str	r9, [r6]
+            if((x<2 || x>=x_size-2 || y<2 || y>=y_size-2)){
+     36c:	e3570001 	cmp	r7, #1
+     370:	da000007 	ble	394 <plot_boxes+0x70>
+     374:	e59d3004 	ldr	r3, [sp, #4]
+     378:	e1530007 	cmp	r3, r7
+     37c:	da000004 	ble	394 <plot_boxes+0x70>
+     380:	e3540001 	cmp	r4, #1
+     384:	da000002 	ble	394 <plot_boxes+0x70>
+     388:	e59d3008 	ldr	r3, [sp, #8]
+     38c:	e1530004 	cmp	r3, r4
+     390:	ca000004 	bgt	3a8 <plot_boxes+0x84>
+                plot_pixel(xx + x,yy + y,BOX_BORDER_COLOUR);
+     394:	e1a0000b 	mov	r0, r11
+     398:	e1a01005 	mov	r1, r5
+     39c:	e1a02008 	mov	r2, r8
+     3a0:	ebffffb5 	bl	27c <plot_pixel>
+     3a4:	ea000003 	b	3b8 <plot_boxes+0x94>
+            } else {
+                plot_pixel(xx + x,yy + y,box_colour);
+     3a8:	e1a0000b 	mov	r0, r11
+     3ac:	e1a01005 	mov	r1, r5
+     3b0:	e59d200c 	ldr	r2, [sp, #12]
+     3b4:	ebffffb0 	bl	27c <plot_pixel>
+// plots a x_size by y_size rectangle
+void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
+    int x,y;
+
+    for(x=0 ; x < x_size ; x++){
+        for(y=0 ; y < y_size ; y++){
+     3b8:	e2844001 	add	r4, r4, #1
+     3bc:	e2866c05 	add	r6, r6, #1280	; 0x500
+     3c0:	e2855001 	add	r5, r5, #1
+     3c4:	e154000a 	cmp	r4, r10
+     3c8:	1affffe6 	bne	368 <plot_boxes+0x44>
+
+// plots a x_size by y_size rectangle
+void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
+    int x,y;
+
+    for(x=0 ; x < x_size ; x++){
+     3cc:	e2877001 	add	r7, r7, #1
+     3d0:	e28bb001 	add	r11, r11, #1
+     3d4:	e59d3010 	ldr	r3, [sp, #16]
+     3d8:	e1570003 	cmp	r7, r3
+     3dc:	0a00000b 	beq	410 <plot_boxes+0xec>
+        for(y=0 ; y < y_size ; y++){
+     3e0:	e35a0000 	cmp	r10, #0
+     3e4:	dafffff8 	ble	3cc <plot_boxes+0xa8>
+    *n1 = *n0;
+    *n0 = temp;
+}
+
+// plots a x_size by y_size rectangle
+void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
+     3e8:	e59f3028 	ldr	r3, [pc, #40]	; 418 <plot_boxes+0xf4>
+     3ec:	e0836107 	add	r6, r3, r7, lsl #2
+     3f0:	e59d5014 	ldr	r5, [sp, #20]
+     3f4:	e3a04000 	mov	r4, #0
+    int x,y;
+
+    for(x=0 ; x < x_size ; x++){
+        for(y=0 ; y < y_size ; y++){
+            boardStatus[y][x] = 1;
+            if((x<2 || x>=x_size-2 || y<2 || y>=y_size-2)){
+     3f8:	e59d3010 	ldr	r3, [sp, #16]
+     3fc:	e2433002 	sub	r3, r3, #2
+     400:	e58d3004 	str	r3, [sp, #4]
+     404:	e24a3002 	sub	r3, r10, #2
+     408:	e58d3008 	str	r3, [sp, #8]
+     40c:	eaffffd5 	b	368 <plot_boxes+0x44>
+            } else {
+                plot_pixel(xx + x,yy + y,box_colour);
+            }
+        }
+    }
+}
+     410:	e28dd01c 	add	sp, sp, #28
+     414:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     418:	00003710 	.word	0x00003710
+
+0000041c <clear_screen>:
+}
+
+
+
+// write all addresses in buffer to draw the background picture
+void clear_screen(){
+     41c:	e92d4ff8 	push	{r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     420:	e59f7098 	ldr	r7, [pc, #152]	; 4c0 <clear_screen+0xa4>
+    int x,y;
+    for(x=0 ; x<320 ; x++){
+     424:	e3a06000 	mov	r6, #0
+        for(y=0 ; y<240 ; y++){
+            if((x<MIN_X || x>=MAX_X || y<MIN_Y || y>=MAX_Y)){
+                boardStatus[y][x] = 2;
+     428:	e3a0a002 	mov	r10, #2
+                if(MIN_Y / 2 + TITLE_HEIGHT / 2 > y){
+                    plot_pixel(x,y,SCORELIFE[1][0]);
+                } else {
+                    plot_pixel(x,y,WALLS_COLOUR);
+     42c:	e308b430 	movw	r11, #33840	; 0x8430
+     430:	e34fbfff 	movt	r11, #65535	; 0xffff
+    for(x=0 ; x<320 ; x++){
+        for(y=0 ; y<240 ; y++){
+            if((x<MIN_X || x>=MAX_X || y<MIN_Y || y>=MAX_Y)){
+                boardStatus[y][x] = 2;
+                if(MIN_Y / 2 + TITLE_HEIGHT / 2 > y){
+                    plot_pixel(x,y,SCORELIFE[1][0]);
+     434:	e3009d1c 	movw	r9, #3356	; 0xd1c
+     438:	e3409000 	movt	r9, #0
+     43c:	ea00001b 	b	4b0 <clear_screen+0x94>
+// write all addresses in buffer to draw the background picture
+void clear_screen(){
+    int x,y;
+    for(x=0 ; x<320 ; x++){
+        for(y=0 ; y<240 ; y++){
+            if((x<MIN_X || x>=MAX_X || y<MIN_Y || y>=MAX_Y)){
+     440:	e3580e12 	cmp	r8, #288	; 0x120
+     444:	8a000002 	bhi	454 <clear_screen+0x38>
+     448:	e2443014 	sub	r3, r4, #20
+     44c:	e35300d5 	cmp	r3, #213	; 0xd5
+     450:	9a000008 	bls	478 <clear_screen+0x5c>
+                boardStatus[y][x] = 2;
+     454:	e787a005 	str	r10, [r7, r5]
+                if(MIN_Y / 2 + TITLE_HEIGHT / 2 > y){
+     458:	e354000f 	cmp	r4, #15
+                    plot_pixel(x,y,SCORELIFE[1][0]);
+     45c:	e1a00006 	mov	r0, r6
+     460:	e1a01004 	mov	r1, r4
+     464:	d300314a 	movwle	r3, #330	; 0x14a
+     468:	d19920f3 	ldrshle	r2, [r9, r3]
+                } else {
+                    plot_pixel(x,y,WALLS_COLOUR);
+     46c:	c1a0200b 	movgt	r2, r11
+     470:	ebffff81 	bl	27c <plot_pixel>
+     474:	ea000005 	b	490 <clear_screen+0x74>
+                }
+            } else {
+                boardStatus[y][x] = 0;
+     478:	e3a03000 	mov	r3, #0
+     47c:	e7873005 	str	r3, [r7, r5]
+                plot_pixel(x,y,0);
+     480:	e1a00006 	mov	r0, r6
+     484:	e1a01004 	mov	r1, r4
+     488:	e1a02003 	mov	r2, r3
+     48c:	ebffff7a 	bl	27c <plot_pixel>
+
+// write all addresses in buffer to draw the background picture
+void clear_screen(){
+    int x,y;
+    for(x=0 ; x<320 ; x++){
+        for(y=0 ; y<240 ; y++){
+     490:	e2844001 	add	r4, r4, #1
+     494:	e2855c05 	add	r5, r5, #1280	; 0x500
+     498:	e35400f0 	cmp	r4, #240	; 0xf0
+     49c:	1affffe7 	bne	440 <clear_screen+0x24>
+
+
+// write all addresses in buffer to draw the background picture
+void clear_screen(){
+    int x,y;
+    for(x=0 ; x<320 ; x++){
+     4a0:	e2866001 	add	r6, r6, #1
+     4a4:	e2877004 	add	r7, r7, #4
+     4a8:	e3560d05 	cmp	r6, #320	; 0x140
+     4ac:	08bd8ff8 	popeq	{r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
+}
+
+
+
+// write all addresses in buffer to draw the background picture
+void clear_screen(){
+     4b0:	e3a05000 	mov	r5, #0
+     4b4:	e1a04005 	mov	r4, r5
+    int x,y;
+    for(x=0 ; x<320 ; x++){
+        for(y=0 ; y<240 ; y++){
+            if((x<MIN_X || x>=MAX_X || y<MIN_Y || y>=MAX_Y)){
+     4b8:	e246800f 	sub	r8, r6, #15
+     4bc:	eaffffdf 	b	440 <clear_screen+0x24>
+     4c0:	00003710 	.word	0x00003710
+
+000004c4 <writeScoreAndLife>:
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     4c4:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     4c8:	e24dd01c 	sub	sp, sp, #28
+     4cc:	e58d1004 	str	r1, [sp, #4]
+    int scoreDigit[3];
+    scoreDigit[0] = (score/100);
+     4d0:	e308351f 	movw	r3, #34079	; 0x851f
+     4d4:	e34531eb 	movt	r3, #20971	; 0x51eb
+     4d8:	e0c21093 	smull	r1, r2, r3, r0
+     4dc:	e1a03fc0 	asr	r3, r0, #31
+     4e0:	e06322c2 	rsb	r2, r3, r2, asr #5
+     4e4:	e58d200c 	str	r2, [sp, #12]
+    scoreDigit[1] = (score/10) % 10;
+     4e8:	e3062667 	movw	r2, #26215	; 0x6667
+     4ec:	e3462666 	movt	r2, #26214	; 0x6666
+     4f0:	e0c1c092 	smull	r12, r1, r2, r0
+     4f4:	e0633141 	rsb	r3, r3, r1, asr #2
+     4f8:	e0c21392 	smull	r1, r2, r2, r3
+     4fc:	e1a01fc3 	asr	r1, r3, #31
+     500:	e0612142 	rsb	r2, r1, r2, asr #2
+     504:	e0822102 	add	r2, r2, r2, lsl #2
+     508:	e0432082 	sub	r2, r3, r2, lsl #1
+     50c:	e58d2010 	str	r2, [sp, #16]
+    scoreDigit[2] = (score) % 10;
+     510:	e0833103 	add	r3, r3, r3, lsl #2
+     514:	e0400083 	sub	r0, r0, r3, lsl #1
+     518:	e58d0014 	str	r0, [sp, #20]
+    int startXScore = MIN_X;
+    int startXLife = 200;
+
+    // draw the score title
+    int x,y;
+    for(x=0; x<45; x++){
+     51c:	e3a07000 	mov	r7, #0
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     520:	e3008d1c 	movw	r8, #3356	; 0xd1c
+     524:	e3408000 	movt	r8, #0
+     528:	e3a0a003 	mov	r10, #3
+     52c:	ea00000b 	b	560 <writeScoreAndLife+0x9c>
+
+    // draw the score title
+    int x,y;
+    for(x=0; x<45; x++){
+        for(y=0; y<TITLE_HEIGHT; y++){
+            plot_pixel(x + startXScore, y+startY, SCORELIFE[y][x+2]);
+     530:	e1a00006 	mov	r0, r6
+     534:	e1a01005 	mov	r1, r5
+     538:	e1d420f4 	ldrsh	r2, [r4, #4]
+     53c:	ebffff4e 	bl	27c <plot_pixel>
+     540:	e2844f52 	add	r4, r4, #328	; 0x148
+     544:	e2844002 	add	r4, r4, #2
+     548:	e2855001 	add	r5, r5, #1
+    int startXLife = 200;
+
+    // draw the score title
+    int x,y;
+    for(x=0; x<45; x++){
+        for(y=0; y<TITLE_HEIGHT; y++){
+     54c:	e355000f 	cmp	r5, #15
+     550:	1afffff6 	bne	530 <writeScoreAndLife+0x6c>
+    int startXScore = MIN_X;
+    int startXLife = 200;
+
+    // draw the score title
+    int x,y;
+    for(x=0; x<45; x++){
+     554:	e2877001 	add	r7, r7, #1
+     558:	e357002d 	cmp	r7, #45	; 0x2d
+     55c:	0a00001e 	beq	5dc <writeScoreAndLife+0x118>
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     560:	e0884087 	add	r4, r8, r7, lsl #1
+     564:	e1a0500a 	mov	r5, r10
+     568:	e287600f 	add	r6, r7, #15
+     56c:	eaffffef 	b	530 <writeScoreAndLife+0x6c>
+    // draw the score
+    int i;
+    for(i=0; i<3; i++){
+        for(x=0; x<11; x++){
+            for(y=0; y<TITLE_HEIGHT; y++){
+                plot_pixel(x + startXScore + 45 + (11*i), y+startY, SCORELIFE[y][x + 45 + (11*scoreDigit[i])]);
+     570:	e28d300c 	add	r3, sp, #12
+     574:	e7973003 	ldr	r3, [r7, r3]
+     578:	e0842104 	add	r2, r4, r4, lsl #2
+     57c:	e0822282 	add	r2, r2, r2, lsl #5
+     580:	e0831103 	add	r1, r3, r3, lsl #2
+     584:	e0833081 	add	r3, r3, r1, lsl #1
+     588:	e0833005 	add	r3, r3, r5
+     58c:	e0822003 	add	r2, r2, r3
+     590:	e1a02082 	lsl	r2, r2, #1
+     594:	e1a00006 	mov	r0, r6
+     598:	e2841003 	add	r1, r4, #3
+     59c:	e19820f2 	ldrsh	r2, [r8, r2]
+     5a0:	ebffff35 	bl	27c <plot_pixel>
+
+    // draw the score
+    int i;
+    for(i=0; i<3; i++){
+        for(x=0; x<11; x++){
+            for(y=0; y<TITLE_HEIGHT; y++){
+     5a4:	e2844001 	add	r4, r4, #1
+     5a8:	e354000c 	cmp	r4, #12
+     5ac:	1affffef 	bne	570 <writeScoreAndLife+0xac>
+     5b0:	e2855001 	add	r5, r5, #1
+    }
+
+    // draw the score
+    int i;
+    for(i=0; i<3; i++){
+        for(x=0; x<11; x++){
+     5b4:	e3550038 	cmp	r5, #56	; 0x38
+     5b8:	0a000002 	beq	5c8 <writeScoreAndLife+0x104>
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     5bc:	e0896005 	add	r6, r9, r5
+     5c0:	e1a0400a 	mov	r4, r10
+     5c4:	eaffffe9 	b	570 <writeScoreAndLife+0xac>
+     5c8:	e2877004 	add	r7, r7, #4
+     5cc:	e28bb00b 	add	r11, r11, #11
+        }
+    }
+
+    // draw the score
+    int i;
+    for(i=0; i<3; i++){
+     5d0:	e357000c 	cmp	r7, #12
+     5d4:	1a000005 	bne	5f0 <writeScoreAndLife+0x12c>
+     5d8:	ea000014 	b	630 <writeScoreAndLife+0x16c>
+    int startXScore = MIN_X;
+    int startXLife = 200;
+
+    // draw the score title
+    int x,y;
+    for(x=0; x<45; x++){
+     5dc:	e3a0b000 	mov	r11, #0
+     5e0:	e1a0700b 	mov	r7, r11
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     5e4:	e1a0a00b 	mov	r10, r11
+    // draw the score
+    int i;
+    for(i=0; i<3; i++){
+        for(x=0; x<11; x++){
+            for(y=0; y<TITLE_HEIGHT; y++){
+                plot_pixel(x + startXScore + 45 + (11*i), y+startY, SCORELIFE[y][x + 45 + (11*scoreDigit[i])]);
+     5e8:	e3008d1c 	movw	r8, #3356	; 0xd1c
+     5ec:	e3408000 	movt	r8, #0
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     5f0:	e3a0502d 	mov	r5, #45	; 0x2d
+     5f4:	e28b900f 	add	r9, r11, #15
+     5f8:	eaffffef 	b	5bc <writeScoreAndLife+0xf8>
+    }
+
+    // draw the life title
+    for(x=0; x<47; x++){
+        for(y=0; y<TITLE_HEIGHT; y++){
+            plot_pixel(x + startXLife, y+startY, SCORELIFE[TITLE_HEIGHT + y][x]);
+     5fc:	e1a00006 	mov	r0, r6
+     600:	e1a01005 	mov	r1, r5
+     604:	e1d420f0 	ldrsh	r2, [r4]
+     608:	ebffff1b 	bl	27c <plot_pixel>
+     60c:	e2844f52 	add	r4, r4, #328	; 0x148
+     610:	e2844002 	add	r4, r4, #2
+     614:	e2855001 	add	r5, r5, #1
+        }
+    }
+
+    // draw the life title
+    for(x=0; x<47; x++){
+        for(y=0; y<TITLE_HEIGHT; y++){
+     618:	e355000f 	cmp	r5, #15
+     61c:	1afffff6 	bne	5fc <writeScoreAndLife+0x138>
+            }
+        }
+    }
+
+    // draw the life title
+    for(x=0; x<47; x++){
+     620:	e2877001 	add	r7, r7, #1
+     624:	e357002f 	cmp	r7, #47	; 0x2f
+     628:	1a000004 	bne	640 <writeScoreAndLife+0x17c>
+     62c:	ea000009 	b	658 <writeScoreAndLife+0x194>
+        }
+    }
+
+    // draw the score
+    int i;
+    for(i=0; i<3; i++){
+     630:	e3a07000 	mov	r7, #0
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     634:	e3008d1c 	movw	r8, #3356	; 0xd1c
+     638:	e3408000 	movt	r8, #0
+     63c:	e3a0a003 	mov	r10, #3
+     640:	e2874e7b 	add	r4, r7, #1968	; 0x7b0
+     644:	e284400c 	add	r4, r4, #12
+     648:	e0884084 	add	r4, r8, r4, lsl #1
+     64c:	e1a0500a 	mov	r5, r10
+     650:	e28760c8 	add	r6, r7, #200	; 0xc8
+     654:	eaffffe8 	b	5fc <writeScoreAndLife+0x138>
+            plot_pixel(x + startXLife, y+startY, SCORELIFE[TITLE_HEIGHT + y][x]);
+        }
+    }
+
+    // draw the life hearts
+    for(i=0; i<lives; i++){
+     658:	e59d3004 	ldr	r3, [sp, #4]
+     65c:	e3530000 	cmp	r3, #0
+     660:	c3a0b000 	movgt	r11, #0
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     664:	c300ad1c 	movwgt	r10, #3356	; 0xd1c
+     668:	c340a000 	movtgt	r10, #0
+     66c:	c3a09003 	movgt	r9, #3
+            plot_pixel(x + startXLife, y+startY, SCORELIFE[TITLE_HEIGHT + y][x]);
+        }
+    }
+
+    // draw the life hearts
+    for(i=0; i<lives; i++){
+     670:	ca000016 	bgt	6d0 <writeScoreAndLife+0x20c>
+     674:	ea000019 	b	6e0 <writeScoreAndLife+0x21c>
+        for(x=0; x<16; x++){
+            for(y=0; y<TITLE_HEIGHT; y++){
+                plot_pixel(x + startXLife + 47 + (i*16), y+startY, SCORELIFE[TITLE_HEIGHT + y][x + 47]);
+     678:	e1a00006 	mov	r0, r6
+     67c:	e1a01005 	mov	r1, r5
+     680:	e1d420f0 	ldrsh	r2, [r4]
+     684:	ebfffefc 	bl	27c <plot_pixel>
+     688:	e2844f52 	add	r4, r4, #328	; 0x148
+     68c:	e2844002 	add	r4, r4, #2
+     690:	e2855001 	add	r5, r5, #1
+    }
+
+    // draw the life hearts
+    for(i=0; i<lives; i++){
+        for(x=0; x<16; x++){
+            for(y=0; y<TITLE_HEIGHT; y++){
+     694:	e355000f 	cmp	r5, #15
+     698:	1afffff6 	bne	678 <writeScoreAndLife+0x1b4>
+     69c:	e2877001 	add	r7, r7, #1
+        }
+    }
+
+    // draw the life hearts
+    for(i=0; i<lives; i++){
+        for(x=0; x<16; x++){
+     6a0:	e357003f 	cmp	r7, #63	; 0x3f
+     6a4:	0a000005 	beq	6c0 <writeScoreAndLife+0x1fc>
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     6a8:	e0886007 	add	r6, r8, r7
+     6ac:	e2874e7b 	add	r4, r7, #1968	; 0x7b0
+     6b0:	e284400c 	add	r4, r4, #12
+     6b4:	e08a4084 	add	r4, r10, r4, lsl #1
+     6b8:	e1a05009 	mov	r5, r9
+     6bc:	eaffffed 	b	678 <writeScoreAndLife+0x1b4>
+            plot_pixel(x + startXLife, y+startY, SCORELIFE[TITLE_HEIGHT + y][x]);
+        }
+    }
+
+    // draw the life hearts
+    for(i=0; i<lives; i++){
+     6c0:	e28bb001 	add	r11, r11, #1
+     6c4:	e59dc004 	ldr	r12, [sp, #4]
+     6c8:	e15b000c 	cmp	r11, r12
+     6cc:	0a000003 	beq	6e0 <writeScoreAndLife+0x21c>
+    else
+        return x;
+}
+
+// code for subroutines (not shown)
+void writeScoreAndLife(int score, int lives){
+     6d0:	e1a0820b 	lsl	r8, r11, #4
+     6d4:	e3a0702f 	mov	r7, #47	; 0x2f
+     6d8:	e28880c8 	add	r8, r8, #200	; 0xc8
+     6dc:	eafffff1 	b	6a8 <writeScoreAndLife+0x1e4>
+            for(y=0; y<TITLE_HEIGHT; y++){
+                plot_pixel(x + startXLife + 47 + (i*16), y+startY, SCORELIFE[TITLE_HEIGHT + y][x + 47]);
+            }
+        }
+    }
+}
+     6e0:	e28dd01c 	add	sp, sp, #28
+     6e4:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+
+000006e8 <wait_for_vsync>:
+// wait for the vsync to happen
+void wait_for_vsync(){
+    volatile int * pixel_ctrl_ptr = (int *) 0xFF203020; // pixel controller
+    register int status;
+
+    *pixel_ctrl_ptr = 1; // start the sync process
+     6e8:	e3033fff 	movw	r3, #16383	; 0x3fff
+     6ec:	e34f3f20 	movt	r3, #65312	; 0xff20
+     6f0:	e3a02001 	mov	r2, #1
+     6f4:	e5032fdf 	str	r2, [r3, #-4063]	; 0xfffff021
+
+    status = *(pixel_ctrl_ptr+3);
+     6f8:	e5133fd3 	ldr	r3, [r3, #-4051]	; 0xfffff02d
+    while((status & 0x01) != 0){
+     6fc:	e3130001 	tst	r3, #1
+     700:	012fff1e 	bxeq	lr
+        status = *(pixel_ctrl_ptr + 3);
+     704:	e3032fff 	movw	r2, #16383	; 0x3fff
+     708:	e34f2f20 	movt	r2, #65312	; 0xff20
+     70c:	e5123fd3 	ldr	r3, [r2, #-4051]	; 0xfffff02d
+    register int status;
+
+    *pixel_ctrl_ptr = 1; // start the sync process
+
+    status = *(pixel_ctrl_ptr+3);
+    while((status & 0x01) != 0){
+     710:	e3130001 	tst	r3, #1
+     714:	1afffffc 	bne	70c <wait_for_vsync+0x24>
+     718:	e12fff1e 	bx	lr
+
+0000071c <main>:
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     71c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     720:	e24dd06c 	sub	sp, sp, #108	; 0x6c
+
+    bool drawBrick[NUM_ROW_OF_BOX][NUM_BOX_PER_ROW];
+    int i,j;
+    for(i=0; i<NUM_ROW_OF_BOX; i++){
+        for(j=0; j<NUM_BOX_PER_ROW; j++){
+            drawBrick[i][j] = true;
+     724:	e3a03001 	mov	r3, #1
+     728:	e5cd3048 	strb	r3, [sp, #72]	; 0x48
+     72c:	e5cd3049 	strb	r3, [sp, #73]	; 0x49
+     730:	e5cd304a 	strb	r3, [sp, #74]	; 0x4a
+     734:	e5cd304b 	strb	r3, [sp, #75]	; 0x4b
+     738:	e5cd304c 	strb	r3, [sp, #76]	; 0x4c
+     73c:	e5cd304d 	strb	r3, [sp, #77]	; 0x4d
+     740:	e5cd304e 	strb	r3, [sp, #78]	; 0x4e
+     744:	e5cd304f 	strb	r3, [sp, #79]	; 0x4f
+     748:	e5cd3050 	strb	r3, [sp, #80]	; 0x50
+     74c:	e5cd3051 	strb	r3, [sp, #81]	; 0x51
+     750:	e5cd3052 	strb	r3, [sp, #82]	; 0x52
+     754:	e5cd3053 	strb	r3, [sp, #83]	; 0x53
+     758:	e5cd3054 	strb	r3, [sp, #84]	; 0x54
+     75c:	e5cd3055 	strb	r3, [sp, #85]	; 0x55
+     760:	e5cd3056 	strb	r3, [sp, #86]	; 0x56
+     764:	e5cd3057 	strb	r3, [sp, #87]	; 0x57
+     768:	e5cd3058 	strb	r3, [sp, #88]	; 0x58
+     76c:	e5cd3059 	strb	r3, [sp, #89]	; 0x59
+     770:	e5cd305a 	strb	r3, [sp, #90]	; 0x5a
+     774:	e5cd305b 	strb	r3, [sp, #91]	; 0x5b
+     778:	e5cd305c 	strb	r3, [sp, #92]	; 0x5c
+     77c:	e5cd305d 	strb	r3, [sp, #93]	; 0x5d
+     780:	e5cd305e 	strb	r3, [sp, #94]	; 0x5e
+     784:	e5cd305f 	strb	r3, [sp, #95]	; 0x5f
+     788:	e5cd3060 	strb	r3, [sp, #96]	; 0x60
+     78c:	e5cd3061 	strb	r3, [sp, #97]	; 0x61
+     790:	e5cd3062 	strb	r3, [sp, #98]	; 0x62
+     794:	e5cd3063 	strb	r3, [sp, #99]	; 0x63
+     798:	e5cd3064 	strb	r3, [sp, #100]	; 0x64
+     79c:	e5cd3065 	strb	r3, [sp, #101]	; 0x65
+     7a0:	e5cd3066 	strb	r3, [sp, #102]	; 0x66
+     7a4:	e5cd3067 	strb	r3, [sp, #103]	; 0x67
+    bool padRight = false;
+
+    int paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+
+    /* set front pixel buffer to start of FPGA On-chip memory */
+    *(pixel_ctrl_ptr + 1) = 0xC8000000; // first store the address in the 
+     7a8:	e3034fff 	movw	r4, #16383	; 0x3fff
+     7ac:	e34f4f20 	movt	r4, #65312	; 0xff20
+     7b0:	e3a03332 	mov	r3, #-939524096	; 0xc8000000
+     7b4:	e5043fdb 	str	r3, [r4, #-4059]	; 0xfffff025
+                                        // back buffer
+
+    /* now, swap the front/back buffers, to set the front buffer location */
+    wait_for_vsync();
+     7b8:	ebffffca 	bl	6e8 <wait_for_vsync>
+
+    /* initialize a pointer to the pixel buffer, used by drawing functions */
+    pixel_buffer_start = *pixel_ctrl_ptr;
+     7bc:	e5143fdf 	ldr	r3, [r4, #-4063]	; 0xfffff021
+     7c0:	e303570c 	movw	r5, #14092	; 0x370c
+     7c4:	e3405000 	movt	r5, #0
+     7c8:	e5853000 	str	r3, [r5]
+    clear_screen(); // pixel_buffer_start points to the pixel buffer
+     7cc:	ebffff12 	bl	41c <clear_screen>
+
+    /* set back pixel buffer to start of SDRAM memory */
+    // without double buffer, sometimes near the top/left the image gets cutoff/missing(black)
+    *(pixel_ctrl_ptr + 1) = 0xC0000000;
+     7d0:	e3a03103 	mov	r3, #-1073741824	; 0xc0000000
+     7d4:	e5043fdb 	str	r3, [r4, #-4059]	; 0xfffff025
+    pixel_buffer_start = *(pixel_ctrl_ptr + 1); // we draw on the back buffer
+     7d8:	e5143fdb 	ldr	r3, [r4, #-4059]	; 0xfffff025
+     7dc:	e5853000 	str	r3, [r5]
+
+    int ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+    int ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+    int ball_dx = rand()%3-1;
+     7e0:	eb000979 	bl	2dcc <rand>
+     7e4:	e3053556 	movw	r3, #21846	; 0x5556
+     7e8:	e3453555 	movt	r3, #21845	; 0x5555
+     7ec:	e0c31093 	smull	r1, r3, r3, r0
+     7f0:	e0433fc0 	sub	r3, r3, r0, asr #31
+     7f4:	e0833083 	add	r3, r3, r3, lsl #1
+     7f8:	e0630000 	rsb	r0, r3, r0
+     7fc:	e2408001 	sub	r8, r0, #1
+    int ball_dy = -2; // minus is up
+
+    
+    bool round_started = false;
+     800:	e3a02000 	mov	r2, #0
+     804:	e58d2020 	str	r2, [sp, #32]
+    pixel_buffer_start = *(pixel_ctrl_ptr + 1); // we draw on the back buffer
+
+    int ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+    int ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+    int ball_dx = rand()%3-1;
+    int ball_dy = -2; // minus is up
+     808:	e3e0b001 	mvn	r11, #1
+    // without double buffer, sometimes near the top/left the image gets cutoff/missing(black)
+    *(pixel_ctrl_ptr + 1) = 0xC0000000;
+    pixel_buffer_start = *(pixel_ctrl_ptr + 1); // we draw on the back buffer
+
+    int ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+    int ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+     80c:	e3a070cc 	mov	r7, #204	; 0xcc
+    /* set back pixel buffer to start of SDRAM memory */
+    // without double buffer, sometimes near the top/left the image gets cutoff/missing(black)
+    *(pixel_ctrl_ptr + 1) = 0xC0000000;
+    pixel_buffer_start = *(pixel_ctrl_ptr + 1); // we draw on the back buffer
+
+    int ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+     810:	e3a0409c 	mov	r4, #156	; 0x9c
+    }
+
+    bool padLeft = false;
+    bool padRight = false;
+
+    int paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+     814:	e3a0907f 	mov	r9, #127	; 0x7f
+
+    volatile int * pixel_ctrl_ptr = (int *) 0xFF203020;
+    volatile int * key_ptr = (int *) 0xFF200050;
+
+    int score = 0;
+    int lives = 3;
+     818:	e3a03003 	mov	r3, #3
+     81c:	e58d3014 	str	r3, [sp, #20]
+int main(void) {
+
+    volatile int * pixel_ctrl_ptr = (int *) 0xFF203020;
+    volatile int * key_ptr = (int *) 0xFF200050;
+
+    int score = 0;
+     820:	e58d201c 	str	r2, [sp, #28]
+
+    
+    bool round_started = false;
+    while (lives > 0){
+        // Read key values
+        short int keyPressCurrent = (*key_ptr);
+     824:	e1a0e002 	mov	lr, r2
+     828:	e34fef20 	movt	lr, #65312	; 0xff20
+     82c:	e58de024 	str	lr, [sp, #36]	; 0x24
+     830:	e58d5018 	str	r5, [sp, #24]
+     834:	e2851004 	add	r1, r5, #4
+     838:	e58d1034 	str	r1, [sp, #52]	; 0x34
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     83c:	e2812c05 	add	r2, r1, #1280	; 0x500
+     840:	e58d2040 	str	r2, [sp, #64]	; 0x40
+        drawBall(ball_x, ball_y, BALL_SIZE);
+
+        for(y=0; y<NUM_ROW_OF_BOX; y++){
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]){
+                    plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+     844:	e3093ac4 	movw	r3, #39620	; 0x9ac4
+     848:	e34f3fff 	movt	r3, #65535	; 0xffff
+     84c:	e58d302c 	str	r3, [sp, #44]	; 0x2c
+            lives--;
+            round_started = false;
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+            ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+            ball_dx = rand()%3-1;
+     850:	e305e556 	movw	lr, #21846	; 0x5556
+     854:	e345e555 	movt	lr, #21845	; 0x5555
+     858:	e58de038 	str	lr, [sp, #56]	; 0x38
+
+    
+    bool round_started = false;
+    while (lives > 0){
+        // Read key values
+        short int keyPressCurrent = (*key_ptr);
+     85c:	e59d0024 	ldr	r0, [sp, #36]	; 0x24
+     860:	e5902050 	ldr	r2, [r0, #80]	; 0x50
+        short int keyPressEdge = *(key_ptr + 3);
+     864:	e590305c 	ldr	r3, [r0, #92]	; 0x5c
+     868:	e6ff3073 	uxth	r3, r3
+        *(key_ptr + 3) = keyPressEdge; // reset edge 
+     86c:	e6bf1073 	sxth	r1, r3
+     870:	e580105c 	str	r1, [r0, #92]	; 0x5c
+        short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
+     874:	e1833002 	orr	r3, r3, r2
+     878:	e6ff3073 	uxth	r3, r3
+     87c:	e58d3028 	str	r3, [sp, #40]	; 0x28
+        
+        // Handle waiting for KEY2 to be pressed to start a life
+        if (!round_started) {
+     880:	e59d1020 	ldr	r1, [sp, #32]
+     884:	e3510000 	cmp	r1, #0
+     888:	1a000038 	bne	970 <main+0x254>
+            if (keyPress == 0b0010) {
+     88c:	e6bf3073 	sxth	r3, r3
+     890:	e3530002 	cmp	r3, #2
+     894:	0a000033 	beq	968 <main+0x24c>
+                round_started = true;
+            } else {
+                // Initial Draw
+                clear_screen();
+     898:	ebfffedf 	bl	41c <clear_screen>
+                writeScoreAndLife(score, lives);
+     89c:	e59d001c 	ldr	r0, [sp, #28]
+     8a0:	e59d1014 	ldr	r1, [sp, #20]
+     8a4:	ebffff06 	bl	4c4 <writeScoreAndLife>
+                drawBall(ball_x, ball_y, BALL_SIZE);
+     8a8:	e1a00004 	mov	r0, r4
+     8ac:	e1a01007 	mov	r1, r7
+     8b0:	e3a02006 	mov	r2, #6
+     8b4:	ebfffe77 	bl	298 <drawBall>
+     8b8:	e3a02015 	mov	r2, #21
+     8bc:	e58d200c 	str	r2, [sp, #12]
+                int x,y;
+                for(y=0; y<NUM_ROW_OF_BOX; y++){
+     8c0:	e3a0a000 	mov	r10, #0
+     8c4:	ea000012 	b	914 <main+0x1f8>
+                    for(x=0; x<NUM_BOX_PER_ROW; x++){
+                        if(drawBrick[y][x]){
+     8c8:	e5f63001 	ldrb	r3, [r6, #1]!
+     8cc:	e3530000 	cmp	r3, #0
+     8d0:	0a000006 	beq	8f0 <main+0x1d4>
+                            plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+     8d4:	e59d302c 	ldr	r3, [sp, #44]	; 0x2c
+     8d8:	e58d3000 	str	r3, [sp]
+     8dc:	e1a00005 	mov	r0, r5
+     8e0:	e59d1010 	ldr	r1, [sp, #16]
+     8e4:	e3a02023 	mov	r2, #35	; 0x23
+     8e8:	e3a0300f 	mov	r3, #15
+     8ec:	ebfffe8c 	bl	324 <plot_boxes>
+     8f0:	e2855024 	add	r5, r5, #36	; 0x24
+                clear_screen();
+                writeScoreAndLife(score, lives);
+                drawBall(ball_x, ball_y, BALL_SIZE);
+                int x,y;
+                for(y=0; y<NUM_ROW_OF_BOX; y++){
+                    for(x=0; x<NUM_BOX_PER_ROW; x++){
+     8f4:	e3550e13 	cmp	r5, #304	; 0x130
+     8f8:	1afffff2 	bne	8c8 <main+0x1ac>
+                // Initial Draw
+                clear_screen();
+                writeScoreAndLife(score, lives);
+                drawBall(ball_x, ball_y, BALL_SIZE);
+                int x,y;
+                for(y=0; y<NUM_ROW_OF_BOX; y++){
+     8fc:	e28aa001 	add	r10, r10, #1
+     900:	e59de00c 	ldr	lr, [sp, #12]
+     904:	e28ee010 	add	lr, lr, #16
+     908:	e58de00c 	str	lr, [sp, #12]
+     90c:	e35a0004 	cmp	r10, #4
+     910:	0a000006 	beq	930 <main+0x214>
+                    for(x=0; x<NUM_BOX_PER_ROW; x++){
+                        if(drawBrick[y][x]){
+                            plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+     914:	e59d000c 	ldr	r0, [sp, #12]
+     918:	e58d0010 	str	r0, [sp, #16]
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     91c:	e28d1048 	add	r1, sp, #72	; 0x48
+     920:	e081618a 	add	r6, r1, r10, lsl #3
+     924:	e2466001 	sub	r6, r6, #1
+     928:	e3a05010 	mov	r5, #16
+     92c:	eaffffe5 	b	8c8 <main+0x1ac>
+                        if(drawBrick[y][x]){
+                            plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+                        }
+                    }
+                }
+                plot_boxes(paddleX, PADDLE_POSITION_Y, PADDLE_X, PADDLE_Y, PADDLE_COLOUR);
+     930:	e304311e 	movw	r3, #16670	; 0x411e
+     934:	e58d3000 	str	r3, [sp]
+     938:	e1a00009 	mov	r0, r9
+     93c:	e3a010d2 	mov	r1, #210	; 0xd2
+     940:	e3a02040 	mov	r2, #64	; 0x40
+     944:	e3a0300a 	mov	r3, #10
+     948:	ebfffe75 	bl	324 <plot_boxes>
+                wait_for_vsync(); // swap front and back buffers on VGA vertical sync
+     94c:	ebffff65 	bl	6e8 <wait_for_vsync>
+                pixel_buffer_start = *(pixel_ctrl_ptr + 1); // new back buffer
+     950:	e3033fff 	movw	r3, #16383	; 0x3fff
+     954:	e34f3f20 	movt	r3, #65312	; 0xff20
+     958:	e5133fdb 	ldr	r3, [r3, #-4059]	; 0xfffff025
+     95c:	e59d2018 	ldr	r2, [sp, #24]
+     960:	e5823000 	str	r3, [r2]
+                continue;
+     964:	ea0000e5 	b	d00 <main+0x5e4>
+        short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
+        
+        // Handle waiting for KEY2 to be pressed to start a life
+        if (!round_started) {
+            if (keyPress == 0b0010) {
+                round_started = true;
+     968:	e3a03001 	mov	r3, #1
+     96c:	e58d3020 	str	r3, [sp, #32]
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     970:	e3a0e015 	mov	lr, #21
+     974:	e58de00c 	str	lr, [sp, #12]
+        }
+
+        /* Check whether the ball has hit anything */
+        // If it's hit a brick, remove the brick
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+     978:	e3a06000 	mov	r6, #0
+                if(drawBrick[y][x]) {
+                    int box_left = MIN_X+PADDING+x*(BOX_X+PADDING); 
+                    int box_right = box_left + BOX_X;
+                    int box_top = MIN_Y+PADDING+y*(BOX_Y+PADDING);
+                    int box_bot = box_top + BOX_Y;
+                    if (ball_x+BALL_SIZE >= box_left && ball_x < box_right) {
+     97c:	e2840006 	add	r0, r4, #6
+     980:	e58d0010 	str	r0, [sp, #16]
+                        // ball is within X range of box
+                        if (ball_y+BALL_SIZE >= box_top && ball_y < box_bot) {
+     984:	e2871006 	add	r1, r7, #6
+     988:	e58d1030 	str	r1, [sp, #48]	; 0x30
+     98c:	e58d9044 	str	r9, [sp, #68]	; 0x44
+     990:	ea00004c 	b	ac8 <main+0x3ac>
+        /* Check whether the ball has hit anything */
+        // If it's hit a brick, remove the brick
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]) {
+     994:	e7d0e003 	ldrb	lr, [r0, r3]
+     998:	e35e0000 	cmp	lr, #0
+     99c:	0a00003e 	beq	a9c <main+0x380>
+                    int box_left = MIN_X+PADDING+x*(BOX_X+PADDING); 
+     9a0:	e1a09002 	mov	r9, r2
+                    int box_right = box_left + BOX_X;
+                    int box_top = MIN_Y+PADDING+y*(BOX_Y+PADDING);
+                    int box_bot = box_top + BOX_Y;
+                    if (ball_x+BALL_SIZE >= box_left && ball_x < box_right) {
+     9a4:	e59d5010 	ldr	r5, [sp, #16]
+     9a8:	e1520005 	cmp	r2, r5
+     9ac:	ca00003a 	bgt	a9c <main+0x380>
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]) {
+                    int box_left = MIN_X+PADDING+x*(BOX_X+PADDING); 
+                    int box_right = box_left + BOX_X;
+     9b0:	e58d103c 	str	r1, [sp, #60]	; 0x3c
+                    int box_top = MIN_Y+PADDING+y*(BOX_Y+PADDING);
+                    int box_bot = box_top + BOX_Y;
+                    if (ball_x+BALL_SIZE >= box_left && ball_x < box_right) {
+     9b4:	e1510004 	cmp	r1, r4
+     9b8:	da000037 	ble	a9c <main+0x380>
+                        // ball is within X range of box
+                        if (ball_y+BALL_SIZE >= box_top && ball_y < box_bot) {
+     9bc:	e59de030 	ldr	lr, [sp, #48]	; 0x30
+     9c0:	e58de008 	str	lr, [sp, #8]
+     9c4:	e15c000e 	cmp	r12, lr
+     9c8:	ca000033 	bgt	a9c <main+0x380>
+     9cc:	e157000a 	cmp	r7, r10
+     9d0:	aa000031 	bge	a9c <main+0x380>
+                            // ball is within Y range of box
+                            // break box! 
+                            drawBrick[y][x] = false;
+     9d4:	e28d0068 	add	r0, sp, #104	; 0x68
+     9d8:	e0802186 	add	r2, r0, r6, lsl #3
+     9dc:	e0823003 	add	r3, r2, r3
+     9e0:	e3a01000 	mov	r1, #0
+     9e4:	e5431020 	strb	r1, [r3, #-32]	; 0xffffffe0
+                            // bounce ball
+                            // if bottom of ball is below box: flip dy
+                            // if top of ball is above box: flip dy
+                            // if completely in middle (y-wise): keep dy direction, change speed
+                            if (ball_y+BALL_SIZE > box_bot || ball_y < box_top) {
+     9e8:	e15e000a 	cmp	lr, r10
+     9ec:	ca000001 	bgt	9f8 <main+0x2dc>
+     9f0:	e15c0007 	cmp	r12, r7
+     9f4:	da000001 	ble	a00 <main+0x2e4>
+                                ball_dy *= -1;
+     9f8:	e26bb000 	rsb	r11, r11, #0
+     9fc:	ea00000d 	b	a38 <main+0x31c>
+                            } else {
+                                ball_dy += (rand()%2)*(ball_dy/abs(ball_dy)); // a number 0,1,2 in direction of dy
+     a00:	eb0008f1 	bl	2dcc <rand>
+     a04:	e080afa0 	add	r10, r0, r0, lsr #31
+     a08:	e20aa001 	and	r10, r10, #1
+     a0c:	e04aafa0 	sub	r10, r10, r0, lsr #31
+     a10:	e1a0000b 	mov	r0, r11
+     a14:	e02b1fcb 	eor	r1, r11, r11, asr #31
+     a18:	e0411fcb 	sub	r1, r1, r11, asr #31
+     a1c:	eb00087b 	bl	2c10 <__aeabi_idiv>
+     a20:	e02bba90 	mla	r11, r0, r10, r11
+                                // if it's too large (>4), halve it
+                                if (abs(ball_dy) > 4) {
+     a24:	e02b3fcb 	eor	r3, r11, r11, asr #31
+     a28:	e0433fcb 	sub	r3, r3, r11, asr #31
+     a2c:	e3530004 	cmp	r3, #4
+                                    ball_dy /= 2;
+     a30:	c08bbfab 	addgt	r11, r11, r11, lsr #31
+     a34:	c1a0b0cb 	asrgt	r11, r11, #1
+                            }
+
+                            // if left of ball is left of box: flip dx
+                            // if right of ball is right of box: flip dx
+                            // if completely in middle (x-ise): keep dx direction
+                            if (ball_x+BALL_SIZE > box_right || ball_x < box_left) {
+     a38:	e59d203c 	ldr	r2, [sp, #60]	; 0x3c
+     a3c:	e1520005 	cmp	r2, r5
+     a40:	ba000001 	blt	a4c <main+0x330>
+     a44:	e1540009 	cmp	r4, r9
+     a48:	aa000001 	bge	a54 <main+0x338>
+                                ball_dx *= -1;
+     a4c:	e2688000 	rsb	r8, r8, #0
+     a50:	ea00000d 	b	a8c <main+0x370>
+                            } else {
+                                ball_dx += (rand()%2)*(ball_dx/abs(ball_dx)); // a number 0,1,2 in direction of dy
+     a54:	eb0008dc 	bl	2dcc <rand>
+     a58:	e0805fa0 	add	r5, r0, r0, lsr #31
+     a5c:	e2055001 	and	r5, r5, #1
+     a60:	e0455fa0 	sub	r5, r5, r0, lsr #31
+     a64:	e1a00008 	mov	r0, r8
+     a68:	e0281fc8 	eor	r1, r8, r8, asr #31
+     a6c:	e0411fc8 	sub	r1, r1, r8, asr #31
+     a70:	eb000866 	bl	2c10 <__aeabi_idiv>
+     a74:	e0288590 	mla	r8, r0, r5, r8
+                                // if it's too large (>6), halve it
+                                if (abs(ball_dx) > 6) {
+     a78:	e0283fc8 	eor	r3, r8, r8, asr #31
+     a7c:	e0433fc8 	sub	r3, r3, r8, asr #31
+     a80:	e3530006 	cmp	r3, #6
+                                    ball_dx /= 2;
+     a84:	c0888fa8 	addgt	r8, r8, r8, lsr #31
+     a88:	c1a080c8 	asrgt	r8, r8, #1
+                                }
+                            }
+                            // THUS, |dx| must be less than BOX_X, |dy| must be less than BOX_Y, I think?
+                            // exit, you can only break one box per hit
+                            score += 1;
+     a8c:	e59d301c 	ldr	r3, [sp, #28]
+     a90:	e2833001 	add	r3, r3, #1
+     a94:	e58d301c 	str	r3, [sp, #28]
+                            break;
+     a98:	ea000004 	b	ab0 <main+0x394>
+
+        /* Check whether the ball has hit anything */
+        // If it's hit a brick, remove the brick
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+     a9c:	e2833001 	add	r3, r3, #1
+     aa0:	e2822024 	add	r2, r2, #36	; 0x24
+     aa4:	e2811024 	add	r1, r1, #36	; 0x24
+     aa8:	e3530008 	cmp	r3, #8
+     aac:	1affffb8 	bne	994 <main+0x278>
+        }
+
+        /* Check whether the ball has hit anything */
+        // If it's hit a brick, remove the brick
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+     ab0:	e2866001 	add	r6, r6, #1
+     ab4:	e59de00c 	ldr	lr, [sp, #12]
+     ab8:	e28ee010 	add	lr, lr, #16
+     abc:	e58de00c 	str	lr, [sp, #12]
+     ac0:	e3560004 	cmp	r6, #4
+     ac4:	0a000007 	beq	ae8 <main+0x3cc>
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]) {
+                    int box_left = MIN_X+PADDING+x*(BOX_X+PADDING); 
+                    int box_right = box_left + BOX_X;
+                    int box_top = MIN_Y+PADDING+y*(BOX_Y+PADDING);
+     ac8:	e59dc00c 	ldr	r12, [sp, #12]
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     acc:	e28ca00f 	add	r10, r12, #15
+     ad0:	e28d1048 	add	r1, sp, #72	; 0x48
+     ad4:	e0810186 	add	r0, r1, r6, lsl #3
+     ad8:	e3a01033 	mov	r1, #51	; 0x33
+     adc:	e3a02010 	mov	r2, #16
+     ae0:	e3a03000 	mov	r3, #0
+     ae4:	eaffffaa 	b	994 <main+0x278>
+     ae8:	e59d9044 	ldr	r9, [sp, #68]	; 0x44
+        }
+
+        /* Check whether the ball has hit anything */
+        // If it's hit a brick, remove the brick
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+     aec:	e1a0300b 	mov	r3, r11
+     af0:	e1a02008 	mov	r2, r8
+     af4:	e59d501c 	ldr	r5, [sp, #28]
+                    }
+                }
+            }
+        }
+        // If hit a side wall, flip dx
+        if (ball_x < MIN_X || ball_x+BALL_SIZE >= MAX_X) {
+     af8:	e354000e 	cmp	r4, #14
+     afc:	da000002 	ble	b0c <main+0x3f0>
+     b00:	e2841006 	add	r1, r4, #6
+     b04:	e3510e13 	cmp	r1, #304	; 0x130
+     b08:	ba000000 	blt	b10 <main+0x3f4>
+            ball_dx *= -1;
+     b0c:	e2628000 	rsb	r8, r2, #0
+            // add rand() too?
+        }
+        // If hit the top wall or paddle, flip dy
+        if (ball_y < MIN_Y || (ball_y > PADDLE_POSITION_Y && ball_y < PADDLE_POSITION_Y+PADDLE_Y && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
+     b10:	e3570013 	cmp	r7, #19
+     b14:	da000007 	ble	b38 <main+0x41c>
+     b18:	e24720d3 	sub	r2, r7, #211	; 0xd3
+     b1c:	e3520008 	cmp	r2, #8
+     b20:	8a000005 	bhi	b3c <main+0x420>
+     b24:	e1590004 	cmp	r9, r4
+     b28:	aa000003 	bge	b3c <main+0x420>
+     b2c:	e2892040 	add	r2, r9, #64	; 0x40
+     b30:	e1520004 	cmp	r2, r4
+     b34:	da000000 	ble	b3c <main+0x420>
+            ball_dy *= -1;
+     b38:	e263b000 	rsb	r11, r3, #0
+            // add rand() too?
+        }
+        // If went below paddle & off screen, lose a life && reset
+        if (ball_y+BALL_SIZE >= MAX_Y) {
+     b3c:	e2873006 	add	r3, r7, #6
+     b40:	e35300e9 	cmp	r3, #233	; 0xe9
+     b44:	da000010 	ble	b8c <main+0x470>
+            lives--;
+     b48:	e59d2014 	ldr	r2, [sp, #20]
+     b4c:	e2422001 	sub	r2, r2, #1
+     b50:	e58d2014 	str	r2, [sp, #20]
+            round_started = false;
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+            ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+            ball_dx = rand()%3-1;
+     b54:	eb00089c 	bl	2dcc <rand>
+     b58:	e59d1038 	ldr	r1, [sp, #56]	; 0x38
+     b5c:	e0c31091 	smull	r1, r3, r1, r0
+     b60:	e0433fc0 	sub	r3, r3, r0, asr #31
+     b64:	e0833083 	add	r3, r3, r3, lsl #1
+     b68:	e0630000 	rsb	r0, r3, r0
+     b6c:	e2408001 	sub	r8, r0, #1
+            // add rand() too?
+        }
+        // If went below paddle & off screen, lose a life && reset
+        if (ball_y+BALL_SIZE >= MAX_Y) {
+            lives--;
+            round_started = false;
+     b70:	e3a02000 	mov	r2, #0
+     b74:	e58d2020 	str	r2, [sp, #32]
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+            ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+            ball_dx = rand()%3-1;
+            ball_dy = -2; // minus is up
+     b78:	e3e0b001 	mvn	r11, #1
+        if (ball_y+BALL_SIZE >= MAX_Y) {
+            lives--;
+            round_started = false;
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+            ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+     b7c:	e3a070cc 	mov	r7, #204	; 0xcc
+        // If went below paddle & off screen, lose a life && reset
+        if (ball_y+BALL_SIZE >= MAX_Y) {
+            lives--;
+            round_started = false;
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+     b80:	e3a0409c 	mov	r4, #156	; 0x9c
+        }
+        // If went below paddle & off screen, lose a life && reset
+        if (ball_y+BALL_SIZE >= MAX_Y) {
+            lives--;
+            round_started = false;
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+     b84:	e3a0907f 	mov	r9, #127	; 0x7f
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+            ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+            ball_dx = rand()%3-1;
+            ball_dy = -2; // minus is up
+            continue;
+     b88:	ea00005c 	b	d00 <main+0x5e4>
+
+        /* Move paddle based on KEY presses */
+        padLeft = false;
+        padRight = false;
+        // Set whether moving left or right
+        if(keyPress == 0b100){
+     b8c:	e59de028 	ldr	lr, [sp, #40]	; 0x28
+     b90:	e6bf307e 	sxth	r3, lr
+     b94:	e3530004 	cmp	r3, #4
+        } else if(keyPress == 0b001){
+            padRight = true;
+        }
+        // Update paddle location
+        if(padLeft){
+            paddleX -=4;
+     b98:	02499004 	subeq	r9, r9, #4
+
+        /* Move paddle based on KEY presses */
+        padLeft = false;
+        padRight = false;
+        // Set whether moving left or right
+        if(keyPress == 0b100){
+     b9c:	0a000001 	beq	ba8 <main+0x48c>
+            padLeft = true;
+        } else if(keyPress == 0b001){
+     ba0:	e3530001 	cmp	r3, #1
+        }
+        // Update paddle location
+        if(padLeft){
+            paddleX -=4;
+        } else if(padRight){
+            paddleX +=4;
+     ba4:	02899004 	addeq	r9, r9, #4
+        }
+        // Don't go too far!
+        if(paddleX <= MIN_X){
+     ba8:	e359000f 	cmp	r9, #15
+            paddleX = MIN_X;
+     bac:	d3a0900f 	movle	r9, #15
+            paddleX -=4;
+        } else if(padRight){
+            paddleX +=4;
+        }
+        // Don't go too far!
+        if(paddleX <= MIN_X){
+     bb0:	da000003 	ble	bc4 <main+0x4a8>
+            paddleX = MIN_X;
+        } else if((paddleX+PADDLE_X) >= MAX_X){
+     bb4:	e2893040 	add	r3, r9, #64	; 0x40
+            paddleX = MAX_X-PADDLE_X;
+     bb8:	e3530e13 	cmp	r3, #304	; 0x130
+     bbc:	a3a090f0 	movge	r9, #240	; 0xf0
+     bc0:	eaffffff 	b	bc4 <main+0x4a8>
+        }
+
+        /* Draw new screen */
+        // Erase old buffer
+        clear_screen();
+     bc4:	ebfffe14 	bl	41c <clear_screen>
+
+        // draw the score and the lives
+        writeScoreAndLife(score, lives);
+     bc8:	e1a00005 	mov	r0, r5
+     bcc:	e59d1014 	ldr	r1, [sp, #20]
+     bd0:	ebfffe3b 	bl	4c4 <writeScoreAndLife>
+     bd4:	e59d1034 	ldr	r1, [sp, #52]	; 0x34
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     bd8:	e3e0000f 	mvn	r0, #15
+        }
+        // Don't go too far!
+        if(paddleX <= MIN_X){
+            paddleX = MIN_X;
+        } else if((paddleX+PADDLE_X) >= MAX_X){
+            paddleX = MAX_X-PADDLE_X;
+     bdc:	e3e06014 	mvn	r6, #20
+     be0:	e3a05000 	mov	r5, #0
+
+        // redraw the boxes and paddle
+        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
+        for(x=0; x<320; x++){
+            for(y=0; y<240; y++){
+                if(x<=MIN_X || x>=MAX_X || y<=MIN_Y || y>=MAX_Y){
+     be4:	e300c11f 	movw	r12, #287	; 0x11f
+                    boardStatus[y][x] = 2;
+     be8:	e3a0e002 	mov	lr, #2
+     bec:	e59da040 	ldr	r10, [sp, #64]	; 0x40
+     bf0:	ea00000e 	b	c30 <main+0x514>
+
+        // redraw the boxes and paddle
+        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
+        for(x=0; x<320; x++){
+            for(y=0; y<240; y++){
+                if(x<=MIN_X || x>=MAX_X || y<=MIN_Y || y>=MAX_Y){
+     bf4:	e150000c 	cmp	r0, r12
+     bf8:	8a000002 	bhi	c08 <main+0x4ec>
+     bfc:	e35200d4 	cmp	r2, #212	; 0xd4
+                    boardStatus[y][x] = 2;
+                } else {
+                    boardStatus[y][x] = 0;
+     c00:	97815003 	strls	r5, [r1, r3]
+
+        // redraw the boxes and paddle
+        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
+        for(x=0; x<320; x++){
+            for(y=0; y<240; y++){
+                if(x<=MIN_X || x>=MAX_X || y<=MIN_Y || y>=MAX_Y){
+     c04:	9a000001 	bls	c10 <main+0x4f4>
+                    boardStatus[y][x] = 2;
+     c08:	e781e003 	str	lr, [r1, r3]
+     c0c:	eaffffff 	b	c10 <main+0x4f4>
+     c10:	e2833c05 	add	r3, r3, #1280	; 0x500
+     c14:	e2822001 	add	r2, r2, #1
+        writeScoreAndLife(score, lives);
+
+        // redraw the boxes and paddle
+        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
+        for(x=0; x<320; x++){
+            for(y=0; y<240; y++){
+     c18:	e3530a4b 	cmp	r3, #307200	; 0x4b000
+     c1c:	1afffff4 	bne	bf4 <main+0x4d8>
+     c20:	e2811004 	add	r1, r1, #4
+     c24:	e2800001 	add	r0, r0, #1
+        // draw the score and the lives
+        writeScoreAndLife(score, lives);
+
+        // redraw the boxes and paddle
+        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
+        for(x=0; x<320; x++){
+     c28:	e151000a 	cmp	r1, r10
+     c2c:	0a000002 	beq	c3c <main+0x520>
+        }
+        // Don't go too far!
+        if(paddleX <= MIN_X){
+            paddleX = MIN_X;
+        } else if((paddleX+PADDLE_X) >= MAX_X){
+            paddleX = MAX_X-PADDLE_X;
+     c30:	e1a02006 	mov	r2, r6
+     c34:	e1a03005 	mov	r3, r5
+     c38:	eaffffed 	b	bf4 <main+0x4d8>
+                    boardStatus[y][x] = 0;
+                }
+            }
+        }
+
+        drawBall(ball_x, ball_y, BALL_SIZE);
+     c3c:	e1a00004 	mov	r0, r4
+     c40:	e1a01007 	mov	r1, r7
+     c44:	e3a02006 	mov	r2, #6
+     c48:	ebfffd92 	bl	298 <drawBall>
+     c4c:	e3a00015 	mov	r0, #21
+     c50:	e58d000c 	str	r0, [sp, #12]
+
+        for(y=0; y<NUM_ROW_OF_BOX; y++){
+     c54:	e3a0a000 	mov	r10, #0
+     c58:	ea000012 	b	ca8 <main+0x58c>
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]){
+     c5c:	e5f63001 	ldrb	r3, [r6, #1]!
+     c60:	e3530000 	cmp	r3, #0
+     c64:	0a000006 	beq	c84 <main+0x568>
+                    plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+     c68:	e59d102c 	ldr	r1, [sp, #44]	; 0x2c
+     c6c:	e58d1000 	str	r1, [sp]
+     c70:	e1a00005 	mov	r0, r5
+     c74:	e59d1010 	ldr	r1, [sp, #16]
+     c78:	e3a02023 	mov	r2, #35	; 0x23
+     c7c:	e3a0300f 	mov	r3, #15
+     c80:	ebfffda7 	bl	324 <plot_boxes>
+     c84:	e2855024 	add	r5, r5, #36	; 0x24
+        }
+
+        drawBall(ball_x, ball_y, BALL_SIZE);
+
+        for(y=0; y<NUM_ROW_OF_BOX; y++){
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+     c88:	e3550e13 	cmp	r5, #304	; 0x130
+     c8c:	1afffff2 	bne	c5c <main+0x540>
+            }
+        }
+
+        drawBall(ball_x, ball_y, BALL_SIZE);
+
+        for(y=0; y<NUM_ROW_OF_BOX; y++){
+     c90:	e28aa001 	add	r10, r10, #1
+     c94:	e59d200c 	ldr	r2, [sp, #12]
+     c98:	e2822010 	add	r2, r2, #16
+     c9c:	e58d200c 	str	r2, [sp, #12]
+     ca0:	e35a0004 	cmp	r10, #4
+     ca4:	0a000006 	beq	cc4 <main+0x5a8>
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]){
+                    plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+     ca8:	e59d300c 	ldr	r3, [sp, #12]
+     cac:	e58d3010 	str	r3, [sp, #16]
+void swap(int *n0, int *n1);
+int abs(int x);
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
+
+int main(void) {
+     cb0:	e28de048 	add	lr, sp, #72	; 0x48
+     cb4:	e08e618a 	add	r6, lr, r10, lsl #3
+     cb8:	e2466001 	sub	r6, r6, #1
+     cbc:	e3a05010 	mov	r5, #16
+     cc0:	eaffffe5 	b	c5c <main+0x540>
+                    plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+                }
+            }
+        }
+
+        plot_boxes(paddleX, PADDLE_POSITION_Y, PADDLE_X, PADDLE_Y, PADDLE_COLOUR);
+     cc4:	e304311e 	movw	r3, #16670	; 0x411e
+     cc8:	e58d3000 	str	r3, [sp]
+     ccc:	e1a00009 	mov	r0, r9
+     cd0:	e3a010d2 	mov	r1, #210	; 0xd2
+     cd4:	e3a02040 	mov	r2, #64	; 0x40
+     cd8:	e3a0300a 	mov	r3, #10
+     cdc:	ebfffd90 	bl	324 <plot_boxes>
+
+        wait_for_vsync(); // swap front and back buffers on VGA vertical sync
+     ce0:	ebfffe80 	bl	6e8 <wait_for_vsync>
+        pixel_buffer_start = *(pixel_ctrl_ptr + 1); // new back buffer
+     ce4:	e3033fff 	movw	r3, #16383	; 0x3fff
+     ce8:	e34f3f20 	movt	r3, #65312	; 0xff20
+     cec:	e5133fdb 	ldr	r3, [r3, #-4059]	; 0xfffff025
+     cf0:	e59d0018 	ldr	r0, [sp, #24]
+     cf4:	e5803000 	str	r3, [r0]
+        
+        /* Move ball */
+        // TODO: Slope & travel
+        ball_x = ball_x + ball_dx;//*SIMULATOR_ADJUSTMENT;
+     cf8:	e0844008 	add	r4, r4, r8
+        ball_y = ball_y + ball_dy;//*SIMULATOR_ADJUSTMENT;
+     cfc:	e087700b 	add	r7, r7, r11
+    int ball_dx = rand()%3-1;
+    int ball_dy = -2; // minus is up
+
+    
+    bool round_started = false;
+    while (lives > 0){
+     d00:	e59d1014 	ldr	r1, [sp, #20]
+     d04:	e3510000 	cmp	r1, #0
+     d08:	cafffed3 	bgt	85c <main+0x140>
+     d0c:	eaffffff 	b	d10 <main+0x5f4>
+        ball_x = ball_x + ball_dx;//*SIMULATOR_ADJUSTMENT;
+        ball_y = ball_y + ball_dy;//*SIMULATOR_ADJUSTMENT;
+        
+        
+    }
+}
+     d10:	e3a00000 	mov	r0, #0
+     d14:	e28dd06c 	add	sp, sp, #108	; 0x6c
+     d18:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+
+00000d1c <SCORELIFE>:
+     d1c:	03029404 	.word	0x03029404
+     d20:	21042104 	.word	0x21042104
+     d24:	21042104 	.word	0x21042104
+     d28:	21042104 	.word	0x21042104
+     d2c:	21042104 	.word	0x21042104
+     d30:	21042104 	.word	0x21042104
+     d34:	21042104 	.word	0x21042104
+     d38:	21042104 	.word	0x21042104
+     d3c:	21042104 	.word	0x21042104
+     d40:	21042104 	.word	0x21042104
+     d44:	21042104 	.word	0x21042104
+     d48:	21042104 	.word	0x21042104
+     d4c:	21042104 	.word	0x21042104
+     d50:	21042104 	.word	0x21042104
+     d54:	21042104 	.word	0x21042104
+     d58:	21042104 	.word	0x21042104
+     d5c:	21042104 	.word	0x21042104
+     d60:	21042104 	.word	0x21042104
+     d64:	21042104 	.word	0x21042104
+     d68:	21042104 	.word	0x21042104
+     d6c:	21042104 	.word	0x21042104
+     d70:	21042104 	.word	0x21042104
+     d74:	21042104 	.word	0x21042104
+     d78:	21042104 	.word	0x21042104
+     d7c:	21042104 	.word	0x21042104
+     d80:	21042104 	.word	0x21042104
+     d84:	21042104 	.word	0x21042104
+     d88:	21042104 	.word	0x21042104
+     d8c:	21042104 	.word	0x21042104
+     d90:	21042104 	.word	0x21042104
+     d94:	21042104 	.word	0x21042104
+     d98:	21042104 	.word	0x21042104
+     d9c:	21042104 	.word	0x21042104
+     da0:	21042104 	.word	0x21042104
+     da4:	21042104 	.word	0x21042104
+     da8:	21042104 	.word	0x21042104
+     dac:	21042104 	.word	0x21042104
+     db0:	21042104 	.word	0x21042104
+     db4:	21042104 	.word	0x21042104
+     db8:	21042104 	.word	0x21042104
+     dbc:	21042104 	.word	0x21042104
+     dc0:	21042104 	.word	0x21042104
+     dc4:	21042104 	.word	0x21042104
+     dc8:	21042104 	.word	0x21042104
+     dcc:	21042104 	.word	0x21042104
+     dd0:	21042104 	.word	0x21042104
+     dd4:	21042104 	.word	0x21042104
+     dd8:	21042104 	.word	0x21042104
+     ddc:	21042104 	.word	0x21042104
+     de0:	21042104 	.word	0x21042104
+     de4:	21042104 	.word	0x21042104
+     de8:	21042104 	.word	0x21042104
+     dec:	21042104 	.word	0x21042104
+     df0:	21042104 	.word	0x21042104
+     df4:	21042104 	.word	0x21042104
+     df8:	21042104 	.word	0x21042104
+     dfc:	21042104 	.word	0x21042104
+     e00:	21042104 	.word	0x21042104
+     e04:	21042104 	.word	0x21042104
+     e08:	21042104 	.word	0x21042104
+     e0c:	21042104 	.word	0x21042104
+     e10:	21042104 	.word	0x21042104
+     e14:	21042104 	.word	0x21042104
+     e18:	21042104 	.word	0x21042104
+     e1c:	21042104 	.word	0x21042104
+     e20:	21042104 	.word	0x21042104
+     e24:	21042104 	.word	0x21042104
+     e28:	21042104 	.word	0x21042104
+     e2c:	21042104 	.word	0x21042104
+     e30:	21042104 	.word	0x21042104
+     e34:	21042104 	.word	0x21042104
+     e38:	21042104 	.word	0x21042104
+     e3c:	21042104 	.word	0x21042104
+     e40:	21042104 	.word	0x21042104
+     e44:	21042104 	.word	0x21042104
+     e48:	21042104 	.word	0x21042104
+     e4c:	21042104 	.word	0x21042104
+     e50:	21042104 	.word	0x21042104
+     e54:	21042104 	.word	0x21042104
+     e58:	21042104 	.word	0x21042104
+     e5c:	21042104 	.word	0x21042104
+     e60:	21042104 	.word	0x21042104
+     e64:	21042104 	.word	0x21042104
+     e68:	21042104 	.word	0x21042104
+     e6c:	ffdfffdf 	.word	0xffdfffdf
+     e70:	ffdfffdf 	.word	0xffdfffdf
+     e74:	2104ffdf 	.word	0x2104ffdf
+     e78:	ffdf2104 	.word	0xffdf2104
+     e7c:	ffdfffdf 	.word	0xffdfffdf
+     e80:	ffdfffdf 	.word	0xffdfffdf
+     e84:	2104ffdf 	.word	0x2104ffdf
+     e88:	ffdf2104 	.word	0xffdf2104
+     e8c:	ffdfffdf 	.word	0xffdfffdf
+     e90:	ffdfffdf 	.word	0xffdfffdf
+     e94:	2104ffdf 	.word	0x2104ffdf
+     e98:	ffdf2104 	.word	0xffdf2104
+     e9c:	ffdfffdf 	.word	0xffdfffdf
+     ea0:	ffdfffdf 	.word	0xffdfffdf
+     ea4:	2104ffdf 	.word	0x2104ffdf
+     ea8:	ffdf2104 	.word	0xffdf2104
+     eac:	ffdfffdf 	.word	0xffdfffdf
+     eb0:	ffdfffdf 	.word	0xffdfffdf
+     eb4:	2104ffdf 	.word	0x2104ffdf
+     eb8:	21042104 	.word	0x21042104
+     ebc:	21042104 	.word	0x21042104
+     ec0:	21042104 	.word	0x21042104
+     ec4:	ffdf2104 	.word	0xffdf2104
+     ec8:	ffdfffdf 	.word	0xffdfffdf
+     ecc:	ffdfffdf 	.word	0xffdfffdf
+     ed0:	ffdfffdf 	.word	0xffdfffdf
+     ed4:	21042104 	.word	0x21042104
+     ed8:	21042104 	.word	0x21042104
+     edc:	21042104 	.word	0x21042104
+     ee0:	ffdfffdf 	.word	0xffdfffdf
+     ee4:	2104ffdf 	.word	0x2104ffdf
+     ee8:	21042104 	.word	0x21042104
+     eec:	21042104 	.word	0x21042104
+     ef0:	ffdf2104 	.word	0xffdf2104
+     ef4:	ffdfffdf 	.word	0xffdfffdf
+     ef8:	ffdfffdf 	.word	0xffdfffdf
+     efc:	ffdfffdf 	.word	0xffdfffdf
+     f00:	21042104 	.word	0x21042104
+     f04:	21042104 	.word	0x21042104
+     f08:	ffdfffdf 	.word	0xffdfffdf
+     f0c:	ffdfffdf 	.word	0xffdfffdf
+     f10:	ffdfffdf 	.word	0xffdfffdf
+     f14:	2104ffdf 	.word	0x2104ffdf
+     f18:	21042104 	.word	0x21042104
+     f1c:	ffdf2104 	.word	0xffdf2104
+     f20:	2104ffdf 	.word	0x2104ffdf
+     f24:	21042104 	.word	0x21042104
+     f28:	ffdfffdf 	.word	0xffdfffdf
+     f2c:	21042104 	.word	0x21042104
+     f30:	21042104 	.word	0x21042104
+     f34:	ffdfffdf 	.word	0xffdfffdf
+     f38:	ffdfffdf 	.word	0xffdfffdf
+     f3c:	ffdfffdf 	.word	0xffdfffdf
+     f40:	2104ffdf 	.word	0x2104ffdf
+     f44:	21042104 	.word	0x21042104
+     f48:	ffdf2104 	.word	0xffdf2104
+     f4c:	ffdfffdf 	.word	0xffdfffdf
+     f50:	ffdfffdf 	.word	0xffdfffdf
+     f54:	ffdfffdf 	.word	0xffdfffdf
+     f58:	21042104 	.word	0x21042104
+     f5c:	21042104 	.word	0x21042104
+     f60:	ffdfffdf 	.word	0xffdfffdf
+     f64:	ffdfffdf 	.word	0xffdfffdf
+     f68:	ffdfffdf 	.word	0xffdfffdf
+     f6c:	2104ffdf 	.word	0x2104ffdf
+     f70:	21042104 	.word	0x21042104
+     f74:	ffdf2104 	.word	0xffdf2104
+     f78:	ffdfffdf 	.word	0xffdfffdf
+     f7c:	ffdfffdf 	.word	0xffdfffdf
+     f80:	ffdfffdf 	.word	0xffdfffdf
+     f84:	21042104 	.word	0x21042104
+     f88:	21042104 	.word	0x21042104
+     f8c:	ffdfffdf 	.word	0xffdfffdf
+     f90:	ffdfffdf 	.word	0xffdfffdf
+     f94:	ffdfffdf 	.word	0xffdfffdf
+     f98:	2104ffdf 	.word	0x2104ffdf
+     f9c:	21042104 	.word	0x21042104
+     fa0:	21042104 	.word	0x21042104
+     fa4:	21042104 	.word	0x21042104
+     fa8:	21042104 	.word	0x21042104
+     fac:	21042104 	.word	0x21042104
+     fb0:	21042104 	.word	0x21042104
+     fb4:	ffdf2104 	.word	0xffdf2104
+     fb8:	ffdfffdf 	.word	0xffdfffdf
+     fbc:	ffdfffdf 	.word	0xffdfffdf
+     fc0:	21042104 	.word	0x21042104
+     fc4:	ffdfffdf 	.word	0xffdfffdf
+     fc8:	ffdfffdf 	.word	0xffdfffdf
+     fcc:	ffdfffdf 	.word	0xffdfffdf
+     fd0:	21042104 	.word	0x21042104
+     fd4:	ffdfffdf 	.word	0xffdfffdf
+     fd8:	ffdfffdf 	.word	0xffdfffdf
+     fdc:	ffdfffdf 	.word	0xffdfffdf
+     fe0:	21042104 	.word	0x21042104
+     fe4:	ffdfffdf 	.word	0xffdfffdf
+     fe8:	ffdfffdf 	.word	0xffdfffdf
+     fec:	ffdfffdf 	.word	0xffdfffdf
+     ff0:	21042104 	.word	0x21042104
+     ff4:	ffdfffdf 	.word	0xffdfffdf
+     ff8:	ffdfffdf 	.word	0xffdfffdf
+     ffc:	ffdfffdf 	.word	0xffdfffdf
+    1000:	21042104 	.word	0x21042104
+    1004:	21042104 	.word	0x21042104
+    1008:	21042104 	.word	0x21042104
+    100c:	21042104 	.word	0x21042104
+    1010:	ffdfffdf 	.word	0xffdfffdf
+    1014:	ffdfffdf 	.word	0xffdfffdf
+    1018:	ffdfffdf 	.word	0xffdfffdf
+    101c:	2104ffdf 	.word	0x2104ffdf
+    1020:	21042104 	.word	0x21042104
+    1024:	21042104 	.word	0x21042104
+    1028:	ffdf2104 	.word	0xffdf2104
+    102c:	ffdfffdf 	.word	0xffdfffdf
+    1030:	21042104 	.word	0x21042104
+    1034:	21042104 	.word	0x21042104
+    1038:	21042104 	.word	0x21042104
+    103c:	ffdfffdf 	.word	0xffdfffdf
+    1040:	ffdfffdf 	.word	0xffdfffdf
+    1044:	ffdfffdf 	.word	0xffdfffdf
+    1048:	2104ffdf 	.word	0x2104ffdf
+    104c:	21042104 	.word	0x21042104
+    1050:	ffdf2104 	.word	0xffdf2104
+    1054:	ffdfffdf 	.word	0xffdfffdf
+    1058:	ffdfffdf 	.word	0xffdfffdf
+    105c:	ffdfffdf 	.word	0xffdfffdf
+    1060:	21042104 	.word	0x21042104
+    1064:	21042104 	.word	0x21042104
+    1068:	ffdfffdf 	.word	0xffdfffdf
+    106c:	21042104 	.word	0x21042104
+    1070:	ffdf2104 	.word	0xffdf2104
+    1074:	2104ffdf 	.word	0x2104ffdf
+    1078:	21042104 	.word	0x21042104
+    107c:	ffdf2104 	.word	0xffdf2104
+    1080:	ffdfffdf 	.word	0xffdfffdf
+    1084:	ffdfffdf 	.word	0xffdfffdf
+    1088:	ffdfffdf 	.word	0xffdfffdf
+    108c:	21042104 	.word	0x21042104
+    1090:	21042104 	.word	0x21042104
+    1094:	ffdfffdf 	.word	0xffdfffdf
+    1098:	ffdfffdf 	.word	0xffdfffdf
+    109c:	ffdfffdf 	.word	0xffdfffdf
+    10a0:	2104ffdf 	.word	0x2104ffdf
+    10a4:	21042104 	.word	0x21042104
+    10a8:	ffdf2104 	.word	0xffdf2104
+    10ac:	ffdfffdf 	.word	0xffdfffdf
+    10b0:	ffdfffdf 	.word	0xffdfffdf
+    10b4:	ffdfffdf 	.word	0xffdfffdf
+    10b8:	21042104 	.word	0x21042104
+    10bc:	21042104 	.word	0x21042104
+    10c0:	ffdfffdf 	.word	0xffdfffdf
+    10c4:	ffdfffdf 	.word	0xffdfffdf
+    10c8:	ffdfffdf 	.word	0xffdfffdf
+    10cc:	2104ffdf 	.word	0x2104ffdf
+    10d0:	21042104 	.word	0x21042104
+    10d4:	ffdf2104 	.word	0xffdf2104
+    10d8:	ffdfffdf 	.word	0xffdfffdf
+    10dc:	ffdfffdf 	.word	0xffdfffdf
+    10e0:	ffdfffdf 	.word	0xffdfffdf
+    10e4:	21042104 	.word	0x21042104
+    10e8:	21042104 	.word	0x21042104
+    10ec:	21042104 	.word	0x21042104
+    10f0:	21042104 	.word	0x21042104
+    10f4:	21042104 	.word	0x21042104
+    10f8:	21042104 	.word	0x21042104
+    10fc:	21042104 	.word	0x21042104
+    1100:	ffdfffdf 	.word	0xffdfffdf
+    1104:	21042104 	.word	0x21042104
+    1108:	21042104 	.word	0x21042104
+    110c:	ffdf2104 	.word	0xffdf2104
+    1110:	2104ffdf 	.word	0x2104ffdf
+    1114:	21042104 	.word	0x21042104
+    1118:	21042104 	.word	0x21042104
+    111c:	ffdf2104 	.word	0xffdf2104
+    1120:	2104ffdf 	.word	0x2104ffdf
+    1124:	ffdf2104 	.word	0xffdf2104
+    1128:	2104ffdf 	.word	0x2104ffdf
+    112c:	ffdf2104 	.word	0xffdf2104
+    1130:	2104ffdf 	.word	0x2104ffdf
+    1134:	ffdf2104 	.word	0xffdf2104
+    1138:	2104ffdf 	.word	0x2104ffdf
+    113c:	ffdf2104 	.word	0xffdf2104
+    1140:	2104ffdf 	.word	0x2104ffdf
+    1144:	21042104 	.word	0x21042104
+    1148:	21042104 	.word	0x21042104
+    114c:	21042104 	.word	0x21042104
+    1150:	ffdfffdf 	.word	0xffdfffdf
+    1154:	21042104 	.word	0x21042104
+    1158:	ffdf2104 	.word	0xffdf2104
+    115c:	2104ffdf 	.word	0x2104ffdf
+    1160:	21042104 	.word	0x21042104
+    1164:	ffdfffdf 	.word	0xffdfffdf
+    1168:	21042104 	.word	0x21042104
+    116c:	21042104 	.word	0x21042104
+    1170:	21042104 	.word	0x21042104
+    1174:	ffdfffdf 	.word	0xffdfffdf
+    1178:	2104ffdf 	.word	0x2104ffdf
+    117c:	21042104 	.word	0x21042104
+    1180:	21042104 	.word	0x21042104
+    1184:	21042104 	.word	0x21042104
+    1188:	21042104 	.word	0x21042104
+    118c:	21042104 	.word	0x21042104
+    1190:	ffdfffdf 	.word	0xffdfffdf
+    1194:	21042104 	.word	0x21042104
+    1198:	21042104 	.word	0x21042104
+    119c:	21042104 	.word	0x21042104
+    11a0:	21042104 	.word	0x21042104
+    11a4:	ffdf2104 	.word	0xffdf2104
+    11a8:	2104ffdf 	.word	0x2104ffdf
+    11ac:	21042104 	.word	0x21042104
+    11b0:	ffdf2104 	.word	0xffdf2104
+    11b4:	2104ffdf 	.word	0x2104ffdf
+    11b8:	21042104 	.word	0x21042104
+    11bc:	ffdfffdf 	.word	0xffdfffdf
+    11c0:	21042104 	.word	0x21042104
+    11c4:	21042104 	.word	0x21042104
+    11c8:	ffdfffdf 	.word	0xffdfffdf
+    11cc:	21042104 	.word	0x21042104
+    11d0:	21042104 	.word	0x21042104
+    11d4:	21042104 	.word	0x21042104
+    11d8:	21042104 	.word	0x21042104
+    11dc:	ffdf2104 	.word	0xffdf2104
+    11e0:	2104ffdf 	.word	0x2104ffdf
+    11e4:	21042104 	.word	0x21042104
+    11e8:	21042104 	.word	0x21042104
+    11ec:	21042104 	.word	0x21042104
+    11f0:	21042104 	.word	0x21042104
+    11f4:	21042104 	.word	0x21042104
+    11f8:	21042104 	.word	0x21042104
+    11fc:	ffdf2104 	.word	0xffdf2104
+    1200:	2104ffdf 	.word	0x2104ffdf
+    1204:	21042104 	.word	0x21042104
+    1208:	ffdf2104 	.word	0xffdf2104
+    120c:	2104ffdf 	.word	0x2104ffdf
+    1210:	21042104 	.word	0x21042104
+    1214:	ffdfffdf 	.word	0xffdfffdf
+    1218:	21042104 	.word	0x21042104
+    121c:	21042104 	.word	0x21042104
+    1220:	ffdfffdf 	.word	0xffdfffdf
+    1224:	21042104 	.word	0x21042104
+    1228:	ffdf2104 	.word	0xffdf2104
+    122c:	2104ffdf 	.word	0x2104ffdf
+    1230:	21042104 	.word	0x21042104
+    1234:	21042104 	.word	0x21042104
+    1238:	21042104 	.word	0x21042104
+    123c:	21042104 	.word	0x21042104
+    1240:	21042104 	.word	0x21042104
+    1244:	21042104 	.word	0x21042104
+    1248:	ffdf2104 	.word	0xffdf2104
+    124c:	2104ffdf 	.word	0x2104ffdf
+    1250:	21042104 	.word	0x21042104
+    1254:	21042104 	.word	0x21042104
+    1258:	ffdfffdf 	.word	0xffdfffdf
+    125c:	21042104 	.word	0x21042104
+    1260:	21042104 	.word	0x21042104
+    1264:	21042104 	.word	0x21042104
+    1268:	ffdfffdf 	.word	0xffdfffdf
+    126c:	21042104 	.word	0x21042104
+    1270:	ffdfffdf 	.word	0xffdfffdf
+    1274:	21042104 	.word	0x21042104
+    1278:	ffdfffdf 	.word	0xffdfffdf
+    127c:	21042104 	.word	0x21042104
+    1280:	ffdfffdf 	.word	0xffdfffdf
+    1284:	21042104 	.word	0x21042104
+    1288:	ffdfffdf 	.word	0xffdfffdf
+    128c:	21042104 	.word	0x21042104
+    1290:	21042104 	.word	0x21042104
+    1294:	21042104 	.word	0x21042104
+    1298:	ffdf2104 	.word	0xffdf2104
+    129c:	2104ffdf 	.word	0x2104ffdf
+    12a0:	21042104 	.word	0x21042104
+    12a4:	ffdfffdf 	.word	0xffdfffdf
+    12a8:	21042104 	.word	0x21042104
+    12ac:	ffdf2104 	.word	0xffdf2104
+    12b0:	2104ffdf 	.word	0x2104ffdf
+    12b4:	21042104 	.word	0x21042104
+    12b8:	21042104 	.word	0x21042104
+    12bc:	ffdf2104 	.word	0xffdf2104
+    12c0:	ffdfffdf 	.word	0xffdfffdf
+    12c4:	21042104 	.word	0x21042104
+    12c8:	21042104 	.word	0x21042104
+    12cc:	21042104 	.word	0x21042104
+    12d0:	21042104 	.word	0x21042104
+    12d4:	21042104 	.word	0x21042104
+    12d8:	ffdf2104 	.word	0xffdf2104
+    12dc:	2104ffdf 	.word	0x2104ffdf
+    12e0:	21042104 	.word	0x21042104
+    12e4:	21042104 	.word	0x21042104
+    12e8:	21042104 	.word	0x21042104
+    12ec:	21042104 	.word	0x21042104
+    12f0:	ffdfffdf 	.word	0xffdfffdf
+    12f4:	21042104 	.word	0x21042104
+    12f8:	21042104 	.word	0x21042104
+    12fc:	ffdfffdf 	.word	0xffdfffdf
+    1300:	21042104 	.word	0x21042104
+    1304:	ffdf2104 	.word	0xffdf2104
+    1308:	2104ffdf 	.word	0x2104ffdf
+    130c:	21042104 	.word	0x21042104
+    1310:	ffdf2104 	.word	0xffdf2104
+    1314:	2104ffdf 	.word	0x2104ffdf
+    1318:	21042104 	.word	0x21042104
+    131c:	21042104 	.word	0x21042104
+    1320:	21042104 	.word	0x21042104
+    1324:	21042104 	.word	0x21042104
+    1328:	ffdfffdf 	.word	0xffdfffdf
+    132c:	21042104 	.word	0x21042104
+    1330:	21042104 	.word	0x21042104
+    1334:	21042104 	.word	0x21042104
+    1338:	21042104 	.word	0x21042104
+    133c:	21042104 	.word	0x21042104
+    1340:	21042104 	.word	0x21042104
+    1344:	21042104 	.word	0x21042104
+    1348:	ffdfffdf 	.word	0xffdfffdf
+    134c:	21042104 	.word	0x21042104
+    1350:	21042104 	.word	0x21042104
+    1354:	ffdfffdf 	.word	0xffdfffdf
+    1358:	21042104 	.word	0x21042104
+    135c:	ffdf2104 	.word	0xffdf2104
+    1360:	2104ffdf 	.word	0x2104ffdf
+    1364:	21042104 	.word	0x21042104
+    1368:	ffdf2104 	.word	0xffdf2104
+    136c:	2104ffdf 	.word	0x2104ffdf
+    1370:	21042104 	.word	0x21042104
+    1374:	ffdfffdf 	.word	0xffdfffdf
+    1378:	21042104 	.word	0x21042104
+    137c:	21042104 	.word	0x21042104
+    1380:	21042104 	.word	0x21042104
+    1384:	21042104 	.word	0x21042104
+    1388:	21042104 	.word	0x21042104
+    138c:	21042104 	.word	0x21042104
+    1390:	21042104 	.word	0x21042104
+    1394:	ffdfffdf 	.word	0xffdfffdf
+    1398:	ffdfffdf 	.word	0xffdfffdf
+    139c:	2104ffdf 	.word	0x2104ffdf
+    13a0:	ffdf2104 	.word	0xffdf2104
+    13a4:	2104ffdf 	.word	0x2104ffdf
+    13a8:	21042104 	.word	0x21042104
+    13ac:	21042104 	.word	0x21042104
+    13b0:	ffdf2104 	.word	0xffdf2104
+    13b4:	2104ffdf 	.word	0x2104ffdf
+    13b8:	ffdf2104 	.word	0xffdf2104
+    13bc:	2104ffdf 	.word	0x2104ffdf
+    13c0:	ffdf2104 	.word	0xffdf2104
+    13c4:	ffdfffdf 	.word	0xffdfffdf
+    13c8:	ffdfffdf 	.word	0xffdfffdf
+    13cc:	2104ffdf 	.word	0x2104ffdf
+    13d0:	ffdf2104 	.word	0xffdf2104
+    13d4:	ffdfffdf 	.word	0xffdfffdf
+    13d8:	ffdfffdf 	.word	0xffdfffdf
+    13dc:	2104ffdf 	.word	0x2104ffdf
+    13e0:	21042104 	.word	0x21042104
+    13e4:	21042104 	.word	0x21042104
+    13e8:	21042104 	.word	0x21042104
+    13ec:	ffdf2104 	.word	0xffdf2104
+    13f0:	2104ffdf 	.word	0x2104ffdf
+    13f4:	21042104 	.word	0x21042104
+    13f8:	ffdfffdf 	.word	0xffdfffdf
+    13fc:	21042104 	.word	0x21042104
+    1400:	21042104 	.word	0x21042104
+    1404:	21042104 	.word	0x21042104
+    1408:	ffdfffdf 	.word	0xffdfffdf
+    140c:	2104ffdf 	.word	0x2104ffdf
+    1410:	21042104 	.word	0x21042104
+    1414:	21042104 	.word	0x21042104
+    1418:	ffdf2104 	.word	0xffdf2104
+    141c:	ffdfffdf 	.word	0xffdfffdf
+    1420:	ffdfffdf 	.word	0xffdfffdf
+    1424:	ffdfffdf 	.word	0xffdfffdf
+    1428:	21042104 	.word	0x21042104
+    142c:	21042104 	.word	0x21042104
+    1430:	ffdfffdf 	.word	0xffdfffdf
+    1434:	ffdfffdf 	.word	0xffdfffdf
+    1438:	ffdfffdf 	.word	0xffdfffdf
+    143c:	2104ffdf 	.word	0x2104ffdf
+    1440:	21042104 	.word	0x21042104
+    1444:	ffdf2104 	.word	0xffdf2104
+    1448:	ffdfffdf 	.word	0xffdfffdf
+    144c:	ffdfffdf 	.word	0xffdfffdf
+    1450:	ffdfffdf 	.word	0xffdfffdf
+    1454:	21042104 	.word	0x21042104
+    1458:	21042104 	.word	0x21042104
+    145c:	ffdfffdf 	.word	0xffdfffdf
+    1460:	ffdfffdf 	.word	0xffdfffdf
+    1464:	ffdfffdf 	.word	0xffdfffdf
+    1468:	2104ffdf 	.word	0x2104ffdf
+    146c:	21042104 	.word	0x21042104
+    1470:	ffdf2104 	.word	0xffdf2104
+    1474:	ffdfffdf 	.word	0xffdfffdf
+    1478:	ffdfffdf 	.word	0xffdfffdf
+    147c:	ffdfffdf 	.word	0xffdfffdf
+    1480:	21042104 	.word	0x21042104
+    1484:	21042104 	.word	0x21042104
+    1488:	21042104 	.word	0x21042104
+    148c:	21042104 	.word	0x21042104
+    1490:	ffdf2104 	.word	0xffdf2104
+    1494:	2104ffdf 	.word	0x2104ffdf
+    1498:	21042104 	.word	0x21042104
+    149c:	ffdf2104 	.word	0xffdf2104
+    14a0:	ffdfffdf 	.word	0xffdfffdf
+    14a4:	ffdfffdf 	.word	0xffdfffdf
+    14a8:	ffdfffdf 	.word	0xffdfffdf
+    14ac:	21042104 	.word	0x21042104
+    14b0:	21042104 	.word	0x21042104
+    14b4:	ffdfffdf 	.word	0xffdfffdf
+    14b8:	ffdfffdf 	.word	0xffdfffdf
+    14bc:	ffdfffdf 	.word	0xffdfffdf
+    14c0:	2104ffdf 	.word	0x2104ffdf
+    14c4:	21042104 	.word	0x21042104
+    14c8:	21042104 	.word	0x21042104
+    14cc:	21042104 	.word	0x21042104
+    14d0:	21042104 	.word	0x21042104
+    14d4:	21042104 	.word	0x21042104
+    14d8:	21042104 	.word	0x21042104
+    14dc:	ffdf2104 	.word	0xffdf2104
+    14e0:	ffdfffdf 	.word	0xffdfffdf
+    14e4:	ffdfffdf 	.word	0xffdfffdf
+    14e8:	21042104 	.word	0x21042104
+    14ec:	ffdfffdf 	.word	0xffdfffdf
+    14f0:	21042104 	.word	0x21042104
+    14f4:	21042104 	.word	0x21042104
+    14f8:	21042104 	.word	0x21042104
+    14fc:	ffdfffdf 	.word	0xffdfffdf
+    1500:	21042104 	.word	0x21042104
+    1504:	ffdfffdf 	.word	0xffdfffdf
+    1508:	21042104 	.word	0x21042104
+    150c:	ffdfffdf 	.word	0xffdfffdf
+    1510:	ffdfffdf 	.word	0xffdfffdf
+    1514:	ffdfffdf 	.word	0xffdfffdf
+    1518:	21042104 	.word	0x21042104
+    151c:	ffdfffdf 	.word	0xffdfffdf
+    1520:	ffdfffdf 	.word	0xffdfffdf
+    1524:	ffdfffdf 	.word	0xffdfffdf
+    1528:	21042104 	.word	0x21042104
+    152c:	21042104 	.word	0x21042104
+    1530:	21042104 	.word	0x21042104
+    1534:	21042104 	.word	0x21042104
+    1538:	ffdfffdf 	.word	0xffdfffdf
+    153c:	21042104 	.word	0x21042104
+    1540:	ffdf2104 	.word	0xffdf2104
+    1544:	2104ffdf 	.word	0x2104ffdf
+    1548:	21042104 	.word	0x21042104
+    154c:	21042104 	.word	0x21042104
+    1550:	ffdf2104 	.word	0xffdf2104
+    1554:	ffdfffdf 	.word	0xffdfffdf
+    1558:	21042104 	.word	0x21042104
+    155c:	21042104 	.word	0x21042104
+    1560:	21042104 	.word	0x21042104
+    1564:	ffdfffdf 	.word	0xffdfffdf
+    1568:	ffdfffdf 	.word	0xffdfffdf
+    156c:	ffdfffdf 	.word	0xffdfffdf
+    1570:	2104ffdf 	.word	0x2104ffdf
+    1574:	21042104 	.word	0x21042104
+    1578:	ffdf2104 	.word	0xffdf2104
+    157c:	ffdfffdf 	.word	0xffdfffdf
+    1580:	ffdfffdf 	.word	0xffdfffdf
+    1584:	ffdfffdf 	.word	0xffdfffdf
+    1588:	21042104 	.word	0x21042104
+    158c:	21042104 	.word	0x21042104
+    1590:	ffdfffdf 	.word	0xffdfffdf
+    1594:	ffdfffdf 	.word	0xffdfffdf
+    1598:	ffdfffdf 	.word	0xffdfffdf
+    159c:	2104ffdf 	.word	0x2104ffdf
+    15a0:	21042104 	.word	0x21042104
+    15a4:	ffdf2104 	.word	0xffdf2104
+    15a8:	ffdfffdf 	.word	0xffdfffdf
+    15ac:	ffdfffdf 	.word	0xffdfffdf
+    15b0:	ffdfffdf 	.word	0xffdfffdf
+    15b4:	21042104 	.word	0x21042104
+    15b8:	21042104 	.word	0x21042104
+    15bc:	ffdfffdf 	.word	0xffdfffdf
+    15c0:	ffdfffdf 	.word	0xffdfffdf
+    15c4:	ffdfffdf 	.word	0xffdfffdf
+    15c8:	2104ffdf 	.word	0x2104ffdf
+    15cc:	21042104 	.word	0x21042104
+    15d0:	21042104 	.word	0x21042104
+    15d4:	21042104 	.word	0x21042104
+    15d8:	21042104 	.word	0x21042104
+    15dc:	ffdfffdf 	.word	0xffdfffdf
+    15e0:	21042104 	.word	0x21042104
+    15e4:	21042104 	.word	0x21042104
+    15e8:	ffdfffdf 	.word	0xffdfffdf
+    15ec:	ffdfffdf 	.word	0xffdfffdf
+    15f0:	ffdfffdf 	.word	0xffdfffdf
+    15f4:	2104ffdf 	.word	0x2104ffdf
+    15f8:	21042104 	.word	0x21042104
+    15fc:	ffdf2104 	.word	0xffdf2104
+    1600:	ffdfffdf 	.word	0xffdfffdf
+    1604:	ffdfffdf 	.word	0xffdfffdf
+    1608:	ffdfffdf 	.word	0xffdfffdf
+    160c:	21042104 	.word	0x21042104
+    1610:	21042104 	.word	0x21042104
+    1614:	21042104 	.word	0x21042104
+    1618:	21042104 	.word	0x21042104
+    161c:	21042104 	.word	0x21042104
+    1620:	21042104 	.word	0x21042104
+    1624:	21042104 	.word	0x21042104
+    1628:	21042104 	.word	0x21042104
+    162c:	ffdf2104 	.word	0xffdf2104
+    1630:	2104ffdf 	.word	0x2104ffdf
+    1634:	ffdf2104 	.word	0xffdf2104
+    1638:	2104ffdf 	.word	0x2104ffdf
+    163c:	21042104 	.word	0x21042104
+    1640:	21042104 	.word	0x21042104
+    1644:	ffdf2104 	.word	0xffdf2104
+    1648:	2104ffdf 	.word	0x2104ffdf
+    164c:	ffdf2104 	.word	0xffdf2104
+    1650:	2104ffdf 	.word	0x2104ffdf
+    1654:	ffdf2104 	.word	0xffdf2104
+    1658:	ffdfffdf 	.word	0xffdfffdf
+    165c:	2104ffdf 	.word	0x2104ffdf
+    1660:	21042104 	.word	0x21042104
+    1664:	ffdf2104 	.word	0xffdf2104
+    1668:	2104ffdf 	.word	0x2104ffdf
+    166c:	21042104 	.word	0x21042104
+    1670:	21042104 	.word	0x21042104
+    1674:	21042104 	.word	0x21042104
+    1678:	ffdfffdf 	.word	0xffdfffdf
+    167c:	21042104 	.word	0x21042104
+    1680:	ffdf2104 	.word	0xffdf2104
+    1684:	2104ffdf 	.word	0x2104ffdf
+    1688:	21042104 	.word	0x21042104
+    168c:	ffdfffdf 	.word	0xffdfffdf
+    1690:	21042104 	.word	0x21042104
+    1694:	21042104 	.word	0x21042104
+    1698:	21042104 	.word	0x21042104
+    169c:	ffdfffdf 	.word	0xffdfffdf
+    16a0:	2104ffdf 	.word	0x2104ffdf
+    16a4:	21042104 	.word	0x21042104
+    16a8:	21042104 	.word	0x21042104
+    16ac:	ffdf2104 	.word	0xffdf2104
+    16b0:	2104ffdf 	.word	0x2104ffdf
+    16b4:	21042104 	.word	0x21042104
+    16b8:	21042104 	.word	0x21042104
+    16bc:	21042104 	.word	0x21042104
+    16c0:	21042104 	.word	0x21042104
+    16c4:	21042104 	.word	0x21042104
+    16c8:	21042104 	.word	0x21042104
+    16cc:	ffdf2104 	.word	0xffdf2104
+    16d0:	2104ffdf 	.word	0x2104ffdf
+    16d4:	21042104 	.word	0x21042104
+    16d8:	21042104 	.word	0x21042104
+    16dc:	21042104 	.word	0x21042104
+    16e0:	21042104 	.word	0x21042104
+    16e4:	ffdfffdf 	.word	0xffdfffdf
+    16e8:	21042104 	.word	0x21042104
+    16ec:	21042104 	.word	0x21042104
+    16f0:	21042104 	.word	0x21042104
+    16f4:	21042104 	.word	0x21042104
+    16f8:	ffdf2104 	.word	0xffdf2104
+    16fc:	2104ffdf 	.word	0x2104ffdf
+    1700:	21042104 	.word	0x21042104
+    1704:	ffdf2104 	.word	0xffdf2104
+    1708:	2104ffdf 	.word	0x2104ffdf
+    170c:	21042104 	.word	0x21042104
+    1710:	ffdfffdf 	.word	0xffdfffdf
+    1714:	21042104 	.word	0x21042104
+    1718:	21042104 	.word	0x21042104
+    171c:	21042104 	.word	0x21042104
+    1720:	21042104 	.word	0x21042104
+    1724:	ffdf2104 	.word	0xffdf2104
+    1728:	2104ffdf 	.word	0x2104ffdf
+    172c:	21042104 	.word	0x21042104
+    1730:	ffdf2104 	.word	0xffdf2104
+    1734:	2104ffdf 	.word	0x2104ffdf
+    1738:	21042104 	.word	0x21042104
+    173c:	ffdfffdf 	.word	0xffdfffdf
+    1740:	21042104 	.word	0x21042104
+    1744:	21042104 	.word	0x21042104
+    1748:	21042104 	.word	0x21042104
+    174c:	21042104 	.word	0x21042104
+    1750:	ffdf2104 	.word	0xffdf2104
+    1754:	2104ffdf 	.word	0x2104ffdf
+    1758:	21042104 	.word	0x21042104
+    175c:	21042104 	.word	0x21042104
+    1760:	21042104 	.word	0x21042104
+    1764:	21042104 	.word	0x21042104
+    1768:	21042104 	.word	0x21042104
+    176c:	21042104 	.word	0x21042104
+    1770:	21042104 	.word	0x21042104
+    1774:	21042104 	.word	0x21042104
+    1778:	ffdfffdf 	.word	0xffdfffdf
+    177c:	21042104 	.word	0x21042104
+    1780:	ffdfffdf 	.word	0xffdfffdf
+    1784:	21042104 	.word	0x21042104
+    1788:	21042104 	.word	0x21042104
+    178c:	21042104 	.word	0x21042104
+    1790:	ffdfffdf 	.word	0xffdfffdf
+    1794:	21042104 	.word	0x21042104
+    1798:	ffdfffdf 	.word	0xffdfffdf
+    179c:	21042104 	.word	0x21042104
+    17a0:	ffdfffdf 	.word	0xffdfffdf
+    17a4:	ffdfffdf 	.word	0xffdfffdf
+    17a8:	2104ffdf 	.word	0x2104ffdf
+    17ac:	21042104 	.word	0x21042104
+    17b0:	ffdfffdf 	.word	0xffdfffdf
+    17b4:	21042104 	.word	0x21042104
+    17b8:	21042104 	.word	0x21042104
+    17bc:	21042104 	.word	0x21042104
+    17c0:	ffdf2104 	.word	0xffdf2104
+    17c4:	2104ffdf 	.word	0x2104ffdf
+    17c8:	21042104 	.word	0x21042104
+    17cc:	ffdfffdf 	.word	0xffdfffdf
+    17d0:	21042104 	.word	0x21042104
+    17d4:	ffdf2104 	.word	0xffdf2104
+    17d8:	2104ffdf 	.word	0x2104ffdf
+    17dc:	21042104 	.word	0x21042104
+    17e0:	21042104 	.word	0x21042104
+    17e4:	ffdf2104 	.word	0xffdf2104
+    17e8:	ffdfffdf 	.word	0xffdfffdf
+    17ec:	21042104 	.word	0x21042104
+    17f0:	21042104 	.word	0x21042104
+    17f4:	21042104 	.word	0x21042104
+    17f8:	ffdfffdf 	.word	0xffdfffdf
+    17fc:	21042104 	.word	0x21042104
+    1800:	21042104 	.word	0x21042104
+    1804:	21042104 	.word	0x21042104
+    1808:	21042104 	.word	0x21042104
+    180c:	21042104 	.word	0x21042104
+    1810:	21042104 	.word	0x21042104
+    1814:	21042104 	.word	0x21042104
+    1818:	ffdfffdf 	.word	0xffdfffdf
+    181c:	21042104 	.word	0x21042104
+    1820:	21042104 	.word	0x21042104
+    1824:	21042104 	.word	0x21042104
+    1828:	21042104 	.word	0x21042104
+    182c:	ffdf2104 	.word	0xffdf2104
+    1830:	2104ffdf 	.word	0x2104ffdf
+    1834:	21042104 	.word	0x21042104
+    1838:	21042104 	.word	0x21042104
+    183c:	21042104 	.word	0x21042104
+    1840:	21042104 	.word	0x21042104
+    1844:	ffdfffdf 	.word	0xffdfffdf
+    1848:	21042104 	.word	0x21042104
+    184c:	21042104 	.word	0x21042104
+    1850:	ffdfffdf 	.word	0xffdfffdf
+    1854:	21042104 	.word	0x21042104
+    1858:	ffdf2104 	.word	0xffdf2104
+    185c:	2104ffdf 	.word	0x2104ffdf
+    1860:	21042104 	.word	0x21042104
+    1864:	21042104 	.word	0x21042104
+    1868:	21042104 	.word	0x21042104
+    186c:	21042104 	.word	0x21042104
+    1870:	ffdfffdf 	.word	0xffdfffdf
+    1874:	21042104 	.word	0x21042104
+    1878:	21042104 	.word	0x21042104
+    187c:	ffdfffdf 	.word	0xffdfffdf
+    1880:	21042104 	.word	0x21042104
+    1884:	ffdf2104 	.word	0xffdf2104
+    1888:	2104ffdf 	.word	0x2104ffdf
+    188c:	21042104 	.word	0x21042104
+    1890:	21042104 	.word	0x21042104
+    1894:	21042104 	.word	0x21042104
+    1898:	21042104 	.word	0x21042104
+    189c:	ffdfffdf 	.word	0xffdfffdf
+    18a0:	21042104 	.word	0x21042104
+    18a4:	21042104 	.word	0x21042104
+    18a8:	21042104 	.word	0x21042104
+    18ac:	21042104 	.word	0x21042104
+    18b0:	21042104 	.word	0x21042104
+    18b4:	21042104 	.word	0x21042104
+    18b8:	21042104 	.word	0x21042104
+    18bc:	ffdfffdf 	.word	0xffdfffdf
+    18c0:	ffdfffdf 	.word	0xffdfffdf
+    18c4:	2104ffdf 	.word	0x2104ffdf
+    18c8:	ffdf2104 	.word	0xffdf2104
+    18cc:	ffdfffdf 	.word	0xffdfffdf
+    18d0:	ffdfffdf 	.word	0xffdfffdf
+    18d4:	2104ffdf 	.word	0x2104ffdf
+    18d8:	ffdf2104 	.word	0xffdf2104
+    18dc:	ffdfffdf 	.word	0xffdfffdf
+    18e0:	ffdfffdf 	.word	0xffdfffdf
+    18e4:	2104ffdf 	.word	0x2104ffdf
+    18e8:	ffdf2104 	.word	0xffdf2104
+    18ec:	2104ffdf 	.word	0x2104ffdf
+    18f0:	ffdfffdf 	.word	0xffdfffdf
+    18f4:	2104ffdf 	.word	0x2104ffdf
+    18f8:	ffdf2104 	.word	0xffdf2104
+    18fc:	ffdfffdf 	.word	0xffdfffdf
+    1900:	ffdfffdf 	.word	0xffdfffdf
+    1904:	2104ffdf 	.word	0x2104ffdf
+    1908:	21042104 	.word	0x21042104
+    190c:	21042104 	.word	0x21042104
+    1910:	21042104 	.word	0x21042104
+    1914:	ffdf2104 	.word	0xffdf2104
+    1918:	ffdfffdf 	.word	0xffdfffdf
+    191c:	ffdfffdf 	.word	0xffdfffdf
+    1920:	ffdfffdf 	.word	0xffdfffdf
+    1924:	21042104 	.word	0x21042104
+    1928:	21042104 	.word	0x21042104
+    192c:	21042104 	.word	0x21042104
+    1930:	ffdfffdf 	.word	0xffdfffdf
+    1934:	2104ffdf 	.word	0x2104ffdf
+    1938:	21042104 	.word	0x21042104
+    193c:	21042104 	.word	0x21042104
+    1940:	ffdf2104 	.word	0xffdf2104
+    1944:	ffdfffdf 	.word	0xffdfffdf
+    1948:	ffdfffdf 	.word	0xffdfffdf
+    194c:	ffdfffdf 	.word	0xffdfffdf
+    1950:	21042104 	.word	0x21042104
+    1954:	21042104 	.word	0x21042104
+    1958:	ffdfffdf 	.word	0xffdfffdf
+    195c:	ffdfffdf 	.word	0xffdfffdf
+    1960:	ffdfffdf 	.word	0xffdfffdf
+    1964:	2104ffdf 	.word	0x2104ffdf
+    1968:	21042104 	.word	0x21042104
+    196c:	21042104 	.word	0x21042104
+    1970:	21042104 	.word	0x21042104
+    1974:	21042104 	.word	0x21042104
+    1978:	ffdfffdf 	.word	0xffdfffdf
+    197c:	21042104 	.word	0x21042104
+    1980:	21042104 	.word	0x21042104
+    1984:	ffdfffdf 	.word	0xffdfffdf
+    1988:	ffdfffdf 	.word	0xffdfffdf
+    198c:	ffdfffdf 	.word	0xffdfffdf
+    1990:	2104ffdf 	.word	0x2104ffdf
+    1994:	21042104 	.word	0x21042104
+    1998:	ffdf2104 	.word	0xffdf2104
+    199c:	ffdfffdf 	.word	0xffdfffdf
+    19a0:	ffdfffdf 	.word	0xffdfffdf
+    19a4:	ffdfffdf 	.word	0xffdfffdf
+    19a8:	21042104 	.word	0x21042104
+    19ac:	21042104 	.word	0x21042104
+    19b0:	21042104 	.word	0x21042104
+    19b4:	21042104 	.word	0x21042104
+    19b8:	ffdf2104 	.word	0xffdf2104
+    19bc:	2104ffdf 	.word	0x2104ffdf
+    19c0:	21042104 	.word	0x21042104
+    19c4:	ffdf2104 	.word	0xffdf2104
+    19c8:	ffdfffdf 	.word	0xffdfffdf
+    19cc:	ffdfffdf 	.word	0xffdfffdf
+    19d0:	ffdfffdf 	.word	0xffdfffdf
+    19d4:	21042104 	.word	0x21042104
+    19d8:	21042104 	.word	0x21042104
+    19dc:	21042104 	.word	0x21042104
+    19e0:	21042104 	.word	0x21042104
+    19e4:	ffdf2104 	.word	0xffdf2104
+    19e8:	2104ffdf 	.word	0x2104ffdf
+    19ec:	21042104 	.word	0x21042104
+    19f0:	21042104 	.word	0x21042104
+    19f4:	21042104 	.word	0x21042104
+    19f8:	21042104 	.word	0x21042104
+    19fc:	21042104 	.word	0x21042104
+    1a00:	21042104 	.word	0x21042104
+    1a04:	ffdf2104 	.word	0xffdf2104
+    1a08:	ffdfffdf 	.word	0xffdfffdf
+    1a0c:	ffdfffdf 	.word	0xffdfffdf
+    1a10:	21042104 	.word	0x21042104
+    1a14:	ffdfffdf 	.word	0xffdfffdf
+    1a18:	ffdfffdf 	.word	0xffdfffdf
+    1a1c:	ffdfffdf 	.word	0xffdfffdf
+    1a20:	21042104 	.word	0x21042104
+    1a24:	ffdfffdf 	.word	0xffdfffdf
+    1a28:	ffdfffdf 	.word	0xffdfffdf
+    1a2c:	ffdfffdf 	.word	0xffdfffdf
+    1a30:	21042104 	.word	0x21042104
+    1a34:	ffdfffdf 	.word	0xffdfffdf
+    1a38:	21042104 	.word	0x21042104
+    1a3c:	ffdfffdf 	.word	0xffdfffdf
+    1a40:	21042104 	.word	0x21042104
+    1a44:	ffdfffdf 	.word	0xffdfffdf
+    1a48:	ffdfffdf 	.word	0xffdfffdf
+    1a4c:	ffdfffdf 	.word	0xffdfffdf
+    1a50:	21042104 	.word	0x21042104
+    1a54:	21042104 	.word	0x21042104
+    1a58:	21042104 	.word	0x21042104
+    1a5c:	21042104 	.word	0x21042104
+    1a60:	ffdfffdf 	.word	0xffdfffdf
+    1a64:	ffdfffdf 	.word	0xffdfffdf
+    1a68:	ffdfffdf 	.word	0xffdfffdf
+    1a6c:	2104ffdf 	.word	0x2104ffdf
+    1a70:	21042104 	.word	0x21042104
+    1a74:	21042104 	.word	0x21042104
+    1a78:	ffdf2104 	.word	0xffdf2104
+    1a7c:	ffdfffdf 	.word	0xffdfffdf
+    1a80:	21042104 	.word	0x21042104
+    1a84:	21042104 	.word	0x21042104
+    1a88:	21042104 	.word	0x21042104
+    1a8c:	ffdfffdf 	.word	0xffdfffdf
+    1a90:	ffdfffdf 	.word	0xffdfffdf
+    1a94:	ffdfffdf 	.word	0xffdfffdf
+    1a98:	2104ffdf 	.word	0x2104ffdf
+    1a9c:	21042104 	.word	0x21042104
+    1aa0:	ffdf2104 	.word	0xffdf2104
+    1aa4:	ffdfffdf 	.word	0xffdfffdf
+    1aa8:	ffdfffdf 	.word	0xffdfffdf
+    1aac:	ffdfffdf 	.word	0xffdfffdf
+    1ab0:	21042104 	.word	0x21042104
+    1ab4:	21042104 	.word	0x21042104
+    1ab8:	21042104 	.word	0x21042104
+    1abc:	21042104 	.word	0x21042104
+    1ac0:	ffdf2104 	.word	0xffdf2104
+    1ac4:	2104ffdf 	.word	0x2104ffdf
+    1ac8:	21042104 	.word	0x21042104
+    1acc:	ffdf2104 	.word	0xffdf2104
+    1ad0:	ffdfffdf 	.word	0xffdfffdf
+    1ad4:	ffdfffdf 	.word	0xffdfffdf
+    1ad8:	ffdfffdf 	.word	0xffdfffdf
+    1adc:	21042104 	.word	0x21042104
+    1ae0:	21042104 	.word	0x21042104
+    1ae4:	ffdfffdf 	.word	0xffdfffdf
+    1ae8:	ffdfffdf 	.word	0xffdfffdf
+    1aec:	ffdfffdf 	.word	0xffdfffdf
+    1af0:	2104ffdf 	.word	0x2104ffdf
+    1af4:	21042104 	.word	0x21042104
+    1af8:	21042104 	.word	0x21042104
+    1afc:	21042104 	.word	0x21042104
+    1b00:	21042104 	.word	0x21042104
+    1b04:	ffdfffdf 	.word	0xffdfffdf
+    1b08:	21042104 	.word	0x21042104
+    1b0c:	21042104 	.word	0x21042104
+    1b10:	ffdfffdf 	.word	0xffdfffdf
+    1b14:	ffdfffdf 	.word	0xffdfffdf
+    1b18:	ffdfffdf 	.word	0xffdfffdf
+    1b1c:	2104ffdf 	.word	0x2104ffdf
+    1b20:	21042104 	.word	0x21042104
+    1b24:	21042104 	.word	0x21042104
+    1b28:	21042104 	.word	0x21042104
+    1b2c:	21042104 	.word	0x21042104
+    1b30:	ffdfffdf 	.word	0xffdfffdf
+    1b34:	21042104 	.word	0x21042104
+    1b38:	21042104 	.word	0x21042104
+    1b3c:	21042104 	.word	0x21042104
+    1b40:	21042104 	.word	0x21042104
+    1b44:	21042104 	.word	0x21042104
+    1b48:	21042104 	.word	0x21042104
+    1b4c:	21042104 	.word	0x21042104
+    1b50:	21042104 	.word	0x21042104
+    1b54:	21042104 	.word	0x21042104
+    1b58:	21042104 	.word	0x21042104
+    1b5c:	21042104 	.word	0x21042104
+    1b60:	21042104 	.word	0x21042104
+    1b64:	21042104 	.word	0x21042104
+    1b68:	21042104 	.word	0x21042104
+    1b6c:	21042104 	.word	0x21042104
+    1b70:	21042104 	.word	0x21042104
+    1b74:	21042104 	.word	0x21042104
+    1b78:	21042104 	.word	0x21042104
+    1b7c:	21042104 	.word	0x21042104
+    1b80:	21042104 	.word	0x21042104
+    1b84:	21042104 	.word	0x21042104
+    1b88:	21042104 	.word	0x21042104
+    1b8c:	21042104 	.word	0x21042104
+    1b90:	21042104 	.word	0x21042104
+    1b94:	21042104 	.word	0x21042104
+    1b98:	21042104 	.word	0x21042104
+    1b9c:	21042104 	.word	0x21042104
+    1ba0:	21042104 	.word	0x21042104
+    1ba4:	21042104 	.word	0x21042104
+    1ba8:	21042104 	.word	0x21042104
+    1bac:	21042104 	.word	0x21042104
+    1bb0:	21042104 	.word	0x21042104
+    1bb4:	21042104 	.word	0x21042104
+    1bb8:	21042104 	.word	0x21042104
+    1bbc:	21042104 	.word	0x21042104
+    1bc0:	21042104 	.word	0x21042104
+    1bc4:	21042104 	.word	0x21042104
+    1bc8:	21042104 	.word	0x21042104
+    1bcc:	21042104 	.word	0x21042104
+    1bd0:	21042104 	.word	0x21042104
+    1bd4:	21042104 	.word	0x21042104
+    1bd8:	21042104 	.word	0x21042104
+    1bdc:	21042104 	.word	0x21042104
+    1be0:	21042104 	.word	0x21042104
+    1be4:	21042104 	.word	0x21042104
+    1be8:	21042104 	.word	0x21042104
+    1bec:	21042104 	.word	0x21042104
+    1bf0:	21042104 	.word	0x21042104
+    1bf4:	21042104 	.word	0x21042104
+    1bf8:	21042104 	.word	0x21042104
+    1bfc:	21042104 	.word	0x21042104
+    1c00:	21042104 	.word	0x21042104
+    1c04:	21042104 	.word	0x21042104
+    1c08:	21042104 	.word	0x21042104
+    1c0c:	21042104 	.word	0x21042104
+    1c10:	21042104 	.word	0x21042104
+    1c14:	21042104 	.word	0x21042104
+    1c18:	21042104 	.word	0x21042104
+    1c1c:	21042104 	.word	0x21042104
+    1c20:	21042104 	.word	0x21042104
+    1c24:	21042104 	.word	0x21042104
+    1c28:	21042104 	.word	0x21042104
+    1c2c:	21042104 	.word	0x21042104
+    1c30:	21042104 	.word	0x21042104
+    1c34:	21042104 	.word	0x21042104
+    1c38:	21042104 	.word	0x21042104
+    1c3c:	21042104 	.word	0x21042104
+    1c40:	21042104 	.word	0x21042104
+    1c44:	21042104 	.word	0x21042104
+    1c48:	21042104 	.word	0x21042104
+    1c4c:	21042104 	.word	0x21042104
+    1c50:	21042104 	.word	0x21042104
+    1c54:	21042104 	.word	0x21042104
+    1c58:	21042104 	.word	0x21042104
+    1c5c:	21042104 	.word	0x21042104
+    1c60:	21042104 	.word	0x21042104
+    1c64:	21042104 	.word	0x21042104
+    1c68:	21042104 	.word	0x21042104
+    1c6c:	21042104 	.word	0x21042104
+    1c70:	21042104 	.word	0x21042104
+    1c74:	21042104 	.word	0x21042104
+    1c78:	21042104 	.word	0x21042104
+    1c7c:	21042104 	.word	0x21042104
+    1c80:	21042104 	.word	0x21042104
+    1c84:	21042104 	.word	0x21042104
+    1c88:	21042104 	.word	0x21042104
+    1c8c:	21042104 	.word	0x21042104
+    1c90:	21042104 	.word	0x21042104
+    1c94:	21042104 	.word	0x21042104
+    1c98:	21042104 	.word	0x21042104
+    1c9c:	21042104 	.word	0x21042104
+    1ca0:	21042104 	.word	0x21042104
+    1ca4:	21042104 	.word	0x21042104
+    1ca8:	21042104 	.word	0x21042104
+    1cac:	21042104 	.word	0x21042104
+    1cb0:	21042104 	.word	0x21042104
+    1cb4:	21042104 	.word	0x21042104
+    1cb8:	21042104 	.word	0x21042104
+    1cbc:	21042104 	.word	0x21042104
+    1cc0:	21042104 	.word	0x21042104
+    1cc4:	21042104 	.word	0x21042104
+    1cc8:	21042104 	.word	0x21042104
+    1ccc:	21042104 	.word	0x21042104
+    1cd0:	21042104 	.word	0x21042104
+    1cd4:	21042104 	.word	0x21042104
+    1cd8:	21042104 	.word	0x21042104
+    1cdc:	21042104 	.word	0x21042104
+    1ce0:	21042104 	.word	0x21042104
+    1ce4:	21042104 	.word	0x21042104
+    1ce8:	21042104 	.word	0x21042104
+    1cec:	21042104 	.word	0x21042104
+    1cf0:	21042104 	.word	0x21042104
+    1cf4:	21042104 	.word	0x21042104
+    1cf8:	21042104 	.word	0x21042104
+    1cfc:	21042104 	.word	0x21042104
+    1d00:	21042104 	.word	0x21042104
+    1d04:	21042104 	.word	0x21042104
+    1d08:	21042104 	.word	0x21042104
+    1d0c:	21042104 	.word	0x21042104
+    1d10:	21042104 	.word	0x21042104
+    1d14:	21042104 	.word	0x21042104
+    1d18:	21042104 	.word	0x21042104
+    1d1c:	21042104 	.word	0x21042104
+    1d20:	21042104 	.word	0x21042104
+    1d24:	21042104 	.word	0x21042104
+    1d28:	21042104 	.word	0x21042104
+    1d2c:	21042104 	.word	0x21042104
+    1d30:	21042104 	.word	0x21042104
+    1d34:	21042104 	.word	0x21042104
+    1d38:	21042104 	.word	0x21042104
+    1d3c:	21042104 	.word	0x21042104
+    1d40:	21042104 	.word	0x21042104
+    1d44:	21042104 	.word	0x21042104
+    1d48:	21042104 	.word	0x21042104
+    1d4c:	21042104 	.word	0x21042104
+    1d50:	21042104 	.word	0x21042104
+    1d54:	21042104 	.word	0x21042104
+    1d58:	21042104 	.word	0x21042104
+    1d5c:	21042104 	.word	0x21042104
+    1d60:	21042104 	.word	0x21042104
+    1d64:	21042104 	.word	0x21042104
+    1d68:	21042104 	.word	0x21042104
+    1d6c:	21042104 	.word	0x21042104
+    1d70:	21042104 	.word	0x21042104
+    1d74:	21042104 	.word	0x21042104
+    1d78:	21042104 	.word	0x21042104
+    1d7c:	21042104 	.word	0x21042104
+    1d80:	21042104 	.word	0x21042104
+    1d84:	21042104 	.word	0x21042104
+    1d88:	21042104 	.word	0x21042104
+    1d8c:	21042104 	.word	0x21042104
+    1d90:	21042104 	.word	0x21042104
+    1d94:	21042104 	.word	0x21042104
+    1d98:	21042104 	.word	0x21042104
+    1d9c:	21042104 	.word	0x21042104
+    1da0:	21042104 	.word	0x21042104
+    1da4:	21042104 	.word	0x21042104
+    1da8:	21042104 	.word	0x21042104
+    1dac:	21042104 	.word	0x21042104
+    1db0:	21042104 	.word	0x21042104
+    1db4:	21042104 	.word	0x21042104
+    1db8:	21042104 	.word	0x21042104
+    1dbc:	21042104 	.word	0x21042104
+    1dc0:	21042104 	.word	0x21042104
+    1dc4:	21042104 	.word	0x21042104
+    1dc8:	21042104 	.word	0x21042104
+    1dcc:	21042104 	.word	0x21042104
+    1dd0:	21042104 	.word	0x21042104
+    1dd4:	21042104 	.word	0x21042104
+    1dd8:	21042104 	.word	0x21042104
+    1ddc:	21042104 	.word	0x21042104
+    1de0:	21042104 	.word	0x21042104
+    1de4:	ffdfffdf 	.word	0xffdfffdf
+    1de8:	21042104 	.word	0x21042104
+    1dec:	21042104 	.word	0x21042104
+    1df0:	ffdf2104 	.word	0xffdf2104
+    1df4:	ffdfffdf 	.word	0xffdfffdf
+    1df8:	ffdfffdf 	.word	0xffdfffdf
+    1dfc:	2104ffdf 	.word	0x2104ffdf
+    1e00:	ffdf2104 	.word	0xffdf2104
+    1e04:	2104ffdf 	.word	0x2104ffdf
+    1e08:	21042104 	.word	0x21042104
+    1e0c:	ffdf2104 	.word	0xffdf2104
+    1e10:	2104ffdf 	.word	0x2104ffdf
+    1e14:	ffdf2104 	.word	0xffdf2104
+    1e18:	ffdfffdf 	.word	0xffdfffdf
+    1e1c:	ffdfffdf 	.word	0xffdfffdf
+    1e20:	2104ffdf 	.word	0x2104ffdf
+    1e24:	ffdf2104 	.word	0xffdf2104
+    1e28:	ffdfffdf 	.word	0xffdfffdf
+    1e2c:	ffdfffdf 	.word	0xffdfffdf
+    1e30:	2104ffdf 	.word	0x2104ffdf
+    1e34:	21042104 	.word	0x21042104
+    1e38:	21042104 	.word	0x21042104
+    1e3c:	21042104 	.word	0x21042104
+    1e40:	21042104 	.word	0x21042104
+    1e44:	e8ece8ec 	.word	0xe8ece8ec
+    1e48:	2104e8ec 	.word	0x2104e8ec
+    1e4c:	21042104 	.word	0x21042104
+    1e50:	e8ece8ec 	.word	0xe8ece8ec
+    1e54:	2104e8ec 	.word	0x2104e8ec
+    1e58:	21042104 	.word	0x21042104
+    1e5c:	21042104 	.word	0x21042104
+    1e60:	21042104 	.word	0x21042104
+    1e64:	21042104 	.word	0x21042104
+    1e68:	21042104 	.word	0x21042104
+    1e6c:	21042104 	.word	0x21042104
+    1e70:	21042104 	.word	0x21042104
+    1e74:	21042104 	.word	0x21042104
+    1e78:	21042104 	.word	0x21042104
+    1e7c:	21042104 	.word	0x21042104
+    1e80:	21042104 	.word	0x21042104
+    1e84:	21042104 	.word	0x21042104
+    1e88:	21042104 	.word	0x21042104
+    1e8c:	21042104 	.word	0x21042104
+    1e90:	21042104 	.word	0x21042104
+    1e94:	21042104 	.word	0x21042104
+    1e98:	21042104 	.word	0x21042104
+    1e9c:	21042104 	.word	0x21042104
+    1ea0:	21042104 	.word	0x21042104
+    1ea4:	21042104 	.word	0x21042104
+    1ea8:	21042104 	.word	0x21042104
+    1eac:	21042104 	.word	0x21042104
+    1eb0:	21042104 	.word	0x21042104
+    1eb4:	21042104 	.word	0x21042104
+    1eb8:	21042104 	.word	0x21042104
+    1ebc:	21042104 	.word	0x21042104
+    1ec0:	21042104 	.word	0x21042104
+    1ec4:	21042104 	.word	0x21042104
+    1ec8:	21042104 	.word	0x21042104
+    1ecc:	21042104 	.word	0x21042104
+    1ed0:	21042104 	.word	0x21042104
+    1ed4:	21042104 	.word	0x21042104
+    1ed8:	21042104 	.word	0x21042104
+    1edc:	21042104 	.word	0x21042104
+    1ee0:	21042104 	.word	0x21042104
+    1ee4:	21042104 	.word	0x21042104
+    1ee8:	21042104 	.word	0x21042104
+    1eec:	21042104 	.word	0x21042104
+    1ef0:	21042104 	.word	0x21042104
+    1ef4:	21042104 	.word	0x21042104
+    1ef8:	21042104 	.word	0x21042104
+    1efc:	21042104 	.word	0x21042104
+    1f00:	21042104 	.word	0x21042104
+    1f04:	21042104 	.word	0x21042104
+    1f08:	21042104 	.word	0x21042104
+    1f0c:	21042104 	.word	0x21042104
+    1f10:	21042104 	.word	0x21042104
+    1f14:	21042104 	.word	0x21042104
+    1f18:	21042104 	.word	0x21042104
+    1f1c:	21042104 	.word	0x21042104
+    1f20:	21042104 	.word	0x21042104
+    1f24:	21042104 	.word	0x21042104
+    1f28:	21042104 	.word	0x21042104
+    1f2c:	ffdf2104 	.word	0xffdf2104
+    1f30:	2104ffdf 	.word	0x2104ffdf
+    1f34:	21042104 	.word	0x21042104
+    1f38:	21042104 	.word	0x21042104
+    1f3c:	ffdfffdf 	.word	0xffdfffdf
+    1f40:	ffdfffdf 	.word	0xffdfffdf
+    1f44:	ffdfffdf 	.word	0xffdfffdf
+    1f48:	21042104 	.word	0x21042104
+    1f4c:	ffdfffdf 	.word	0xffdfffdf
+    1f50:	21042104 	.word	0x21042104
+    1f54:	21042104 	.word	0x21042104
+    1f58:	ffdfffdf 	.word	0xffdfffdf
+    1f5c:	21042104 	.word	0x21042104
+    1f60:	ffdfffdf 	.word	0xffdfffdf
+    1f64:	ffdfffdf 	.word	0xffdfffdf
+    1f68:	ffdfffdf 	.word	0xffdfffdf
+    1f6c:	21042104 	.word	0x21042104
+    1f70:	ffdfffdf 	.word	0xffdfffdf
+    1f74:	ffdfffdf 	.word	0xffdfffdf
+    1f78:	ffdfffdf 	.word	0xffdfffdf
+    1f7c:	21042104 	.word	0x21042104
+    1f80:	21042104 	.word	0x21042104
+    1f84:	21042104 	.word	0x21042104
+    1f88:	21042104 	.word	0x21042104
+    1f8c:	e8ece8ec 	.word	0xe8ece8ec
+    1f90:	e8ece8ec 	.word	0xe8ece8ec
+    1f94:	2104e8ec 	.word	0x2104e8ec
+    1f98:	e8ece8ec 	.word	0xe8ece8ec
+    1f9c:	e8ece8ec 	.word	0xe8ece8ec
+    1fa0:	2104e8ec 	.word	0x2104e8ec
+    1fa4:	21042104 	.word	0x21042104
+    1fa8:	21042104 	.word	0x21042104
+    1fac:	21042104 	.word	0x21042104
+    1fb0:	21042104 	.word	0x21042104
+    1fb4:	21042104 	.word	0x21042104
+    1fb8:	21042104 	.word	0x21042104
+    1fbc:	21042104 	.word	0x21042104
+    1fc0:	21042104 	.word	0x21042104
+    1fc4:	21042104 	.word	0x21042104
+    1fc8:	21042104 	.word	0x21042104
+    1fcc:	21042104 	.word	0x21042104
+    1fd0:	21042104 	.word	0x21042104
+    1fd4:	21042104 	.word	0x21042104
+    1fd8:	21042104 	.word	0x21042104
+    1fdc:	21042104 	.word	0x21042104
+    1fe0:	21042104 	.word	0x21042104
+    1fe4:	21042104 	.word	0x21042104
+    1fe8:	21042104 	.word	0x21042104
+    1fec:	21042104 	.word	0x21042104
+    1ff0:	21042104 	.word	0x21042104
+    1ff4:	21042104 	.word	0x21042104
+    1ff8:	21042104 	.word	0x21042104
+    1ffc:	21042104 	.word	0x21042104
+    2000:	21042104 	.word	0x21042104
+    2004:	21042104 	.word	0x21042104
+    2008:	21042104 	.word	0x21042104
+    200c:	21042104 	.word	0x21042104
+    2010:	21042104 	.word	0x21042104
+    2014:	21042104 	.word	0x21042104
+    2018:	21042104 	.word	0x21042104
+    201c:	21042104 	.word	0x21042104
+    2020:	21042104 	.word	0x21042104
+    2024:	21042104 	.word	0x21042104
+    2028:	21042104 	.word	0x21042104
+    202c:	21042104 	.word	0x21042104
+    2030:	21042104 	.word	0x21042104
+    2034:	21042104 	.word	0x21042104
+    2038:	21042104 	.word	0x21042104
+    203c:	21042104 	.word	0x21042104
+    2040:	21042104 	.word	0x21042104
+    2044:	21042104 	.word	0x21042104
+    2048:	21042104 	.word	0x21042104
+    204c:	21042104 	.word	0x21042104
+    2050:	21042104 	.word	0x21042104
+    2054:	21042104 	.word	0x21042104
+    2058:	21042104 	.word	0x21042104
+    205c:	21042104 	.word	0x21042104
+    2060:	21042104 	.word	0x21042104
+    2064:	21042104 	.word	0x21042104
+    2068:	21042104 	.word	0x21042104
+    206c:	21042104 	.word	0x21042104
+    2070:	21042104 	.word	0x21042104
+    2074:	21042104 	.word	0x21042104
+    2078:	ffdfffdf 	.word	0xffdfffdf
+    207c:	21042104 	.word	0x21042104
+    2080:	21042104 	.word	0x21042104
+    2084:	21042104 	.word	0x21042104
+    2088:	ffdf2104 	.word	0xffdf2104
+    208c:	2104ffdf 	.word	0x2104ffdf
+    2090:	21042104 	.word	0x21042104
+    2094:	ffdf2104 	.word	0xffdf2104
+    2098:	2104ffdf 	.word	0x2104ffdf
+    209c:	21042104 	.word	0x21042104
+    20a0:	ffdf2104 	.word	0xffdf2104
+    20a4:	2104ffdf 	.word	0x2104ffdf
+    20a8:	ffdf2104 	.word	0xffdf2104
+    20ac:	2104ffdf 	.word	0x2104ffdf
+    20b0:	21042104 	.word	0x21042104
+    20b4:	21042104 	.word	0x21042104
+    20b8:	ffdf2104 	.word	0xffdf2104
+    20bc:	21042104 	.word	0x21042104
+    20c0:	21042104 	.word	0x21042104
+    20c4:	21042104 	.word	0x21042104
+    20c8:	21042104 	.word	0x21042104
+    20cc:	ffdfffdf 	.word	0xffdfffdf
+    20d0:	21042104 	.word	0x21042104
+    20d4:	e8ec2104 	.word	0xe8ec2104
+    20d8:	e8ece8ec 	.word	0xe8ece8ec
+    20dc:	e8ece8ec 	.word	0xe8ece8ec
+    20e0:	e8ece8ec 	.word	0xe8ece8ec
+    20e4:	e8ece8ec 	.word	0xe8ece8ec
+    20e8:	e8ece8ec 	.word	0xe8ece8ec
+    20ec:	21042104 	.word	0x21042104
+    20f0:	21042104 	.word	0x21042104
+    20f4:	21042104 	.word	0x21042104
+    20f8:	21042104 	.word	0x21042104
+    20fc:	21042104 	.word	0x21042104
+    2100:	21042104 	.word	0x21042104
+    2104:	21042104 	.word	0x21042104
+    2108:	21042104 	.word	0x21042104
+    210c:	21042104 	.word	0x21042104
+    2110:	21042104 	.word	0x21042104
+    2114:	21042104 	.word	0x21042104
+    2118:	21042104 	.word	0x21042104
+    211c:	21042104 	.word	0x21042104
+    2120:	21042104 	.word	0x21042104
+    2124:	21042104 	.word	0x21042104
+    2128:	21042104 	.word	0x21042104
+    212c:	21042104 	.word	0x21042104
+    2130:	21042104 	.word	0x21042104
+    2134:	21042104 	.word	0x21042104
+    2138:	21042104 	.word	0x21042104
+    213c:	21042104 	.word	0x21042104
+    2140:	21042104 	.word	0x21042104
+    2144:	21042104 	.word	0x21042104
+    2148:	21042104 	.word	0x21042104
+    214c:	21042104 	.word	0x21042104
+    2150:	21042104 	.word	0x21042104
+    2154:	21042104 	.word	0x21042104
+    2158:	21042104 	.word	0x21042104
+    215c:	21042104 	.word	0x21042104
+    2160:	21042104 	.word	0x21042104
+    2164:	21042104 	.word	0x21042104
+    2168:	21042104 	.word	0x21042104
+    216c:	21042104 	.word	0x21042104
+    2170:	21042104 	.word	0x21042104
+    2174:	21042104 	.word	0x21042104
+    2178:	21042104 	.word	0x21042104
+    217c:	21042104 	.word	0x21042104
+    2180:	21042104 	.word	0x21042104
+    2184:	21042104 	.word	0x21042104
+    2188:	21042104 	.word	0x21042104
+    218c:	21042104 	.word	0x21042104
+    2190:	21042104 	.word	0x21042104
+    2194:	21042104 	.word	0x21042104
+    2198:	21042104 	.word	0x21042104
+    219c:	21042104 	.word	0x21042104
+    21a0:	21042104 	.word	0x21042104
+    21a4:	21042104 	.word	0x21042104
+    21a8:	21042104 	.word	0x21042104
+    21ac:	21042104 	.word	0x21042104
+    21b0:	21042104 	.word	0x21042104
+    21b4:	21042104 	.word	0x21042104
+    21b8:	21042104 	.word	0x21042104
+    21bc:	21042104 	.word	0x21042104
+    21c0:	ffdf2104 	.word	0xffdf2104
+    21c4:	2104ffdf 	.word	0x2104ffdf
+    21c8:	21042104 	.word	0x21042104
+    21cc:	21042104 	.word	0x21042104
+    21d0:	21042104 	.word	0x21042104
+    21d4:	ffdfffdf 	.word	0xffdfffdf
+    21d8:	21042104 	.word	0x21042104
+    21dc:	21042104 	.word	0x21042104
+    21e0:	ffdfffdf 	.word	0xffdfffdf
+    21e4:	2104ffdf 	.word	0x2104ffdf
+    21e8:	ffdf2104 	.word	0xffdf2104
+    21ec:	ffdfffdf 	.word	0xffdfffdf
+    21f0:	21042104 	.word	0x21042104
+    21f4:	ffdfffdf 	.word	0xffdfffdf
+    21f8:	21042104 	.word	0x21042104
+    21fc:	21042104 	.word	0x21042104
+    2200:	21042104 	.word	0x21042104
+    2204:	2104ffdf 	.word	0x2104ffdf
+    2208:	21042104 	.word	0x21042104
+    220c:	21042104 	.word	0x21042104
+    2210:	21042104 	.word	0x21042104
+    2214:	ffdf2104 	.word	0xffdf2104
+    2218:	2104ffdf 	.word	0x2104ffdf
+    221c:	21042104 	.word	0x21042104
+    2220:	e8ece8ec 	.word	0xe8ece8ec
+    2224:	e8ece8ec 	.word	0xe8ece8ec
+    2228:	e8ece8ec 	.word	0xe8ece8ec
+    222c:	e8ece8ec 	.word	0xe8ece8ec
+    2230:	e8ece8ec 	.word	0xe8ece8ec
+    2234:	2104e8ec 	.word	0x2104e8ec
+    2238:	21042104 	.word	0x21042104
+    223c:	21042104 	.word	0x21042104
+    2240:	21042104 	.word	0x21042104
+    2244:	21042104 	.word	0x21042104
+    2248:	21042104 	.word	0x21042104
+    224c:	21042104 	.word	0x21042104
+    2250:	21042104 	.word	0x21042104
+    2254:	21042104 	.word	0x21042104
+    2258:	21042104 	.word	0x21042104
+    225c:	21042104 	.word	0x21042104
+    2260:	21042104 	.word	0x21042104
+    2264:	21042104 	.word	0x21042104
+    2268:	21042104 	.word	0x21042104
+    226c:	21042104 	.word	0x21042104
+    2270:	21042104 	.word	0x21042104
+    2274:	21042104 	.word	0x21042104
+    2278:	21042104 	.word	0x21042104
+    227c:	21042104 	.word	0x21042104
+    2280:	21042104 	.word	0x21042104
+    2284:	21042104 	.word	0x21042104
+    2288:	21042104 	.word	0x21042104
+    228c:	21042104 	.word	0x21042104
+    2290:	21042104 	.word	0x21042104
+    2294:	21042104 	.word	0x21042104
+    2298:	21042104 	.word	0x21042104
+    229c:	21042104 	.word	0x21042104
+    22a0:	21042104 	.word	0x21042104
+    22a4:	21042104 	.word	0x21042104
+    22a8:	21042104 	.word	0x21042104
+    22ac:	21042104 	.word	0x21042104
+    22b0:	21042104 	.word	0x21042104
+    22b4:	21042104 	.word	0x21042104
+    22b8:	21042104 	.word	0x21042104
+    22bc:	21042104 	.word	0x21042104
+    22c0:	21042104 	.word	0x21042104
+    22c4:	21042104 	.word	0x21042104
+    22c8:	21042104 	.word	0x21042104
+    22cc:	21042104 	.word	0x21042104
+    22d0:	21042104 	.word	0x21042104
+    22d4:	21042104 	.word	0x21042104
+    22d8:	21042104 	.word	0x21042104
+    22dc:	21042104 	.word	0x21042104
+    22e0:	21042104 	.word	0x21042104
+    22e4:	21042104 	.word	0x21042104
+    22e8:	21042104 	.word	0x21042104
+    22ec:	21042104 	.word	0x21042104
+    22f0:	21042104 	.word	0x21042104
+    22f4:	21042104 	.word	0x21042104
+    22f8:	21042104 	.word	0x21042104
+    22fc:	21042104 	.word	0x21042104
+    2300:	21042104 	.word	0x21042104
+    2304:	21042104 	.word	0x21042104
+    2308:	21042104 	.word	0x21042104
+    230c:	ffdfffdf 	.word	0xffdfffdf
+    2310:	21042104 	.word	0x21042104
+    2314:	21042104 	.word	0x21042104
+    2318:	21042104 	.word	0x21042104
+    231c:	ffdf2104 	.word	0xffdf2104
+    2320:	2104ffdf 	.word	0x2104ffdf
+    2324:	21042104 	.word	0x21042104
+    2328:	ffdf2104 	.word	0xffdf2104
+    232c:	ffdfffdf 	.word	0xffdfffdf
+    2330:	21042104 	.word	0x21042104
+    2334:	ffdfffdf 	.word	0xffdfffdf
+    2338:	2104ffdf 	.word	0x2104ffdf
+    233c:	ffdf2104 	.word	0xffdf2104
+    2340:	ffdfffdf 	.word	0xffdfffdf
+    2344:	ffdfffdf 	.word	0xffdfffdf
+    2348:	2104ffdf 	.word	0x2104ffdf
+    234c:	ffdf2104 	.word	0xffdf2104
+    2350:	ffdfffdf 	.word	0xffdfffdf
+    2354:	ffdfffdf 	.word	0xffdfffdf
+    2358:	2104ffdf 	.word	0x2104ffdf
+    235c:	21042104 	.word	0x21042104
+    2360:	21042104 	.word	0x21042104
+    2364:	21042104 	.word	0x21042104
+    2368:	e8ec2104 	.word	0xe8ec2104
+    236c:	e8ece8ec 	.word	0xe8ece8ec
+    2370:	e8ece8ec 	.word	0xe8ece8ec
+    2374:	e8ece8ec 	.word	0xe8ece8ec
+    2378:	e8ece8ec 	.word	0xe8ece8ec
+    237c:	e8ece8ec 	.word	0xe8ece8ec
+    2380:	21042104 	.word	0x21042104
+    2384:	21042104 	.word	0x21042104
+    2388:	21042104 	.word	0x21042104
+    238c:	21042104 	.word	0x21042104
+    2390:	21042104 	.word	0x21042104
+    2394:	21042104 	.word	0x21042104
+    2398:	21042104 	.word	0x21042104
+    239c:	21042104 	.word	0x21042104
+    23a0:	21042104 	.word	0x21042104
+    23a4:	21042104 	.word	0x21042104
+    23a8:	21042104 	.word	0x21042104
+    23ac:	21042104 	.word	0x21042104
+    23b0:	21042104 	.word	0x21042104
+    23b4:	21042104 	.word	0x21042104
+    23b8:	21042104 	.word	0x21042104
+    23bc:	21042104 	.word	0x21042104
+    23c0:	21042104 	.word	0x21042104
+    23c4:	21042104 	.word	0x21042104
+    23c8:	21042104 	.word	0x21042104
+    23cc:	21042104 	.word	0x21042104
+    23d0:	21042104 	.word	0x21042104
+    23d4:	21042104 	.word	0x21042104
+    23d8:	21042104 	.word	0x21042104
+    23dc:	21042104 	.word	0x21042104
+    23e0:	21042104 	.word	0x21042104
+    23e4:	21042104 	.word	0x21042104
+    23e8:	21042104 	.word	0x21042104
+    23ec:	21042104 	.word	0x21042104
+    23f0:	21042104 	.word	0x21042104
+    23f4:	21042104 	.word	0x21042104
+    23f8:	21042104 	.word	0x21042104
+    23fc:	21042104 	.word	0x21042104
+    2400:	21042104 	.word	0x21042104
+    2404:	21042104 	.word	0x21042104
+    2408:	21042104 	.word	0x21042104
+    240c:	21042104 	.word	0x21042104
+    2410:	21042104 	.word	0x21042104
+    2414:	21042104 	.word	0x21042104
+    2418:	21042104 	.word	0x21042104
+    241c:	21042104 	.word	0x21042104
+    2420:	21042104 	.word	0x21042104
+    2424:	21042104 	.word	0x21042104
+    2428:	21042104 	.word	0x21042104
+    242c:	21042104 	.word	0x21042104
+    2430:	21042104 	.word	0x21042104
+    2434:	21042104 	.word	0x21042104
+    2438:	21042104 	.word	0x21042104
+    243c:	21042104 	.word	0x21042104
+    2440:	21042104 	.word	0x21042104
+    2444:	21042104 	.word	0x21042104
+    2448:	21042104 	.word	0x21042104
+    244c:	21042104 	.word	0x21042104
+    2450:	21042104 	.word	0x21042104
+    2454:	ffdf2104 	.word	0xffdf2104
+    2458:	2104ffdf 	.word	0x2104ffdf
+    245c:	21042104 	.word	0x21042104
+    2460:	21042104 	.word	0x21042104
+    2464:	21042104 	.word	0x21042104
+    2468:	ffdfffdf 	.word	0xffdfffdf
+    246c:	21042104 	.word	0x21042104
+    2470:	21042104 	.word	0x21042104
+    2474:	ffdf2104 	.word	0xffdf2104
+    2478:	2104ffdf 	.word	0x2104ffdf
+    247c:	ffdf2104 	.word	0xffdf2104
+    2480:	2104ffdf 	.word	0x2104ffdf
+    2484:	21042104 	.word	0x21042104
+    2488:	ffdfffdf 	.word	0xffdfffdf
+    248c:	ffdfffdf 	.word	0xffdfffdf
+    2490:	ffdfffdf 	.word	0xffdfffdf
+    2494:	21042104 	.word	0x21042104
+    2498:	ffdfffdf 	.word	0xffdfffdf
+    249c:	ffdfffdf 	.word	0xffdfffdf
+    24a0:	ffdfffdf 	.word	0xffdfffdf
+    24a4:	21042104 	.word	0x21042104
+    24a8:	21042104 	.word	0x21042104
+    24ac:	21042104 	.word	0x21042104
+    24b0:	21042104 	.word	0x21042104
+    24b4:	e8ec2104 	.word	0xe8ec2104
+    24b8:	e8ece8ec 	.word	0xe8ece8ec
+    24bc:	e8ece8ec 	.word	0xe8ece8ec
+    24c0:	e8ece8ec 	.word	0xe8ece8ec
+    24c4:	e8ece8ec 	.word	0xe8ece8ec
+    24c8:	21042104 	.word	0x21042104
+    24cc:	21042104 	.word	0x21042104
+    24d0:	21042104 	.word	0x21042104
+    24d4:	21042104 	.word	0x21042104
+    24d8:	21042104 	.word	0x21042104
+    24dc:	21042104 	.word	0x21042104
+    24e0:	21042104 	.word	0x21042104
+    24e4:	21042104 	.word	0x21042104
+    24e8:	21042104 	.word	0x21042104
+    24ec:	21042104 	.word	0x21042104
+    24f0:	21042104 	.word	0x21042104
+    24f4:	21042104 	.word	0x21042104
+    24f8:	21042104 	.word	0x21042104
+    24fc:	21042104 	.word	0x21042104
+    2500:	21042104 	.word	0x21042104
+    2504:	21042104 	.word	0x21042104
+    2508:	21042104 	.word	0x21042104
+    250c:	21042104 	.word	0x21042104
+    2510:	21042104 	.word	0x21042104
+    2514:	21042104 	.word	0x21042104
+    2518:	21042104 	.word	0x21042104
+    251c:	21042104 	.word	0x21042104
+    2520:	21042104 	.word	0x21042104
+    2524:	21042104 	.word	0x21042104
+    2528:	21042104 	.word	0x21042104
+    252c:	21042104 	.word	0x21042104
+    2530:	21042104 	.word	0x21042104
+    2534:	21042104 	.word	0x21042104
+    2538:	21042104 	.word	0x21042104
+    253c:	21042104 	.word	0x21042104
+    2540:	21042104 	.word	0x21042104
+    2544:	21042104 	.word	0x21042104
+    2548:	21042104 	.word	0x21042104
+    254c:	21042104 	.word	0x21042104
+    2550:	21042104 	.word	0x21042104
+    2554:	21042104 	.word	0x21042104
+    2558:	21042104 	.word	0x21042104
+    255c:	21042104 	.word	0x21042104
+    2560:	21042104 	.word	0x21042104
+    2564:	21042104 	.word	0x21042104
+    2568:	21042104 	.word	0x21042104
+    256c:	21042104 	.word	0x21042104
+    2570:	21042104 	.word	0x21042104
+    2574:	21042104 	.word	0x21042104
+    2578:	21042104 	.word	0x21042104
+    257c:	21042104 	.word	0x21042104
+    2580:	21042104 	.word	0x21042104
+    2584:	21042104 	.word	0x21042104
+    2588:	21042104 	.word	0x21042104
+    258c:	21042104 	.word	0x21042104
+    2590:	21042104 	.word	0x21042104
+    2594:	21042104 	.word	0x21042104
+    2598:	21042104 	.word	0x21042104
+    259c:	21042104 	.word	0x21042104
+    25a0:	ffdfffdf 	.word	0xffdfffdf
+    25a4:	21042104 	.word	0x21042104
+    25a8:	21042104 	.word	0x21042104
+    25ac:	21042104 	.word	0x21042104
+    25b0:	ffdf2104 	.word	0xffdf2104
+    25b4:	2104ffdf 	.word	0x2104ffdf
+    25b8:	21042104 	.word	0x21042104
+    25bc:	21042104 	.word	0x21042104
+    25c0:	ffdfffdf 	.word	0xffdfffdf
+    25c4:	ffdfffdf 	.word	0xffdfffdf
+    25c8:	ffdfffdf 	.word	0xffdfffdf
+    25cc:	21042104 	.word	0x21042104
+    25d0:	ffdf2104 	.word	0xffdf2104
+    25d4:	2104ffdf 	.word	0x2104ffdf
+    25d8:	21042104 	.word	0x21042104
+    25dc:	21042104 	.word	0x21042104
+    25e0:	21042104 	.word	0x21042104
+    25e4:	21042104 	.word	0x21042104
+    25e8:	21042104 	.word	0x21042104
+    25ec:	2104ffdf 	.word	0x2104ffdf
+    25f0:	21042104 	.word	0x21042104
+    25f4:	ffdfffdf 	.word	0xffdfffdf
+    25f8:	21042104 	.word	0x21042104
+    25fc:	21042104 	.word	0x21042104
+    2600:	e8ec2104 	.word	0xe8ec2104
+    2604:	e8ece8ec 	.word	0xe8ece8ec
+    2608:	e8ece8ec 	.word	0xe8ece8ec
+    260c:	e8ece8ec 	.word	0xe8ece8ec
+    2610:	21042104 	.word	0x21042104
+    2614:	21042104 	.word	0x21042104
+    2618:	21042104 	.word	0x21042104
+    261c:	21042104 	.word	0x21042104
+    2620:	21042104 	.word	0x21042104
+    2624:	21042104 	.word	0x21042104
+    2628:	21042104 	.word	0x21042104
+    262c:	21042104 	.word	0x21042104
+    2630:	21042104 	.word	0x21042104
+    2634:	21042104 	.word	0x21042104
+    2638:	21042104 	.word	0x21042104
+    263c:	21042104 	.word	0x21042104
+    2640:	21042104 	.word	0x21042104
+    2644:	21042104 	.word	0x21042104
+    2648:	21042104 	.word	0x21042104
+    264c:	21042104 	.word	0x21042104
+    2650:	21042104 	.word	0x21042104
+    2654:	21042104 	.word	0x21042104
+    2658:	21042104 	.word	0x21042104
+    265c:	21042104 	.word	0x21042104
+    2660:	21042104 	.word	0x21042104
+    2664:	21042104 	.word	0x21042104
+    2668:	21042104 	.word	0x21042104
+    266c:	21042104 	.word	0x21042104
+    2670:	21042104 	.word	0x21042104
+    2674:	21042104 	.word	0x21042104
+    2678:	21042104 	.word	0x21042104
+    267c:	21042104 	.word	0x21042104
+    2680:	21042104 	.word	0x21042104
+    2684:	21042104 	.word	0x21042104
+    2688:	21042104 	.word	0x21042104
+    268c:	21042104 	.word	0x21042104
+    2690:	21042104 	.word	0x21042104
+    2694:	21042104 	.word	0x21042104
+    2698:	21042104 	.word	0x21042104
+    269c:	21042104 	.word	0x21042104
+    26a0:	21042104 	.word	0x21042104
+    26a4:	21042104 	.word	0x21042104
+    26a8:	21042104 	.word	0x21042104
+    26ac:	21042104 	.word	0x21042104
+    26b0:	21042104 	.word	0x21042104
+    26b4:	21042104 	.word	0x21042104
+    26b8:	21042104 	.word	0x21042104
+    26bc:	21042104 	.word	0x21042104
+    26c0:	21042104 	.word	0x21042104
+    26c4:	21042104 	.word	0x21042104
+    26c8:	21042104 	.word	0x21042104
+    26cc:	21042104 	.word	0x21042104
+    26d0:	21042104 	.word	0x21042104
+    26d4:	21042104 	.word	0x21042104
+    26d8:	21042104 	.word	0x21042104
+    26dc:	21042104 	.word	0x21042104
+    26e0:	21042104 	.word	0x21042104
+    26e4:	21042104 	.word	0x21042104
+    26e8:	ffdf2104 	.word	0xffdf2104
+    26ec:	2104ffdf 	.word	0x2104ffdf
+    26f0:	21042104 	.word	0x21042104
+    26f4:	21042104 	.word	0x21042104
+    26f8:	21042104 	.word	0x21042104
+    26fc:	ffdfffdf 	.word	0xffdfffdf
+    2700:	21042104 	.word	0x21042104
+    2704:	21042104 	.word	0x21042104
+    2708:	ffdf2104 	.word	0xffdf2104
+    270c:	ffdfffdf 	.word	0xffdfffdf
+    2710:	ffdfffdf 	.word	0xffdfffdf
+    2714:	2104ffdf 	.word	0x2104ffdf
+    2718:	21042104 	.word	0x21042104
+    271c:	ffdfffdf 	.word	0xffdfffdf
+    2720:	21042104 	.word	0x21042104
+    2724:	21042104 	.word	0x21042104
+    2728:	21042104 	.word	0x21042104
+    272c:	21042104 	.word	0x21042104
+    2730:	21042104 	.word	0x21042104
+    2734:	ffdf2104 	.word	0xffdf2104
+    2738:	21042104 	.word	0x21042104
+    273c:	ffdf2104 	.word	0xffdf2104
+    2740:	2104ffdf 	.word	0x2104ffdf
+    2744:	21042104 	.word	0x21042104
+    2748:	21042104 	.word	0x21042104
+    274c:	e8ece8ec 	.word	0xe8ece8ec
+    2750:	e8ece8ec 	.word	0xe8ece8ec
+    2754:	e8ece8ec 	.word	0xe8ece8ec
+    2758:	2104e8ec 	.word	0x2104e8ec
+    275c:	21042104 	.word	0x21042104
+    2760:	21042104 	.word	0x21042104
+    2764:	21042104 	.word	0x21042104
+    2768:	21042104 	.word	0x21042104
+    276c:	21042104 	.word	0x21042104
+    2770:	21042104 	.word	0x21042104
+    2774:	21042104 	.word	0x21042104
+    2778:	21042104 	.word	0x21042104
+    277c:	21042104 	.word	0x21042104
+    2780:	21042104 	.word	0x21042104
+    2784:	21042104 	.word	0x21042104
+    2788:	21042104 	.word	0x21042104
+    278c:	21042104 	.word	0x21042104
+    2790:	21042104 	.word	0x21042104
+    2794:	21042104 	.word	0x21042104
+    2798:	21042104 	.word	0x21042104
+    279c:	21042104 	.word	0x21042104
+    27a0:	21042104 	.word	0x21042104
+    27a4:	21042104 	.word	0x21042104
+    27a8:	21042104 	.word	0x21042104
+    27ac:	21042104 	.word	0x21042104
+    27b0:	21042104 	.word	0x21042104
+    27b4:	21042104 	.word	0x21042104
+    27b8:	21042104 	.word	0x21042104
+    27bc:	21042104 	.word	0x21042104
+    27c0:	21042104 	.word	0x21042104
+    27c4:	21042104 	.word	0x21042104
+    27c8:	21042104 	.word	0x21042104
+    27cc:	21042104 	.word	0x21042104
+    27d0:	21042104 	.word	0x21042104
+    27d4:	21042104 	.word	0x21042104
+    27d8:	21042104 	.word	0x21042104
+    27dc:	21042104 	.word	0x21042104
+    27e0:	21042104 	.word	0x21042104
+    27e4:	21042104 	.word	0x21042104
+    27e8:	21042104 	.word	0x21042104
+    27ec:	21042104 	.word	0x21042104
+    27f0:	21042104 	.word	0x21042104
+    27f4:	21042104 	.word	0x21042104
+    27f8:	21042104 	.word	0x21042104
+    27fc:	21042104 	.word	0x21042104
+    2800:	21042104 	.word	0x21042104
+    2804:	21042104 	.word	0x21042104
+    2808:	21042104 	.word	0x21042104
+    280c:	21042104 	.word	0x21042104
+    2810:	21042104 	.word	0x21042104
+    2814:	21042104 	.word	0x21042104
+    2818:	21042104 	.word	0x21042104
+    281c:	21042104 	.word	0x21042104
+    2820:	21042104 	.word	0x21042104
+    2824:	21042104 	.word	0x21042104
+    2828:	21042104 	.word	0x21042104
+    282c:	21042104 	.word	0x21042104
+    2830:	21042104 	.word	0x21042104
+    2834:	ffdfffdf 	.word	0xffdfffdf
+    2838:	ffdfffdf 	.word	0xffdfffdf
+    283c:	2104ffdf 	.word	0x2104ffdf
+    2840:	ffdf2104 	.word	0xffdf2104
+    2844:	ffdfffdf 	.word	0xffdfffdf
+    2848:	ffdfffdf 	.word	0xffdfffdf
+    284c:	2104ffdf 	.word	0x2104ffdf
+    2850:	21042104 	.word	0x21042104
+    2854:	21042104 	.word	0x21042104
+    2858:	ffdfffdf 	.word	0xffdfffdf
+    285c:	21042104 	.word	0x21042104
+    2860:	21042104 	.word	0x21042104
+    2864:	ffdf2104 	.word	0xffdf2104
+    2868:	ffdfffdf 	.word	0xffdfffdf
+    286c:	ffdfffdf 	.word	0xffdfffdf
+    2870:	2104ffdf 	.word	0x2104ffdf
+    2874:	ffdf2104 	.word	0xffdf2104
+    2878:	ffdfffdf 	.word	0xffdfffdf
+    287c:	ffdfffdf 	.word	0xffdfffdf
+    2880:	2104ffdf 	.word	0x2104ffdf
+    2884:	21042104 	.word	0x21042104
+    2888:	21042104 	.word	0x21042104
+    288c:	21042104 	.word	0x21042104
+    2890:	21042104 	.word	0x21042104
+    2894:	21042104 	.word	0x21042104
+    2898:	e8ece8ec 	.word	0xe8ece8ec
+    289c:	e8ece8ec 	.word	0xe8ece8ec
+    28a0:	2104e8ec 	.word	0x2104e8ec
+    28a4:	21042104 	.word	0x21042104
+    28a8:	21042104 	.word	0x21042104
+    28ac:	21042104 	.word	0x21042104
+    28b0:	21042104 	.word	0x21042104
+    28b4:	21042104 	.word	0x21042104
+    28b8:	21042104 	.word	0x21042104
+    28bc:	21042104 	.word	0x21042104
+    28c0:	21042104 	.word	0x21042104
+    28c4:	21042104 	.word	0x21042104
+    28c8:	21042104 	.word	0x21042104
+    28cc:	21042104 	.word	0x21042104
+    28d0:	21042104 	.word	0x21042104
+    28d4:	21042104 	.word	0x21042104
+    28d8:	21042104 	.word	0x21042104
+    28dc:	21042104 	.word	0x21042104
+    28e0:	21042104 	.word	0x21042104
+    28e4:	21042104 	.word	0x21042104
+    28e8:	21042104 	.word	0x21042104
+    28ec:	21042104 	.word	0x21042104
+    28f0:	21042104 	.word	0x21042104
+    28f4:	21042104 	.word	0x21042104
+    28f8:	21042104 	.word	0x21042104
+    28fc:	21042104 	.word	0x21042104
+    2900:	21042104 	.word	0x21042104
+    2904:	21042104 	.word	0x21042104
+    2908:	21042104 	.word	0x21042104
+    290c:	21042104 	.word	0x21042104
+    2910:	21042104 	.word	0x21042104
+    2914:	21042104 	.word	0x21042104
+    2918:	21042104 	.word	0x21042104
+    291c:	21042104 	.word	0x21042104
+    2920:	21042104 	.word	0x21042104
+    2924:	21042104 	.word	0x21042104
+    2928:	21042104 	.word	0x21042104
+    292c:	21042104 	.word	0x21042104
+    2930:	21042104 	.word	0x21042104
+    2934:	21042104 	.word	0x21042104
+    2938:	21042104 	.word	0x21042104
+    293c:	21042104 	.word	0x21042104
+    2940:	21042104 	.word	0x21042104
+    2944:	21042104 	.word	0x21042104
+    2948:	21042104 	.word	0x21042104
+    294c:	21042104 	.word	0x21042104
+    2950:	21042104 	.word	0x21042104
+    2954:	21042104 	.word	0x21042104
+    2958:	21042104 	.word	0x21042104
+    295c:	21042104 	.word	0x21042104
+    2960:	21042104 	.word	0x21042104
+    2964:	21042104 	.word	0x21042104
+    2968:	21042104 	.word	0x21042104
+    296c:	21042104 	.word	0x21042104
+    2970:	21042104 	.word	0x21042104
+    2974:	21042104 	.word	0x21042104
+    2978:	21042104 	.word	0x21042104
+    297c:	ffdf2104 	.word	0xffdf2104
+    2980:	ffdfffdf 	.word	0xffdfffdf
+    2984:	ffdfffdf 	.word	0xffdfffdf
+    2988:	21042104 	.word	0x21042104
+    298c:	ffdfffdf 	.word	0xffdfffdf
+    2990:	ffdfffdf 	.word	0xffdfffdf
+    2994:	ffdfffdf 	.word	0xffdfffdf
+    2998:	21042104 	.word	0x21042104
+    299c:	21042104 	.word	0x21042104
+    29a0:	ffdf2104 	.word	0xffdf2104
+    29a4:	2104ffdf 	.word	0x2104ffdf
+    29a8:	21042104 	.word	0x21042104
+    29ac:	21042104 	.word	0x21042104
+    29b0:	ffdfffdf 	.word	0xffdfffdf
+    29b4:	ffdfffdf 	.word	0xffdfffdf
+    29b8:	ffdfffdf 	.word	0xffdfffdf
+    29bc:	21042104 	.word	0x21042104
+    29c0:	ffdfffdf 	.word	0xffdfffdf
+    29c4:	ffdfffdf 	.word	0xffdfffdf
+    29c8:	ffdfffdf 	.word	0xffdfffdf
+    29cc:	21042104 	.word	0x21042104
+    29d0:	21042104 	.word	0x21042104
+    29d4:	21042104 	.word	0x21042104
+    29d8:	21042104 	.word	0x21042104
+    29dc:	21042104 	.word	0x21042104
+    29e0:	21042104 	.word	0x21042104
+    29e4:	e8ece8ec 	.word	0xe8ece8ec
+    29e8:	2104e8ec 	.word	0x2104e8ec
+    29ec:	21042104 	.word	0x21042104
+    29f0:	21042104 	.word	0x21042104
+    29f4:	21042104 	.word	0x21042104
+    29f8:	21042104 	.word	0x21042104
+    29fc:	21042104 	.word	0x21042104
+    2a00:	21042104 	.word	0x21042104
+    2a04:	21042104 	.word	0x21042104
+    2a08:	21042104 	.word	0x21042104
+    2a0c:	21042104 	.word	0x21042104
+    2a10:	21042104 	.word	0x21042104
+    2a14:	21042104 	.word	0x21042104
+    2a18:	21042104 	.word	0x21042104
+    2a1c:	21042104 	.word	0x21042104
+    2a20:	21042104 	.word	0x21042104
+    2a24:	21042104 	.word	0x21042104
+    2a28:	21042104 	.word	0x21042104
+    2a2c:	21042104 	.word	0x21042104
+    2a30:	21042104 	.word	0x21042104
+    2a34:	21042104 	.word	0x21042104
+    2a38:	21042104 	.word	0x21042104
+    2a3c:	21042104 	.word	0x21042104
+    2a40:	21042104 	.word	0x21042104
+    2a44:	21042104 	.word	0x21042104
+    2a48:	21042104 	.word	0x21042104
+    2a4c:	21042104 	.word	0x21042104
+    2a50:	21042104 	.word	0x21042104
+    2a54:	21042104 	.word	0x21042104
+    2a58:	21042104 	.word	0x21042104
+    2a5c:	21042104 	.word	0x21042104
+    2a60:	21042104 	.word	0x21042104
+    2a64:	21042104 	.word	0x21042104
+    2a68:	21042104 	.word	0x21042104
+    2a6c:	21042104 	.word	0x21042104
+    2a70:	21042104 	.word	0x21042104
+    2a74:	21042104 	.word	0x21042104
+    2a78:	21042104 	.word	0x21042104
+    2a7c:	21042104 	.word	0x21042104
+    2a80:	21042104 	.word	0x21042104
+    2a84:	21042104 	.word	0x21042104
+    2a88:	21042104 	.word	0x21042104
+    2a8c:	21042104 	.word	0x21042104
+    2a90:	21042104 	.word	0x21042104
+    2a94:	21042104 	.word	0x21042104
+    2a98:	21042104 	.word	0x21042104
+    2a9c:	21042104 	.word	0x21042104
+    2aa0:	21042104 	.word	0x21042104
+    2aa4:	21042104 	.word	0x21042104
+    2aa8:	21042104 	.word	0x21042104
+    2aac:	21042104 	.word	0x21042104
+    2ab0:	21042104 	.word	0x21042104
+    2ab4:	21042104 	.word	0x21042104
+    2ab8:	21042104 	.word	0x21042104
+    2abc:	21042104 	.word	0x21042104
+    2ac0:	21042104 	.word	0x21042104
+    2ac4:	21042104 	.word	0x21042104
+    2ac8:	21042104 	.word	0x21042104
+    2acc:	21042104 	.word	0x21042104
+    2ad0:	21042104 	.word	0x21042104
+    2ad4:	21042104 	.word	0x21042104
+    2ad8:	21042104 	.word	0x21042104
+    2adc:	21042104 	.word	0x21042104
+    2ae0:	21042104 	.word	0x21042104
+    2ae4:	21042104 	.word	0x21042104
+    2ae8:	21042104 	.word	0x21042104
+    2aec:	21042104 	.word	0x21042104
+    2af0:	21042104 	.word	0x21042104
+    2af4:	21042104 	.word	0x21042104
+    2af8:	21042104 	.word	0x21042104
+    2afc:	21042104 	.word	0x21042104
+    2b00:	21042104 	.word	0x21042104
+    2b04:	21042104 	.word	0x21042104
+    2b08:	21042104 	.word	0x21042104
+    2b0c:	21042104 	.word	0x21042104
+    2b10:	21042104 	.word	0x21042104
+    2b14:	21042104 	.word	0x21042104
+    2b18:	21042104 	.word	0x21042104
+    2b1c:	21042104 	.word	0x21042104
+    2b20:	21042104 	.word	0x21042104
+    2b24:	21042104 	.word	0x21042104
+    2b28:	21042104 	.word	0x21042104
+    2b2c:	21042104 	.word	0x21042104
+    2b30:	21042104 	.word	0x21042104
+    2b34:	21042104 	.word	0x21042104
+    2b38:	21042104 	.word	0x21042104
+    2b3c:	21042104 	.word	0x21042104
+    2b40:	21042104 	.word	0x21042104
+    2b44:	21042104 	.word	0x21042104
+    2b48:	21042104 	.word	0x21042104
+    2b4c:	21042104 	.word	0x21042104
+    2b50:	21042104 	.word	0x21042104
+    2b54:	21042104 	.word	0x21042104
+    2b58:	21042104 	.word	0x21042104
+    2b5c:	21042104 	.word	0x21042104
+    2b60:	21042104 	.word	0x21042104
+    2b64:	21042104 	.word	0x21042104
+    2b68:	21042104 	.word	0x21042104
+    2b6c:	21042104 	.word	0x21042104
+    2b70:	21042104 	.word	0x21042104
+    2b74:	21042104 	.word	0x21042104
+    2b78:	21042104 	.word	0x21042104
+    2b7c:	21042104 	.word	0x21042104
+    2b80:	21042104 	.word	0x21042104
+    2b84:	21042104 	.word	0x21042104
+    2b88:	21042104 	.word	0x21042104
+    2b8c:	21042104 	.word	0x21042104
+    2b90:	21042104 	.word	0x21042104
+    2b94:	21042104 	.word	0x21042104
+    2b98:	21042104 	.word	0x21042104
+    2b9c:	21042104 	.word	0x21042104
+    2ba0:	21042104 	.word	0x21042104
+    2ba4:	21042104 	.word	0x21042104
+    2ba8:	21042104 	.word	0x21042104
+    2bac:	21042104 	.word	0x21042104
+    2bb0:	21042104 	.word	0x21042104
+    2bb4:	21042104 	.word	0x21042104
+    2bb8:	21042104 	.word	0x21042104
+    2bbc:	21042104 	.word	0x21042104
+    2bc0:	21042104 	.word	0x21042104
+    2bc4:	21042104 	.word	0x21042104
+    2bc8:	21042104 	.word	0x21042104
+    2bcc:	21042104 	.word	0x21042104
+    2bd0:	21042104 	.word	0x21042104
+    2bd4:	21042104 	.word	0x21042104
+    2bd8:	21042104 	.word	0x21042104
+    2bdc:	21042104 	.word	0x21042104
+    2be0:	21042104 	.word	0x21042104
+    2be4:	21042104 	.word	0x21042104
+    2be8:	21042104 	.word	0x21042104
+    2bec:	21042104 	.word	0x21042104
+    2bf0:	21042104 	.word	0x21042104
+    2bf4:	21042104 	.word	0x21042104
+    2bf8:	21042104 	.word	0x21042104
+    2bfc:	21042104 	.word	0x21042104
+    2c00:	21042104 	.word	0x21042104
+    2c04:	21042104 	.word	0x21042104
+    2c08:	21042104 	.word	0x21042104
+    2c0c:	21042104 	.word	0x21042104
+
+00002c10 <__aeabi_idiv>:
+    2c10:	e3510000 	cmp	r1, #0
+    2c14:	0a000043 	beq	2d28 <.divsi3_skip_div0_test+0x110>
+
+00002c18 <.divsi3_skip_div0_test>:
+    2c18:	e020c001 	eor	r12, r0, r1
+    2c1c:	42611000 	rsbmi	r1, r1, #0
+    2c20:	e2512001 	subs	r2, r1, #1
+    2c24:	0a000027 	beq	2cc8 <.divsi3_skip_div0_test+0xb0>
+    2c28:	e1b03000 	movs	r3, r0
+    2c2c:	42603000 	rsbmi	r3, r0, #0
+    2c30:	e1530001 	cmp	r3, r1
+    2c34:	9a000026 	bls	2cd4 <.divsi3_skip_div0_test+0xbc>
+    2c38:	e1110002 	tst	r1, r2
+    2c3c:	0a000028 	beq	2ce4 <.divsi3_skip_div0_test+0xcc>
+    2c40:	e311020e 	tst	r1, #-536870912	; 0xe0000000
+    2c44:	01a01181 	lsleq	r1, r1, #3
+    2c48:	03a02008 	moveq	r2, #8
+    2c4c:	13a02001 	movne	r2, #1
+    2c50:	e3510201 	cmp	r1, #268435456	; 0x10000000
+    2c54:	31510003 	cmpcc	r1, r3
+    2c58:	31a01201 	lslcc	r1, r1, #4
+    2c5c:	31a02202 	lslcc	r2, r2, #4
+    2c60:	3afffffa 	bcc	2c50 <.divsi3_skip_div0_test+0x38>
+    2c64:	e3510102 	cmp	r1, #-2147483648	; 0x80000000
+    2c68:	31510003 	cmpcc	r1, r3
+    2c6c:	31a01081 	lslcc	r1, r1, #1
+    2c70:	31a02082 	lslcc	r2, r2, #1
+    2c74:	3afffffa 	bcc	2c64 <.divsi3_skip_div0_test+0x4c>
+    2c78:	e3a00000 	mov	r0, #0
+    2c7c:	e1530001 	cmp	r3, r1
+    2c80:	20433001 	subcs	r3, r3, r1
+    2c84:	21800002 	orrcs	r0, r0, r2
+    2c88:	e15300a1 	cmp	r3, r1, lsr #1
+    2c8c:	204330a1 	subcs	r3, r3, r1, lsr #1
+    2c90:	218000a2 	orrcs	r0, r0, r2, lsr #1
+    2c94:	e1530121 	cmp	r3, r1, lsr #2
+    2c98:	20433121 	subcs	r3, r3, r1, lsr #2
+    2c9c:	21800122 	orrcs	r0, r0, r2, lsr #2
+    2ca0:	e15301a1 	cmp	r3, r1, lsr #3
+    2ca4:	204331a1 	subcs	r3, r3, r1, lsr #3
+    2ca8:	218001a2 	orrcs	r0, r0, r2, lsr #3
+    2cac:	e3530000 	cmp	r3, #0
+    2cb0:	11b02222 	lsrsne	r2, r2, #4
+    2cb4:	11a01221 	lsrne	r1, r1, #4
+    2cb8:	1affffef 	bne	2c7c <.divsi3_skip_div0_test+0x64>
+    2cbc:	e35c0000 	cmp	r12, #0
+    2cc0:	42600000 	rsbmi	r0, r0, #0
+    2cc4:	e12fff1e 	bx	lr
+    2cc8:	e13c0000 	teq	r12, r0
+    2ccc:	42600000 	rsbmi	r0, r0, #0
+    2cd0:	e12fff1e 	bx	lr
+    2cd4:	33a00000 	movcc	r0, #0
+    2cd8:	01a00fcc 	asreq	r0, r12, #31
+    2cdc:	03800001 	orreq	r0, r0, #1
+    2ce0:	e12fff1e 	bx	lr
+    2ce4:	e3510801 	cmp	r1, #65536	; 0x10000
+    2ce8:	21a01821 	lsrcs	r1, r1, #16
+    2cec:	23a02010 	movcs	r2, #16
+    2cf0:	33a02000 	movcc	r2, #0
+    2cf4:	e3510c01 	cmp	r1, #256	; 0x100
+    2cf8:	21a01421 	lsrcs	r1, r1, #8
+    2cfc:	22822008 	addcs	r2, r2, #8
+    2d00:	e3510010 	cmp	r1, #16
+    2d04:	21a01221 	lsrcs	r1, r1, #4
+    2d08:	22822004 	addcs	r2, r2, #4
+    2d0c:	e3510004 	cmp	r1, #4
+    2d10:	82822003 	addhi	r2, r2, #3
+    2d14:	908220a1 	addls	r2, r2, r1, lsr #1
+    2d18:	e35c0000 	cmp	r12, #0
+    2d1c:	e1a00233 	lsr	r0, r3, r2
+    2d20:	42600000 	rsbmi	r0, r0, #0
+    2d24:	e12fff1e 	bx	lr
+    2d28:	e3500000 	cmp	r0, #0
+    2d2c:	c3e00102 	mvngt	r0, #-2147483648	; 0x80000000
+    2d30:	b3a00102 	movlt	r0, #-2147483648	; 0x80000000
+    2d34:	ea000007 	b	2d58 <__aeabi_idiv0>
+
+00002d38 <__aeabi_idivmod>:
+    2d38:	e3510000 	cmp	r1, #0
+    2d3c:	0afffff9 	beq	2d28 <.divsi3_skip_div0_test+0x110>
+    2d40:	e92d4003 	push	{r0, r1, lr}
+    2d44:	ebffffb3 	bl	2c18 <.divsi3_skip_div0_test>
+    2d48:	e8bd4006 	pop	{r1, r2, lr}
+    2d4c:	e0030092 	mul	r3, r2, r0
+    2d50:	e0411003 	sub	r1, r1, r3
+    2d54:	e12fff1e 	bx	lr
+
+00002d58 <__aeabi_idiv0>:
+    2d58:	e12fff1e 	bx	lr
+
+00002d5c <atexit>:
+    2d5c:	e1a01000 	mov	r1, r0
+    2d60:	e3a00000 	mov	r0, #0
+    2d64:	e92d4008 	push	{r3, lr}
+    2d68:	e1a02000 	mov	r2, r0
+    2d6c:	e1a03000 	mov	r3, r0
+    2d70:	eb00002c 	bl	2e28 <__register_exitproc>
+    2d74:	e8bd4008 	pop	{r3, lr}
+    2d78:	e12fff1e 	bx	lr
+
+00002d7c <exit>:
+    2d7c:	e92d4008 	push	{r3, lr}
+    2d80:	e3a01000 	mov	r1, #0
+    2d84:	e1a04000 	mov	r4, r0
+    2d88:	eb000063 	bl	2f1c <__call_exitprocs>
+    2d8c:	e59f3018 	ldr	r3, [pc, #24]	; 2dac <exit+0x30>
+    2d90:	e5930000 	ldr	r0, [r3]
+    2d94:	e590303c 	ldr	r3, [r0, #60]	; 0x3c
+    2d98:	e3530000 	cmp	r3, #0
+    2d9c:	11a0e00f 	movne	lr, pc
+    2da0:	112fff13 	bxne	r3
+    2da4:	e1a00004 	mov	r0, r4
+    2da8:	eb0000e7 	bl	314c <_exit>
+    2dac:	00003254 	.word	0x00003254
+
+00002db0 <srand>:
+    2db0:	e59f3010 	ldr	r3, [pc, #16]	; 2dc8 <srand+0x18>
+    2db4:	e5933000 	ldr	r3, [r3]
+    2db8:	e3a02000 	mov	r2, #0
+    2dbc:	e58300a8 	str	r0, [r3, #168]	; 0xa8
+    2dc0:	e58320ac 	str	r2, [r3, #172]	; 0xac
+    2dc4:	e12fff1e 	bx	lr
+    2dc8:	000032b8 	.word	0x000032b8
+
+00002dcc <rand>:
+    2dcc:	e52d4004 	push	{r4}		; (str r4, [sp, #-4]!)
+    2dd0:	e59f3044 	ldr	r3, [pc, #68]	; 2e1c <rand+0x50>
+    2dd4:	e593c000 	ldr	r12, [r3]
+    2dd8:	e59f4040 	ldr	r4, [pc, #64]	; 2e20 <rand+0x54>
+    2ddc:	e59c20a8 	ldr	r2, [r12, #168]	; 0xa8
+    2de0:	e0040492 	mul	r4, r2, r4
+    2de4:	e59c10ac 	ldr	r1, [r12, #172]	; 0xac
+    2de8:	e59f3034 	ldr	r3, [pc, #52]	; 2e24 <rand+0x58>
+    2dec:	e0244193 	mla	r4, r3, r1, r4
+    2df0:	e0810392 	umull	r0, r1, r2, r3
+    2df4:	e3a02001 	mov	r2, #1
+    2df8:	e0922000 	adds	r2, r2, r0
+    2dfc:	e0841001 	add	r1, r4, r1
+    2e00:	e3a03000 	mov	r3, #0
+    2e04:	e0a33001 	adc	r3, r3, r1
+    2e08:	e58c20a8 	str	r2, [r12, #168]	; 0xa8
+    2e0c:	e58c30ac 	str	r3, [r12, #172]	; 0xac
+    2e10:	e3c30102 	bic	r0, r3, #-2147483648	; 0x80000000
+    2e14:	e8bd0010 	ldmfd	sp!, {r4}
+    2e18:	e12fff1e 	bx	lr
+    2e1c:	000032b8 	.word	0x000032b8
+    2e20:	5851f42d 	.word	0x5851f42d
+    2e24:	4c957f2d 	.word	0x4c957f2d
+
+00002e28 <__register_exitproc>:
+    2e28:	e59fc0e4 	ldr	r12, [pc, #228]	; 2f14 <__register_exitproc+0xec>
+    2e2c:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+    2e30:	e59c4000 	ldr	r4, [r12]
+    2e34:	e594c148 	ldr	r12, [r4, #328]	; 0x148
+    2e38:	e35c0000 	cmp	r12, #0
+    2e3c:	0284cf53 	addeq	r12, r4, #332	; 0x14c
+    2e40:	e59c5004 	ldr	r5, [r12, #4]
+    2e44:	0584c148 	streq	r12, [r4, #328]	; 0x148
+    2e48:	e355001f 	cmp	r5, #31
+    2e4c:	e24dd010 	sub	sp, sp, #16
+    2e50:	e1a06000 	mov	r6, r0
+    2e54:	da000015 	ble	2eb0 <__register_exitproc+0x88>
+    2e58:	e59f00b8 	ldr	r0, [pc, #184]	; 2f18 <__register_exitproc+0xf0>
+    2e5c:	e3500000 	cmp	r0, #0
+    2e60:	1a000001 	bne	2e6c <__register_exitproc+0x44>
+    2e64:	e3e00000 	mvn	r0, #0
+    2e68:	ea000018 	b	2ed0 <__register_exitproc+0xa8>
+    2e6c:	e3a00e19 	mov	r0, #400	; 0x190
+    2e70:	e58d100c 	str	r1, [sp, #12]
+    2e74:	e58d2008 	str	r2, [sp, #8]
+    2e78:	e58d3004 	str	r3, [sp, #4]
+    2e7c:	e320f000 	nop	{0}
+    2e80:	e250c000 	subs	r12, r0, #0
+    2e84:	e59d100c 	ldr	r1, [sp, #12]
+    2e88:	e59d2008 	ldr	r2, [sp, #8]
+    2e8c:	e59d3004 	ldr	r3, [sp, #4]
+    2e90:	0afffff3 	beq	2e64 <__register_exitproc+0x3c>
+    2e94:	e5945148 	ldr	r5, [r4, #328]	; 0x148
+    2e98:	e3a00000 	mov	r0, #0
+    2e9c:	e58c0004 	str	r0, [r12, #4]
+    2ea0:	e58c5000 	str	r5, [r12]
+    2ea4:	e584c148 	str	r12, [r4, #328]	; 0x148
+    2ea8:	e58c0188 	str	r0, [r12, #392]	; 0x188
+    2eac:	e58c018c 	str	r0, [r12, #396]	; 0x18c
+    2eb0:	e3560000 	cmp	r6, #0
+    2eb4:	e59c4004 	ldr	r4, [r12, #4]
+    2eb8:	1a000007 	bne	2edc <__register_exitproc+0xb4>
+    2ebc:	e2843002 	add	r3, r4, #2
+    2ec0:	e2844001 	add	r4, r4, #1
+    2ec4:	e78c1103 	str	r1, [r12, r3, lsl #2]
+    2ec8:	e58c4004 	str	r4, [r12, #4]
+    2ecc:	e3a00000 	mov	r0, #0
+    2ed0:	e28dd010 	add	sp, sp, #16
+    2ed4:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+    2ed8:	e12fff1e 	bx	lr
+    2edc:	e3a00001 	mov	r0, #1
+    2ee0:	e1a00410 	lsl	r0, r0, r4
+    2ee4:	e08c8104 	add	r8, r12, r4, lsl #2
+    2ee8:	e3560002 	cmp	r6, #2
+    2eec:	e59c7188 	ldr	r7, [r12, #392]	; 0x188
+    2ef0:	e5883108 	str	r3, [r8, #264]	; 0x108
+    2ef4:	059c318c 	ldreq	r3, [r12, #396]	; 0x18c
+    2ef8:	e1877000 	orr	r7, r7, r0
+    2efc:	01830000 	orreq	r0, r3, r0
+    2f00:	e1a05008 	mov	r5, r8
+    2f04:	e5882088 	str	r2, [r8, #136]	; 0x88
+    2f08:	e58c7188 	str	r7, [r12, #392]	; 0x188
+    2f0c:	058c018c 	streq	r0, [r12, #396]	; 0x18c
+    2f10:	eaffffe9 	b	2ebc <__register_exitproc+0x94>
+    2f14:	00003254 	.word	0x00003254
+    2f18:	00000000 	.word	0x00000000
+
+00002f1c <__call_exitprocs>:
+    2f1c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+    2f20:	e59f3168 	ldr	r3, [pc, #360]	; 3090 <__call_exitprocs+0x174>
+    2f24:	e5933000 	ldr	r3, [r3]
+    2f28:	e24dd014 	sub	sp, sp, #20
+    2f2c:	e58d3004 	str	r3, [sp, #4]
+    2f30:	e2833f52 	add	r3, r3, #328	; 0x148
+    2f34:	e58d0008 	str	r0, [sp, #8]
+    2f38:	e58d300c 	str	r3, [sp, #12]
+    2f3c:	e1a07001 	mov	r7, r1
+    2f40:	e3a08001 	mov	r8, #1
+    2f44:	e59d3004 	ldr	r3, [sp, #4]
+    2f48:	e5936148 	ldr	r6, [r3, #328]	; 0x148
+    2f4c:	e3560000 	cmp	r6, #0
+    2f50:	e59db00c 	ldr	r11, [sp, #12]
+    2f54:	0a000033 	beq	3028 <__call_exitprocs+0x10c>
+    2f58:	e5965004 	ldr	r5, [r6, #4]
+    2f5c:	e2554001 	subs	r4, r5, #1
+    2f60:	5286a088 	addpl	r10, r6, #136	; 0x88
+    2f64:	5285501f 	addpl	r5, r5, #31
+    2f68:	508a5105 	addpl	r5, r10, r5, lsl #2
+    2f6c:	5a000007 	bpl	2f90 <__call_exitprocs+0x74>
+    2f70:	ea000029 	b	301c <__call_exitprocs+0x100>
+    2f74:	e5953000 	ldr	r3, [r5]
+    2f78:	e1530007 	cmp	r3, r7
+    2f7c:	0a000005 	beq	2f98 <__call_exitprocs+0x7c>
+    2f80:	e2444001 	sub	r4, r4, #1
+    2f84:	e3740001 	cmn	r4, #1
+    2f88:	e2455004 	sub	r5, r5, #4
+    2f8c:	0a000022 	beq	301c <__call_exitprocs+0x100>
+    2f90:	e3570000 	cmp	r7, #0
+    2f94:	1afffff6 	bne	2f74 <__call_exitprocs+0x58>
+    2f98:	e5963004 	ldr	r3, [r6, #4]
+    2f9c:	e06a2005 	rsb	r2, r10, r5
+    2fa0:	e2433001 	sub	r3, r3, #1
+    2fa4:	e0862002 	add	r2, r6, r2
+    2fa8:	e1530004 	cmp	r3, r4
+    2fac:	e5123078 	ldr	r3, [r2, #-120]	; 0xffffff88
+    2fb0:	13a01000 	movne	r1, #0
+    2fb4:	05864004 	streq	r4, [r6, #4]
+    2fb8:	15021078 	strne	r1, [r2, #-120]	; 0xffffff88
+    2fbc:	e3530000 	cmp	r3, #0
+    2fc0:	0affffee 	beq	2f80 <__call_exitprocs+0x64>
+    2fc4:	e1a02418 	lsl	r2, r8, r4
+    2fc8:	e5961188 	ldr	r1, [r6, #392]	; 0x188
+    2fcc:	e1120001 	tst	r2, r1
+    2fd0:	e5969004 	ldr	r9, [r6, #4]
+    2fd4:	0a000016 	beq	3034 <__call_exitprocs+0x118>
+    2fd8:	e596118c 	ldr	r1, [r6, #396]	; 0x18c
+    2fdc:	e1120001 	tst	r2, r1
+    2fe0:	1a000016 	bne	3040 <__call_exitprocs+0x124>
+    2fe4:	e59d0008 	ldr	r0, [sp, #8]
+    2fe8:	e5151080 	ldr	r1, [r5, #-128]	; 0xffffff80
+    2fec:	e1a0e00f 	mov	lr, pc
+    2ff0:	e12fff13 	bx	r3
+    2ff4:	e5963004 	ldr	r3, [r6, #4]
+    2ff8:	e1530009 	cmp	r3, r9
+    2ffc:	1affffd0 	bne	2f44 <__call_exitprocs+0x28>
+    3000:	e59b3000 	ldr	r3, [r11]
+    3004:	e1530006 	cmp	r3, r6
+    3008:	1affffcd 	bne	2f44 <__call_exitprocs+0x28>
+    300c:	e2444001 	sub	r4, r4, #1
+    3010:	e3740001 	cmn	r4, #1
+    3014:	e2455004 	sub	r5, r5, #4
+    3018:	1affffdc 	bne	2f90 <__call_exitprocs+0x74>
+    301c:	e59f1070 	ldr	r1, [pc, #112]	; 3094 <__call_exitprocs+0x178>
+    3020:	e3510000 	cmp	r1, #0
+    3024:	1a000009 	bne	3050 <__call_exitprocs+0x134>
+    3028:	e28dd014 	add	sp, sp, #20
+    302c:	e8bd4ff0 	pop	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+    3030:	e12fff1e 	bx	lr
+    3034:	e1a0e00f 	mov	lr, pc
+    3038:	e12fff13 	bx	r3
+    303c:	eaffffec 	b	2ff4 <__call_exitprocs+0xd8>
+    3040:	e5150080 	ldr	r0, [r5, #-128]	; 0xffffff80
+    3044:	e1a0e00f 	mov	lr, pc
+    3048:	e12fff13 	bx	r3
+    304c:	eaffffe8 	b	2ff4 <__call_exitprocs+0xd8>
+    3050:	e5963004 	ldr	r3, [r6, #4]
+    3054:	e3530000 	cmp	r3, #0
+    3058:	e5963000 	ldr	r3, [r6]
+    305c:	1a000008 	bne	3084 <__call_exitprocs+0x168>
+    3060:	e3530000 	cmp	r3, #0
+    3064:	0a000006 	beq	3084 <__call_exitprocs+0x168>
+    3068:	e1a00006 	mov	r0, r6
+    306c:	e58b3000 	str	r3, [r11]
+    3070:	e320f000 	nop	{0}
+    3074:	e59b6000 	ldr	r6, [r11]
+    3078:	e3560000 	cmp	r6, #0
+    307c:	1affffb5 	bne	2f58 <__call_exitprocs+0x3c>
+    3080:	eaffffe8 	b	3028 <__call_exitprocs+0x10c>
+    3084:	e1a0b006 	mov	r11, r6
+    3088:	e1a06003 	mov	r6, r3
+    308c:	eafffff9 	b	3078 <__call_exitprocs+0x15c>
+    3090:	00003254 	.word	0x00003254
+    3094:	00000000 	.word	0x00000000
+
+00003098 <register_fini>:
+    3098:	e92d4008 	push	{r3, lr}
+    309c:	e59f3010 	ldr	r3, [pc, #16]	; 30b4 <register_fini+0x1c>
+    30a0:	e3530000 	cmp	r3, #0
+    30a4:	159f000c 	ldrne	r0, [pc, #12]	; 30b8 <register_fini+0x20>
+    30a8:	1bffff2b 	blne	2d5c <atexit>
+    30ac:	e8bd4008 	pop	{r3, lr}
+    30b0:	e12fff1e 	bx	lr
+    30b4:	0000327c 	.word	0x0000327c
+    30b8:	000030bc 	.word	0x000030bc
+
+000030bc <__libc_fini_array>:
+    30bc:	e92d4038 	push	{r3, r4, r5, lr}
+    30c0:	e59f5030 	ldr	r5, [pc, #48]	; 30f8 <__libc_fini_array+0x3c>
+    30c4:	e59f4030 	ldr	r4, [pc, #48]	; 30fc <__libc_fini_array+0x40>
+    30c8:	e0654004 	rsb	r4, r5, r4
+    30cc:	e1b04144 	asrs	r4, r4, #2
+    30d0:	10855104 	addne	r5, r5, r4, lsl #2
+    30d4:	0a000004 	beq	30ec <__libc_fini_array+0x30>
+    30d8:	e5353004 	ldr	r3, [r5, #-4]!
+    30dc:	e1a0e00f 	mov	lr, pc
+    30e0:	e12fff13 	bx	r3
+    30e4:	e2544001 	subs	r4, r4, #1
+    30e8:	1afffffa 	bne	30d8 <__libc_fini_array+0x1c>
+    30ec:	eb000062 	bl	327c <__libc_fini>
+    30f0:	e8bd4038 	pop	{r3, r4, r5, lr}
+    30f4:	e12fff1e 	bx	lr
+    30f8:	00003294 	.word	0x00003294
+    30fc:	00003298 	.word	0x00003298
+
+00003100 <__cs3_premain>:
+    3100:	e92d4008 	push	{r3, lr}
+    3104:	eb00001d 	bl	3180 <__libc_init_array>
+    3108:	e59f3030 	ldr	r3, [pc, #48]	; 3140 <__cs3_premain+0x40>
+    310c:	e3530000 	cmp	r3, #0
+    3110:	15930000 	ldrne	r0, [r3]
+    3114:	01a00003 	moveq	r0, r3
+    3118:	e59f3024 	ldr	r3, [pc, #36]	; 3144 <__cs3_premain+0x44>
+    311c:	e3530000 	cmp	r3, #0
+    3120:	15931000 	ldrne	r1, [r3]
+    3124:	01a01003 	moveq	r1, r3
+    3128:	e3a02000 	mov	r2, #0
+    312c:	ebfff57a 	bl	71c <main>
+    3130:	e59f3010 	ldr	r3, [pc, #16]	; 3148 <__cs3_premain+0x48>
+    3134:	e3530000 	cmp	r3, #0
+    3138:	1bffff0f 	blne	2d7c <exit>
+    313c:	eafffffe 	b	313c <__cs3_premain+0x3c>
+	...
+    3148:	00002d7c 	.word	0x00002d7c
+
+0000314c <_exit>:
+    314c:	e52de004 	push	{lr}		; (str lr, [sp, #-4]!)
+    3150:	e3a00018 	mov	r0, #24
+    3154:	e59f1004 	ldr	r1, [pc, #4]	; 3160 <_exit+0x14>
+    3158:	ef123456 	svc	0x00123456
+    315c:	eafffffe 	b	315c <_exit+0x10>
+    3160:	00020026 	.word	0x00020026
+
+00003164 <__cs3_isr_interrupt>:
+    3164:	eafffffe 	b	3164 <__cs3_isr_interrupt>
+
+00003168 <__cs3_isr_undef>:
+    3168:	eafffffe 	b	3168 <__cs3_isr_undef>
+
+0000316c <__cs3_isr_swi>:
+    316c:	eafffffe 	b	316c <__cs3_isr_swi>
+
+00003170 <__cs3_isr_pabort>:
+    3170:	eafffffe 	b	3170 <__cs3_isr_pabort>
+
+00003174 <__cs3_isr_dabort>:
+    3174:	eafffffe 	b	3174 <__cs3_isr_dabort>
+
+00003178 <__cs3_isr_irq>:
+    3178:	eafffffe 	b	3178 <__cs3_isr_irq>
+
+0000317c <__cs3_isr_fiq>:
+    317c:	eafffffe 	b	317c <__cs3_isr_fiq>
+
+00003180 <__libc_init_array>:
+    3180:	e92d4070 	push	{r4, r5, r6, lr}
+    3184:	e59f506c 	ldr	r5, [pc, #108]	; 31f8 <__libc_init_array+0x78>
+    3188:	e59f606c 	ldr	r6, [pc, #108]	; 31fc <__libc_init_array+0x7c>
+    318c:	e0656006 	rsb	r6, r5, r6
+    3190:	e1b06146 	asrs	r6, r6, #2
+    3194:	12455004 	subne	r5, r5, #4
+    3198:	13a04000 	movne	r4, #0
+    319c:	0a000005 	beq	31b8 <__libc_init_array+0x38>
+    31a0:	e5b53004 	ldr	r3, [r5, #4]!
+    31a4:	e2844001 	add	r4, r4, #1
+    31a8:	e1a0e00f 	mov	lr, pc
+    31ac:	e12fff13 	bx	r3
+    31b0:	e1560004 	cmp	r6, r4
+    31b4:	1afffff9 	bne	31a0 <__libc_init_array+0x20>
+    31b8:	e59f5040 	ldr	r5, [pc, #64]	; 3200 <__libc_init_array+0x80>
+    31bc:	e59f6040 	ldr	r6, [pc, #64]	; 3204 <__libc_init_array+0x84>
+    31c0:	e0656006 	rsb	r6, r5, r6
+    31c4:	eb000024 	bl	325c <_init>
+    31c8:	e1b06146 	asrs	r6, r6, #2
+    31cc:	12455004 	subne	r5, r5, #4
+    31d0:	13a04000 	movne	r4, #0
+    31d4:	0a000005 	beq	31f0 <__libc_init_array+0x70>
+    31d8:	e5b53004 	ldr	r3, [r5, #4]!
+    31dc:	e2844001 	add	r4, r4, #1
+    31e0:	e1a0e00f 	mov	lr, pc
+    31e4:	e12fff13 	bx	r3
+    31e8:	e1560004 	cmp	r6, r4
+    31ec:	1afffff9 	bne	31d8 <__libc_init_array+0x58>
+    31f0:	e8bd4070 	pop	{r4, r5, r6, lr}
+    31f4:	e12fff1e 	bx	lr
+    31f8:	00003274 	.word	0x00003274
+    31fc:	00003274 	.word	0x00003274
+    3200:	00003274 	.word	0x00003274
+    3204:	0000327c 	.word	0x0000327c
+
+Disassembly of section .rodata:
+
+0000320c <SIMULATOR_ADJUSTMENT>:
+    320c:	00000008                                ....
+
+00003210 <BALL_COLOUR>:
+    3210:	411effff                                         ..
+
+00003212 <PADDLE_COLOUR>:
+    3212:	8430411e                                         .A
+
+00003214 <WALLS_COLOUR>:
+    3214:	9e848430                                         0.
+
+00003216 <BOX_BORDER_COLOUR>:
+    3216:	9ac49e84                                         ..
+
+00003218 <BOX_COLOUR>:
+    3218:	00009ac4                                ....
+
+0000321c <BALL_SIZE>:
+    321c:	00000006                                ....
+
+00003220 <NUM_ROW_OF_BOX>:
+    3220:	00000004                                ....
+
+00003224 <NUM_BOX_PER_ROW>:
+    3224:	00000008                                ....
+
+00003228 <TITLE_HEIGHT>:
+    3228:	0000000c                                ....
+
+0000322c <BOX_Y>:
+    322c:	0000000f                                ....
+
+00003230 <BOX_X>:
+    3230:	00000023                                #...
+
+00003234 <PADDING>:
+    3234:	00000001                                ....
+
+00003238 <PADDLE_POSITION_Y>:
+    3238:	000000d2                                ....
+
+0000323c <PADDLE_Y>:
+    323c:	0000000a                                ....
+
+00003240 <PADDLE_X>:
+    3240:	00000040                                @...
+
+00003244 <MAX_Y>:
+    3244:	000000ea                                ....
+
+00003248 <MIN_Y>:
+    3248:	00000014                                ....
+
+0000324c <MAX_X>:
+    324c:	00000130                                0...
+
+00003250 <MIN_X>:
+    3250:	0000000f                                ....
+
+00003254 <_global_impure_ptr>:
+    3254:	000032c0 00000043                       .2..C...
+
+0000325c <_init>:
+    325c:	e1a0c00d 	mov	r12, sp
+    3260:	e92ddff8 	push	{r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, lr, pc}
+    3264:	e24cb004 	sub	r11, r12, #4
+    3268:	e24bd028 	sub	sp, r11, #40	; 0x28
+    326c:	e89d6ff0 	ldm	sp, {r4, r5, r6, r7, r8, r9, r10, r11, sp, lr}
+    3270:	e12fff1e 	bx	lr
+
+00003274 <__init_array_start>:
+    3274:	00003098 	.word	0x00003098
+
+00003278 <__frame_dummy_init_array_entry>:
+    3278:	00000208                                ....
+
+0000327c <__libc_fini>:
+    327c:	e1a0c00d 	mov	r12, sp
+    3280:	e92ddff8 	push	{r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, lr, pc}
+    3284:	e24cb004 	sub	r11, r12, #4
+    3288:	e24bd028 	sub	sp, r11, #40	; 0x28
+    328c:	e89d6ff0 	ldm	sp, {r4, r5, r6, r7, r8, r9, r10, r11, sp, lr}
+    3290:	e12fff1e 	bx	lr
+
+00003294 <__fini_array_start>:
+    3294:	000001c4 	.word	0x000001c4
+
+00003298 <__cs3_regions>:
+	...
+    32a4:	000036f0 	.word	0x000036f0
+    32a8:	0004b020 	.word	0x0004b020
+
+000032ac <__cs3_regions_end>:
+    32ac:	00000000 	.word	0x00000000

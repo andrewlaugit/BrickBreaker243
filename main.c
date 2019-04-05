@@ -100,7 +100,7 @@ int main(void) {
         *(key_ptr + 3) = keyPressEdge; // reset edge 
         short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
         
-        // Handle waiting for KEY2 to be pressed to start a life
+        // Handle waiting for KEY1 to be pressed to start a life
         if (!round_started) {
             if (keyPress == 0b0010) {
                 round_started = true;
@@ -109,8 +109,9 @@ int main(void) {
                 clear_screen();
                 writeScoreAndLife(score, lives);
                 drawBall(ball_x, ball_y, BALL_SIZE);
-                for(int y=0; y<NUM_ROW_OF_BOX; y++){
-                    for(int x=0; x<NUM_BOX_PER_ROW; x++){
+                int x,y;
+                for(y=0; y<NUM_ROW_OF_BOX; y++){
+                    for(x=0; x<NUM_BOX_PER_ROW; x++){
                         if(drawBrick[y][x]){
                             plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
                         }
@@ -125,8 +126,9 @@ int main(void) {
 
         /* Check whether the ball has hit anything */
         // If it's hit a brick, remove the brick
-        for(int y=0; y<NUM_ROW_OF_BOX; y++) {
-            for(int x=0; x<NUM_BOX_PER_ROW; x++){
+        int x,y;
+        for(y=0; y<NUM_ROW_OF_BOX; y++) {
+            for(x=0; x<NUM_BOX_PER_ROW; x++){
                 if(drawBrick[y][x]) {
                     int box_left = MIN_X+PADDING+x*(BOX_X+PADDING); 
                     int box_right = box_left + BOX_X;
@@ -226,7 +228,6 @@ int main(void) {
 
         // redraw the boxes and paddle
         // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
-        int x,y;
         for(x=0; x<320; x++){
             for(y=0; y<240; y++){
                 if(x<=MIN_X || x>=MAX_X || y<=MIN_Y || y>=MAX_Y){
@@ -361,8 +362,9 @@ void plot_boxes(int xx, int yy, int x_size, int y_size, short int box_colour){
 
 // Draws the ball
 void drawBall(int left_x, int top_y, int size) {
-    for (int x = 0; x < size; x++) {
-        for (int y = 0; y < size; y++) {
+    int x,y;
+    for (x = 0; x < size; x++) {
+        for (y = 0; y < size; y++) {
             boardStatus[y][x] = 3;
             plot_pixel(left_x + x, top_y + y, BALL_COLOUR);
         }
