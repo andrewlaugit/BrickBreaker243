@@ -91,14 +91,38 @@ int main(void) {
     int ball_dx = rand()%3-1;
     int ball_dy = -2; // minus is up
 
+    
+    bool round_started = false;
     while (lives > 0){
-        // TODO: Handle waiting for KEY2 to be pressed to start a life
         // Read key values
         short int keyPressCurrent = (*key_ptr);
         short int keyPressEdge = *(key_ptr + 3);
         *(key_ptr + 3) = keyPressEdge; // reset edge 
         short int keyPress = (keyPressCurrent | keyPressEdge); // so either if the key is being pressed or if it was pressed while drawing
         
+        // Handle waiting for KEY2 to be pressed to start a life
+        if (!round_started) {
+            if (keyPress == 0b0010) {
+                round_started = true;
+            } else {
+                // Initial Draw
+                clear_screen();
+                writeScoreAndLife(score, lives);
+                drawBall(ball_x, ball_y, BALL_SIZE);
+                for(int y=0; y<NUM_ROW_OF_BOX; y++){
+                    for(int x=0; x<NUM_BOX_PER_ROW; x++){
+                        if(drawBrick[y][x]){
+                            plot_boxes(MIN_X + PADDING + x*(BOX_X+PADDING), MIN_Y + PADDING + y*(BOX_Y+PADDING), BOX_X, BOX_Y, BOX_COLOUR);
+                        }
+                    }
+                }
+                plot_boxes(paddleX, PADDLE_POSITION_Y, PADDLE_X, PADDLE_Y, PADDLE_COLOUR);
+                wait_for_vsync(); // swap front and back buffers on VGA vertical sync
+                pixel_buffer_start = *(pixel_ctrl_ptr + 1); // new back buffer
+                continue;
+            }
+        }
+
         /* Check whether the ball has hit anything */
         // If it's hit a brick, remove the brick
         for(int y=0; y<NUM_ROW_OF_BOX; y++) {
@@ -142,6 +166,7 @@ int main(void) {
                             }
                             // THUS, |dx| must be less than BOX_X, |dy| must be less than BOX_Y, I think?
                             // exit, you can only break one box per hit
+                            score += 1;
                             break;
                         }
                     }
@@ -149,14 +174,25 @@ int main(void) {
             }
         }
         // If hit a side wall, flip dx
-        if (ball_x < MIN_X || ball_x+BALL_SIZE >= MAX_Y) {
+        if (ball_x < MIN_X || ball_x+BALL_SIZE >= MAX_X) {
             ball_dx *= -1;
             // add rand() too?
         }
         // If hit the top wall or paddle, flip dy
-        if (ball_y < MIN_Y || ball_y+BALL_SIZE >= MAX_Y /*|| (ball in paddle)*/) {
+        if (ball_y < MIN_Y || (ball_y > PADDLE_POSITION_Y && ball_y < PADDLE_POSITION_Y+PADDLE_Y && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
             ball_dy *= -1;
             // add rand() too?
+        }
+        // If went below paddle & off screen, lose a life && reset
+        if (ball_y+BALL_SIZE >= MAX_Y) {
+            lives--;
+            round_started = false;
+            paddleX = (MAX_X + MIN_X)/2 - PADDLE_X/2;
+            ball_x = paddleX + PADDLE_X/2 - BALL_SIZE/2; // paddleX+PADDLE_X/2 = center of paddle; - BALL_SIZE/2 to get left of ball
+            ball_y = PADDLE_POSITION_Y - BALL_SIZE; // PADDLE_POSITION_Y = top of box; + BALL_SIZE to have box sitting on paddle
+            ball_dx = rand()%3-1;
+            ball_dy = -2; // minus is up
+            continue;
         }
 
         /* Move paddle based on KEY presses */
@@ -189,7 +225,7 @@ int main(void) {
         writeScoreAndLife(score, lives);
 
         // redraw the boxes and paddle
-        // TODO: assign paddle & ball here
+        // TODO: assign paddle & ball here. Or get rid of this? I think it's unnecessary
         int x,y;
         for(x=0; x<320; x++){
             for(y=0; y<240; y++){
