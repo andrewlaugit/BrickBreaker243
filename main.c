@@ -93,7 +93,8 @@ int main(void) {
 
     
     bool round_started = false;
-    while (lives > 0){
+    bool game_won = false;
+    while (lives > 0 && !game_won) {
         // Read key values
         short int keyPressCurrent = (*key_ptr);
         short int keyPressEdge = *(key_ptr + 3);
@@ -173,13 +174,24 @@ int main(void) {
                 }
             }
         }
+        // If all bricks broken, break
+        game_won = true;
+        for(int y=0; y<NUM_ROW_OF_BOX; y++){
+            for(int x=0; x<NUM_BOX_PER_ROW; x++){
+                if(drawBrick[y][x]){
+                    game_won = false;
+                }
+            }
+        }
+        if (game_won)
+            continue;
         // If hit a side wall, flip dx
         if (ball_x < MIN_X || ball_x+BALL_SIZE >= MAX_X) {
             ball_dx *= -1;
             // add rand() too?
         }
         // If hit the top wall or paddle, flip dy
-        if (ball_y < MIN_Y || (ball_y > PADDLE_POSITION_Y && ball_y < PADDLE_POSITION_Y+PADDLE_Y && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
+        if (ball_y < MIN_Y || (ball_y+BALL_SIZE >= PADDLE_POSITION_Y-1 && ball_x > paddleX && ball_x < paddleX+PADDLE_X)) {
             ball_dy *= -1;
             // add rand() too?
         }
