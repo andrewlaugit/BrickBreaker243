@@ -1,5 +1,6 @@
-#include "stdlib.h"
-#include "stdbool.h"
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
 
 volatile int pixel_buffer_start; // global variable
 
@@ -91,8 +92,9 @@ int main(void) {
     int ball_dx = rand()%3-1;
     int ball_dy = -2; // minus is up
 
-    
+    time_t start = time(0); 
     bool round_started = false;
+    bool game_started = false;
     while (true){
         // Read key values
         short int keyPressCurrent = (*key_ptr);
@@ -106,6 +108,10 @@ int main(void) {
         if (!round_started) {
             if (keyPress == 0b0010 && lives > 0) {
                 round_started = true;
+                if (!game_started) {
+                    game_started = true;
+                    start = time(0);
+                }
             } else if (keyPress == 0b1000 && lives == 0){ // if key3, reset everything
                 round_started = false;
 
@@ -237,6 +243,10 @@ int main(void) {
             paddleX = MAX_X-PADDLE_X;
         }
 
+        // Update score
+        double true_score = difftime(time(0), start);
+        true_score += 0.5;
+        score = (int)true_score;
         /* Draw new screen */
         // Erase old buffer
         clear_screen();
